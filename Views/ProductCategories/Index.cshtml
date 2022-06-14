@@ -1,0 +1,58 @@
+﻿@model IEnumerable<OnlineShopAdmin.DataAccess.Models.ProductCategory>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>ProductCategories</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+               ProductsCount
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rowguid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ModifiedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ParentProductCategory)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+             <td>
+                @item.Products.Count
+            <td>
+                @Html.DisplayFor(modelItem => item.Rowguid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModifiedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ParentProductCategory.Name)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ProductCategoryId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ProductCategoryId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ProductCategoryId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
