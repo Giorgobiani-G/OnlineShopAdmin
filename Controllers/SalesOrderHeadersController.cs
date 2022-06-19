@@ -53,7 +53,6 @@ namespace OnlineShopAdmin.Controllers
             ViewData["BillToAddressId"] = new SelectList(_context.Addresses, "AddressId", "AddressLine1");
             ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "FirstName");
             ViewData["ShipToAddressId"] = new SelectList(_context.Addresses, "AddressId", "AddressLine1");
-            ViewData["ProductId"] = new SelectList(_context.Products, "ProductId", "Name");
             return View();
         }
 
@@ -62,7 +61,7 @@ namespace OnlineShopAdmin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("SalesOrderId,RevisionNumber,OrderDate,DueDate,ShipDate,Status,OnlineOrderFlag,SalesOrderNumber,PurchaseOrderNumber,AccountNumber,CustomerId,ShipToAddressId,BillToAddressId,ShipMethod,CreditCardApprovalCode,SubTotal,TaxAmt,Freight,TotalDue,Comment,Rowguid,ModifiedDate,ProductId")] SalesOrderHeader salesOrderHeader)
+        public async Task<IActionResult> Create([Bind("SalesOrderId,RevisionNumber,OrderDate,DueDate,ShipDate,Status,OnlineOrderFlag,SalesOrderNumber,PurchaseOrderNumber,AccountNumber,CustomerId,ShipToAddressId,BillToAddressId,ShipMethod,CreditCardApprovalCode,SubTotal,TaxAmt,Freight,TotalDue,Comment,Rowguid,ModifiedDate")] SalesOrderHeader salesOrderHeader)
         {
             if (ModelState.IsValid)
             {
@@ -73,7 +72,6 @@ namespace OnlineShopAdmin.Controllers
             ViewData["BillToAddressId"] = new SelectList(_context.Addresses, "AddressId", "AddressLine1", salesOrderHeader.BillToAddressId);
             ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "FirstName", salesOrderHeader.CustomerId);
             ViewData["ShipToAddressId"] = new SelectList(_context.Addresses, "AddressId", "AddressLine1", salesOrderHeader.ShipToAddressId);
-           
             return View(salesOrderHeader);
         }
 

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -56,8 +58,42 @@ namespace OnlineShopAdmin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("CustomerId,NameStyle,Title,FirstName,MiddleName,LastName,Suffix,CompanyName,SalesPerson,EmailAddress,Phone,PasswordHash,PasswordSalt,Rowguid,ModifiedDate")] Customer customer)
         {
+           
+
+
             if (ModelState.IsValid)
             {
+                //HashAlgorithm algorithm = new SHA256Managed();
+
+                //byte[] plainTextWithSaltBytes =
+                //  new byte[customer.PasswordHash.Length + customer.PasswordSalt.Length];
+
+                //for (int i = 0; i < customer.PasswordHash.Length; i++)
+                //{
+                //    plainTextWithSaltBytes[i] = (byte)customer.PasswordHash[i];
+                //}
+                //for (int i = 0; i < customer.PasswordSalt.Length; i++)
+                //{
+                //    plainTextWithSaltBytes[customer.PasswordHash.Length + i] = (byte)customer.PasswordSalt[i];
+                //}
+
+                // var a = algorithm.ComputeHash(plainTextWithSaltBytes);
+
+                //byte[] aa =
+                //  new byte[customer.PasswordSalt.Length];
+                //var b = algorithm.ComputeHash(a);
+                //int nSalt = Convert.ToByte(customer.PasswordSalt.Length);
+
+                //RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider();
+                //byte[] buff = new byte[nSalt];
+                //rng.GetBytes(buff);
+                //customer.PasswordSalt = Convert.ToBase64String(buff);
+
+                //byte[] bytes = Encoding.UTF8.GetBytes(customer.PasswordSalt + customer.PasswordSalt);
+                //SHA256Managed sHA256ManagedString = new SHA256Managed();
+                //byte[] hash = sHA256ManagedString.ComputeHash(bytes);
+                //customer.PasswordHash = Convert.ToBase64String(hash);
+
                 _context.Add(customer);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -78,6 +114,7 @@ namespace OnlineShopAdmin.Controllers
             {
                 return NotFound();
             }
+            TempData["pa"] = customer.PasswordHash;
             return View(customer);
         }
 
@@ -97,6 +134,25 @@ namespace OnlineShopAdmin.Controllers
             {
                 try
                 {
+                    //string passwordchanged = (string)TempData["pa"];
+                    //bool result = string.Equals(passwordchanged, customer.PasswordHash);
+                    
+                    //if (result==false)
+                    //{
+                    //    int nSalt = Convert.ToByte(customer.PasswordSalt.Length);
+
+                    //    RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider();
+                    //    byte[] buff = new byte[nSalt];
+                    //    rng.GetBytes(buff);
+                    //    customer.PasswordSalt = Convert.ToBase64String(buff);
+
+                    //    byte[] bytes = Encoding.UTF8.GetBytes(customer.PasswordSalt + customer.PasswordSalt);
+                    //    SHA256Managed sHA256ManagedString = new SHA256Managed();
+                    //    byte[] hash = sHA256ManagedString.ComputeHash(bytes);
+                    //    customer.PasswordHash = Convert.ToBase64String(hash);
+                    //}
+                   
+
                     _context.Update(customer);
                     await _context.SaveChangesAsync();
                 }

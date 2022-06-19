@@ -61,7 +61,7 @@ namespace OnlineShopAdmin
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Customers}/{action=Index}/{id?}");
             });
         }
     }
