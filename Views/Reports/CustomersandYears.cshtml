@@ -1,0 +1,45 @@
+﻿@model IEnumerable<CustomersAndYearsReportViewModel>
+@{
+    ViewData["Title"] = "CustomersandYears";
+}
+
+<h1 class="font-weight-bold" >CustomersandYears</h1>
+
+<br />
+
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Year)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+            @Html.DisplayNameFor(model => model.Sum)
+            </th>
+        </tr>
+    </thead>
+
+    <tbody>
+       @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.Year
+                </td>
+                <td>
+                    @item.Name
+                </td>
+                <td>
+                    @item.Sum
+                </td>
+       
+            </tr>
+        }
+    </tbody>
+
+
+</table>
+
