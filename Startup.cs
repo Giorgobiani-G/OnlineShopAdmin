@@ -30,7 +30,7 @@ namespace OnlineShopAdmin
         {
             services.AddControllersWithViews();
             services.AddScoped<IProductsDA, ProductsDA>();
-            string con = Configuration.GetConnectionString("con");
+            string con = Configuration.GetConnectionString("azure");
             services.AddDbContext<AdventureWorksLT2019Context>(x => x.UseSqlServer(con));
             services.AddSingleton<IFileProvider>(
             new PhysicalFileProvider(

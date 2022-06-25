@@ -36,7 +36,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.Weight)
             </th>
-            <th>
+          @*  <th>
                 @Html.DisplayNameFor(model => model.SellStartDate)
             </th>
             <th>
@@ -62,7 +62,7 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.ProductModel)
-            </th>
+            </th>*@
             <th></th>
         </tr>
     </thead>
@@ -93,7 +93,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Weight)
             </td>
-            <td>
+         @*   <td>
                 @Html.DisplayFor(modelItem => item.SellStartDate)
             </td>
             <td>
@@ -119,7 +119,7 @@
             </td>
            <td>
                 @Html.DisplayFor(modelItem => item.ProductModel.Name)
-            </td>
+            </td>*@
             <td>
                 <a asp-action="Edit" asp-route-id="@item.ProductId">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.ProductId">Details</a> |

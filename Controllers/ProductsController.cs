@@ -61,22 +61,22 @@ namespace OnlineShopAdmin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ProductId,Name,ProductNumber,Color,StandardCost,ListPrice,Size,Weight,ProductCategoryId,ProductModelId,SellStartDate,SellEndDate,DiscontinuedDate,ThumbNailPhoto,ThumbnailPhotoFileName,Rowguid,ModifiedDate")] Product product)
+        public async Task<IActionResult> Create(Product product)
         {
             if (ModelState.IsValid)
             {
-                //if (file == null || file.Length == 0)
-                //    return Content("file not selected");
+                if (product.Photo == null || product.Photo.Length == 0)
+                    return Content("file not selected");
 
-                //var path = Path.Combine(
-                //            Directory.GetCurrentDirectory(), "wwwroot",
-                //            file.FileName);
+                var path = Path.Combine(
+                            Directory.GetCurrentDirectory(), "wwwroot",
+                            product.Photo.FileName);
 
-                //using (var stream = new FileStream(path, FileMode.Create))
-                //{
-                //    await file.CopyToAsync(stream);
-                //}
-                //product.ThumbnailPhotoFileName = file.FileName;
+                using (var stream = new FileStream(path, FileMode.Create))
+                {
+                    await product.Photo.CopyToAsync(stream);
+                }
+                product.ThumbnailPhotoFileName = product.Photo.FileName;
                 _context.Add(product);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
