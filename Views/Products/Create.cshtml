@@ -49,11 +49,11 @@
             </div>
             <div class="form-group">
                 <label asp-for="ProductCategoryId" class="control-label"></label>
-                <select asp-for="ProductCategoryId" class ="form-control" asp-items="ViewBag.ProductCategoryId"></select>
+                <select asp-for="ProductCategoryId" class="form-control" asp-items="ViewBag.ProductCategoryId"></select>
             </div>
             <div class="form-group">
                 <label asp-for="ProductModelId" class="control-label"></label>
-                <select asp-for="ProductModelId" class ="form-control" asp-items="ViewBag.ProductModelId"></select>
+                <select asp-for="ProductModelId" class="form-control" asp-items="ViewBag.ProductModelId"></select>
             </div>
             <div class="form-group">
                 <label asp-for="SellStartDate" class="control-label"></label>
@@ -80,9 +80,19 @@
                 <input asp-for="ThumbnailPhotoFileName" class="form-control" />
                 <span asp-validation-for="ThumbnailPhotoFileName" class="text-danger"></span>
             </div>
-            
-                 <input asp-for="Photo"  type="file" name="file" />  
-            
+
+             <div class="form-group">  
+                 <div>
+                            <label asp-for="Photo" class="control-label"></label>  
+                            <div class="custom-file">  
+                                <input asp-for="Photo" class="custom-file-input" id="customFile" accept="image/png, image/jpeg">  
+                                <label class="custom-file-label" for="customFile">Choose file</label>  
+                            </div>  
+                            <span asp-validation-for="Photo" class="text-danger"></span>  
+                        </div>  
+                    </div>  
+
+
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
@@ -90,14 +100,23 @@
     </div>
 </div>
 
-@*<form asp-controller="Products" asp-action="Create" method="post"  
-      enctype="multipart/form-data">  
-      
-    <input type="file" name="file" />  
-    <button type="submit">Upload File</button>  
+@*<form asp-controller="Products" asp-action="Create" method="post"
+      enctype="multipart/form-data">
+
+    <input type="file" name="file" />
+    <button type="submit">Upload File</button>
 </form> *@
 
 <div>
     <a asp-action="Index">Back to List</a>
 </div>
 
+@section scripts{  
+    <script type="text/javascript">  
+        // Add the following code if you want the name of the file appear on select  
+        $(".custom-file-input").on("change", function () {  
+            var fileName = $(this).val().split("\\").pop();  
+            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);  
+        });  
+    </script>  
+}

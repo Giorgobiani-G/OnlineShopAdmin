@@ -24,7 +24,7 @@ namespace OnlineShopAdmin.Controllers
         // GET: Products
         public async Task<IActionResult> Index()
         {
-            var adventureWorksLT2019Context = _context.Products.Include(p => p.ProductCategory).Include(p => p.ProductModel).Include(p=> p.SalesOrderDetails);
+            var adventureWorksLT2019Context = _context.Products.Include(p => p.ProductCategory).Include(p => p.ProductModel).Include(p => p.SalesOrderDetails);
             return View(await adventureWorksLT2019Context.ToListAsync());
         }
 
@@ -65,18 +65,20 @@ namespace OnlineShopAdmin.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (product.Photo == null || product.Photo.Length == 0)
-                    return Content("file not selected");
-
-                var path = Path.Combine(
-                            Directory.GetCurrentDirectory(), "wwwroot",
-                            product.Photo.FileName);
-
-                using (var stream = new FileStream(path, FileMode.Create))
+                if (product.Photo != null)
                 {
-                    await product.Photo.CopyToAsync(stream);
+                    string UniequeFileName = Guid.NewGuid().ToString().Substring(0, 10) + "_" + product.Photo.FileName;
+
+                    var path = Path.Combine(
+                                Directory.GetCurrentDirectory(), "wwwroot", "Images",
+                                UniequeFileName);
+
+                    using (var stream = new FileStream(path, FileMode.Create))
+                    {
+                        await product.Photo.CopyToAsync(stream);
+                    }
+                    product.ThumbnailPhotoFileName = UniequeFileName;
                 }
-                product.ThumbnailPhotoFileName = product.Photo.FileName;
                 _context.Add(product);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -109,7 +111,7 @@ namespace OnlineShopAdmin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ProductId,Name,ProductNumber,Color,StandardCost,ListPrice,Size,Weight,ProductCategoryId,ProductModelId,SellStartDate,SellEndDate,DiscontinuedDate,ThumbNailPhoto,ThumbnailPhotoFileName,Rowguid,ModifiedDate")] Product product)
+        public async Task<IActionResult> Edit(int id,Product product)
         {
             if (id != product.ProductId)
             {
@@ -120,6 +122,25 @@ namespace OnlineShopAdmin.Controllers
             {
                 try
                 {
+                    if (product.Photo != null)
+                    {
+                        if (product.ThumbnailPhotoFileName is not null)
+                        {
+                            FileInfo file = new FileInfo(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "Images", product.ThumbnailPhotoFileName));
+                            file.Delete();
+                        }
+                        string UniequeFileName = Guid.NewGuid().ToString().Substring(0, 10) + "_" + product.Photo.FileName;
+
+                        var path = Path.Combine(
+                                    Directory.GetCurrentDirectory(), "wwwroot", "Images",
+                                    UniequeFileName);
+
+                        using (var stream = new FileStream(path, FileMode.Create))
+                        {
+                            await product.Photo.CopyToAsync(stream);
+                        }
+                        product.ThumbnailPhotoFileName = UniequeFileName;
+                    }
                     _context.Update(product);
                     await _context.SaveChangesAsync();
                 }
@@ -166,7 +187,14 @@ namespace OnlineShopAdmin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
+
             var product = await _context.Products.FindAsync(id);
+            if (product.ThumbnailPhotoFileName is not null)
+            {
+                FileInfo file = new FileInfo(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "Images", product.ThumbnailPhotoFileName));
+                file.Delete();
+            }
+
             _context.Products.Remove(product);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));

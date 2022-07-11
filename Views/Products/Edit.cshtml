@@ -10,7 +10,7 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Edit">
+        <form asp-action="Edit" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="ProductId" />
             <div class="form-group">
@@ -94,6 +94,19 @@
                 <span asp-validation-for="ModifiedDate" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <img src="~/Images/@(Model.ThumbnailPhotoFileName?? "noimage.png") " class="rounded" height="200" width="200">
+                 
+                    <div>
+                            <label asp-for="Photo" class="control-label"></label>  
+                            <div class="custom-file">  
+                                <input asp-for="Photo" class="custom-file-input" id="customFile" accept="image/png, image/jpeg">  
+                                <label class="custom-file-label" for="customFile">Choose file</label>  
+                            </div>  
+                            <span asp-validation-for="Photo" class="text-danger"></span>  
+                        </div>  
+                   
+            </div>
+            <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>
@@ -105,3 +118,11 @@
     <a asp-action="Index">Back to List</a>
 </div>
 
+@section scripts{  
+    <script type="text/javascript">  
+        // Add the following code if you want the name of the file appear on select  
+        $(".custom-file-input").on("change", function () {  
+            var fileName = $(this).val().split("\\").pop();  
+            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);  
+        });  
+    </script>  }

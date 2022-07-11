@@ -107,6 +107,12 @@
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.ProductModel.Name)
         </dd class>
+         <dt class = "col-sm-2">
+           Photo
+        </dt>
+        <dd class = "col-sm-10">
+            <img src="~/Images/@(Model.ThumbnailPhotoFileName?? "noimage.png") " class="rounded" height="200" width="200">
+        </dd class>
     </dl>
     
     <form asp-action="Delete">
