@@ -1,0 +1,9 @@
+﻿Excepton message: Object reference not set to an instance of an object. 
+ExceptonType: System.NullReferenceException 
+Path: / 
+ LogDate: 25.07.2022 23:03:29
+---------
+Excepton message: Object reference not set to an instance of an object. 
+ExceptonType: System.NullReferenceException 
+LogDate: 25.07.2022 23:06:46
+---------

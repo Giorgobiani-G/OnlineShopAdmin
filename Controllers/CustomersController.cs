@@ -9,13 +9,15 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using OnlineShopAdmin.DataAccess.DbContexts;
 using OnlineShopAdmin.DataAccess.Models;
+using OnlineShopAdmin.Filters;
 
 namespace OnlineShopAdmin.Controllers
 {
+    [CustomFilter]
     public class CustomersController : Controller
     {
         private readonly AdventureWorksLT2019Context _context;
-
+       
         public CustomersController(AdventureWorksLT2019Context context)
         {
             _context = context;
@@ -24,6 +26,7 @@ namespace OnlineShopAdmin.Controllers
         // GET: Customers
         public async Task<IActionResult> Index()
         {
+            throw new NullReferenceException();
             return View(await _context.Customers.ToListAsync());
         }
 

@@ -1,0 +1,11 @@
+YearAndMonth: 551ms Date: 24.07.2022 18:43:26
+Products: 295ms Date: 24.07.2022 18:43:36
+ProductCateGories: 172ms Date: 24.07.2022 18:43:44
+CustomersandYears: 56ms Date: 24.07.2022 18:43:47
+City: 183ms Date: 24.07.2022 18:43:49
+Top10CustomersBysales: 222ms Date: 24.07.2022 18:43:56
+Top10ProductsBySalesAmount: 29ms Date: 24.07.2022 18:44:01
+YearAndMonth: 575ms Date: 24.07.2022 18:44:09
+YearAndMonth: 914ms Date: 24.07.2022 18:53:06
+City: 325ms Date: 24.07.2022 18:53:19
+Products: 88ms Date: 24.07.2022 18:53:26

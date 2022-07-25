@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
+using OnlineShopAdmin.CustomExceptionMiddleware;
 using OnlineShopAdmin.DataAccess;
 using OnlineShopAdmin.DataAccess.DbContexts;
 using System;
@@ -50,11 +51,12 @@ namespace OnlineShopAdmin
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            app.UseMiddleware<ExceptionMiddleware>();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

@@ -6,6 +6,7 @@ using System.Linq;
 using OnlineShopAdmin.Models;
 using System;
 using System.Collections.Generic;
+using OnlineShopAdmin.Filters;
 
 namespace OnlineShopAdmin.Controllers
 {
@@ -23,7 +24,7 @@ namespace OnlineShopAdmin.Controllers
             return View();
         }
 
-
+        [ExecutionDuaration]
         public async Task<IActionResult> YearAndMonth()
         {
 
@@ -48,6 +49,7 @@ namespace OnlineShopAdmin.Controllers
             return View(list);
         }
 
+        [ExecutionDuaration]
         public IActionResult Products()
         {
 
@@ -76,6 +78,7 @@ namespace OnlineShopAdmin.Controllers
             return View(model);
         }
 
+        [ExecutionDuaration]
         public IActionResult ProductCateGories()
         {
 
@@ -105,7 +108,7 @@ namespace OnlineShopAdmin.Controllers
             return View(model);
         }
 
-
+        [ExecutionDuaration]
         public IActionResult CustomersandYears()
         {
             var groupJoin = (from T1 in _context.SalesOrderHeaders
@@ -134,6 +137,7 @@ namespace OnlineShopAdmin.Controllers
             return View(model);
         }
 
+        [ExecutionDuaration]
         public IActionResult City()
         {
             var groupJoin = (from T1 in _context.SalesOrderHeaders
@@ -161,7 +165,7 @@ namespace OnlineShopAdmin.Controllers
             return View(model);
         }
 
-
+        [ExecutionDuaration]
         public IActionResult Top10CustomersBysales()
         {
             var groupJoin = (from T1 in _context.SalesOrderHeaders
@@ -186,7 +190,7 @@ namespace OnlineShopAdmin.Controllers
             return View(model);
         }
 
-
+        [ExecutionDuaration]
         public IActionResult Top10ProductsBySalesAmount()
         {
 
