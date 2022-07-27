@@ -1,4 +1,5 @@
-﻿24.07.2022 22:37:20
+﻿27.07.2022 21:09:26
+ControllerName: Customers ActionName: Index Method: GET
 Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
 Accept-Encoding:gzip, deflate, br
 Accept-Language:en-US,en;q=0.9
@@ -14,341 +15,11 @@ sec-fetch-mode:navigate
 sec-fetch-user:?1
 sec-fetch-dest:document
 -----------------
-25.07.2022 20:08:28
+27.07.2022 21:13:11
+ControllerName: Customers ActionName: Details Method: GET
 Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
 Accept-Encoding:gzip, deflate, br
 Accept-Language:en-US,en;q=0.9
-Connection:close
-Host:localhost:44317
-User-Agent:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.134 Safari/537.36
-sec-ch-ua:".Not/A)Brand";v="99", "Google Chrome";v="103", "Chromium";v="103"
-sec-ch-ua-mobile:?0
-sec-ch-ua-platform:"Windows"
-upgrade-insecure-requests:1
-sec-fetch-site:none
-sec-fetch-mode:navigate
-sec-fetch-user:?1
-sec-fetch-dest:document
------------------
-25.07.2022 20:10:26
-Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
-Accept-Encoding:gzip, deflate, br
-Accept-Language:en-US,en;q=0.9
-Connection:close
-Host:localhost:44317
-User-Agent:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.134 Safari/537.36
-sec-ch-ua:".Not/A)Brand";v="99", "Google Chrome";v="103", "Chromium";v="103"
-sec-ch-ua-mobile:?0
-sec-ch-ua-platform:"Windows"
-upgrade-insecure-requests:1
-sec-fetch-site:none
-sec-fetch-mode:navigate
-sec-fetch-user:?1
-sec-fetch-dest:document
------------------
-25.07.2022 20:11:55
-Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
-Accept-Encoding:gzip, deflate, br
-Accept-Language:en-US,en;q=0.9
-Connection:close
-Host:localhost:44317
-User-Agent:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.134 Safari/537.36
-sec-ch-ua:".Not/A)Brand";v="99", "Google Chrome";v="103", "Chromium";v="103"
-sec-ch-ua-mobile:?0
-sec-ch-ua-platform:"Windows"
-upgrade-insecure-requests:1
-sec-fetch-site:none
-sec-fetch-mode:navigate
-sec-fetch-user:?1
-sec-fetch-dest:document
------------------
-25.07.2022 20:19:20
-Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
-Accept-Encoding:gzip, deflate, br
-Accept-Language:en-US,en;q=0.9
-Connection:close
-Host:localhost:44317
-User-Agent:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.134 Safari/537.36
-sec-ch-ua:".Not/A)Brand";v="99", "Google Chrome";v="103", "Chromium";v="103"
-sec-ch-ua-mobile:?0
-sec-ch-ua-platform:"Windows"
-upgrade-insecure-requests:1
-sec-fetch-site:none
-sec-fetch-mode:navigate
-sec-fetch-user:?1
-sec-fetch-dest:document
------------------
-25.07.2022 20:28:21
-Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
-Accept-Encoding:gzip, deflate, br
-Accept-Language:en-US,en;q=0.9
-Connection:close
-Host:localhost:44317
-User-Agent:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.134 Safari/537.36
-sec-ch-ua:".Not/A)Brand";v="99", "Google Chrome";v="103", "Chromium";v="103"
-sec-ch-ua-mobile:?0
-sec-ch-ua-platform:"Windows"
-upgrade-insecure-requests:1
-sec-fetch-site:none
-sec-fetch-mode:navigate
-sec-fetch-user:?1
-sec-fetch-dest:document
------------------
-25.07.2022 20:28:45
-Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
-Accept-Encoding:gzip, deflate, br
-Accept-Language:en-US,en;q=0.9
-Cache-Control:max-age=0
-Connection:close
-Host:localhost:44317
-User-Agent:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.134 Safari/537.36
-sec-ch-ua:".Not/A)Brand";v="99", "Google Chrome";v="103", "Chromium";v="103"
-sec-ch-ua-mobile:?0
-sec-ch-ua-platform:"Windows"
-upgrade-insecure-requests:1
-sec-fetch-site:none
-sec-fetch-mode:navigate
-sec-fetch-user:?1
-sec-fetch-dest:document
------------------
-25.07.2022 20:30:21
-Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
-Accept-Encoding:gzip, deflate, br
-Accept-Language:en-US,en;q=0.9
-Cache-Control:max-age=0
-Connection:close
-Host:localhost:44317
-User-Agent:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.134 Safari/537.36
-sec-ch-ua:".Not/A)Brand";v="99", "Google Chrome";v="103", "Chromium";v="103"
-sec-ch-ua-mobile:?0
-sec-ch-ua-platform:"Windows"
-upgrade-insecure-requests:1
-sec-fetch-site:none
-sec-fetch-mode:navigate
-sec-fetch-user:?1
-sec-fetch-dest:document
------------------
-25.07.2022 20:31:07
-Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
-Accept-Encoding:gzip, deflate, br
-Accept-Language:en-US,en;q=0.9
-Cache-Control:max-age=0
-Connection:close
-Host:localhost:44317
-User-Agent:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.134 Safari/537.36
-sec-ch-ua:".Not/A)Brand";v="99", "Google Chrome";v="103", "Chromium";v="103"
-sec-ch-ua-mobile:?0
-sec-ch-ua-platform:"Windows"
-upgrade-insecure-requests:1
-sec-fetch-site:none
-sec-fetch-mode:navigate
-sec-fetch-user:?1
-sec-fetch-dest:document
------------------
-25.07.2022 20:31:35
-Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
-Accept-Encoding:gzip, deflate, br
-Accept-Language:en-US,en;q=0.9
-Cache-Control:max-age=0
-Connection:close
-Host:localhost:44317
-User-Agent:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.134 Safari/537.36
-sec-ch-ua:".Not/A)Brand";v="99", "Google Chrome";v="103", "Chromium";v="103"
-sec-ch-ua-mobile:?0
-sec-ch-ua-platform:"Windows"
-upgrade-insecure-requests:1
-sec-fetch-site:none
-sec-fetch-mode:navigate
-sec-fetch-user:?1
-sec-fetch-dest:document
------------------
-25.07.2022 20:32:26
-Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
-Accept-Encoding:gzip, deflate, br
-Accept-Language:en-US,en;q=0.9
-Cache-Control:max-age=0
-Connection:close
-Host:localhost:44317
-User-Agent:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.134 Safari/537.36
-sec-ch-ua:".Not/A)Brand";v="99", "Google Chrome";v="103", "Chromium";v="103"
-sec-ch-ua-mobile:?0
-sec-ch-ua-platform:"Windows"
-upgrade-insecure-requests:1
-sec-fetch-site:none
-sec-fetch-mode:navigate
-sec-fetch-user:?1
-sec-fetch-dest:document
------------------
-25.07.2022 20:33:39
-Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
-Accept-Encoding:gzip, deflate, br
-Accept-Language:en-US,en;q=0.9
-Cache-Control:max-age=0
-Connection:close
-Host:localhost:44317
-User-Agent:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.134 Safari/537.36
-sec-ch-ua:".Not/A)Brand";v="99", "Google Chrome";v="103", "Chromium";v="103"
-sec-ch-ua-mobile:?0
-sec-ch-ua-platform:"Windows"
-upgrade-insecure-requests:1
-sec-fetch-site:none
-sec-fetch-mode:navigate
-sec-fetch-user:?1
-sec-fetch-dest:document
------------------
-25.07.2022 20:34:46
-Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
-Accept-Encoding:gzip, deflate, br
-Accept-Language:en-US,en;q=0.9
-Cache-Control:max-age=0
-Connection:close
-Host:localhost:44317
-User-Agent:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.134 Safari/537.36
-sec-ch-ua:".Not/A)Brand";v="99", "Google Chrome";v="103", "Chromium";v="103"
-sec-ch-ua-mobile:?0
-sec-ch-ua-platform:"Windows"
-upgrade-insecure-requests:1
-sec-fetch-site:none
-sec-fetch-mode:navigate
-sec-fetch-user:?1
-sec-fetch-dest:document
------------------
-25.07.2022 20:35:00
-Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
-Accept-Encoding:gzip, deflate, br
-Accept-Language:en-US,en;q=0.9
-Cache-Control:max-age=0
-Connection:close
-Host:localhost:44317
-User-Agent:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.134 Safari/537.36
-sec-ch-ua:".Not/A)Brand";v="99", "Google Chrome";v="103", "Chromium";v="103"
-sec-ch-ua-mobile:?0
-sec-ch-ua-platform:"Windows"
-upgrade-insecure-requests:1
-sec-fetch-site:none
-sec-fetch-mode:navigate
-sec-fetch-user:?1
-sec-fetch-dest:document
------------------
-25.07.2022 20:35:31
-Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
-Accept-Encoding:gzip, deflate, br
-Accept-Language:en-US,en;q=0.9
-Cache-Control:max-age=0
-Connection:close
-Host:localhost:44317
-User-Agent:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.134 Safari/537.36
-sec-ch-ua:".Not/A)Brand";v="99", "Google Chrome";v="103", "Chromium";v="103"
-sec-ch-ua-mobile:?0
-sec-ch-ua-platform:"Windows"
-upgrade-insecure-requests:1
-sec-fetch-site:none
-sec-fetch-mode:navigate
-sec-fetch-user:?1
-sec-fetch-dest:document
------------------
-25.07.2022 20:38:21
-Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
-Accept-Encoding:gzip, deflate, br
-Accept-Language:en-US,en;q=0.9
-Connection:close
-Host:localhost:44317
-User-Agent:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.134 Safari/537.36
-sec-ch-ua:".Not/A)Brand";v="99", "Google Chrome";v="103", "Chromium";v="103"
-sec-ch-ua-mobile:?0
-sec-ch-ua-platform:"Windows"
-upgrade-insecure-requests:1
-sec-fetch-site:none
-sec-fetch-mode:navigate
-sec-fetch-user:?1
-sec-fetch-dest:document
------------------
-25.07.2022 20:38:51
-Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
-Accept-Encoding:gzip, deflate, br
-Accept-Language:en-US,en;q=0.9
-Cache-Control:max-age=0
-Connection:close
-Host:localhost:44317
-User-Agent:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.134 Safari/537.36
-sec-ch-ua:".Not/A)Brand";v="99", "Google Chrome";v="103", "Chromium";v="103"
-sec-ch-ua-mobile:?0
-sec-ch-ua-platform:"Windows"
-upgrade-insecure-requests:1
-sec-fetch-site:none
-sec-fetch-mode:navigate
-sec-fetch-user:?1
-sec-fetch-dest:document
------------------
-25.07.2022 20:40:03
-Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
-Accept-Encoding:gzip, deflate, br
-Accept-Language:en-US,en;q=0.9
-Connection:close
-Host:localhost:44317
-User-Agent:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.134 Safari/537.36
-sec-ch-ua:".Not/A)Brand";v="99", "Google Chrome";v="103", "Chromium";v="103"
-sec-ch-ua-mobile:?0
-sec-ch-ua-platform:"Windows"
-upgrade-insecure-requests:1
-sec-fetch-site:none
-sec-fetch-mode:navigate
-sec-fetch-user:?1
-sec-fetch-dest:document
------------------
-25.07.2022 20:40:53
-Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
-Accept-Encoding:gzip, deflate, br
-Accept-Language:en-US,en;q=0.9
-Connection:close
-Host:localhost:44317
-User-Agent:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.134 Safari/537.36
-sec-ch-ua:".Not/A)Brand";v="99", "Google Chrome";v="103", "Chromium";v="103"
-sec-ch-ua-mobile:?0
-sec-ch-ua-platform:"Windows"
-upgrade-insecure-requests:1
-sec-fetch-site:none
-sec-fetch-mode:navigate
-sec-fetch-user:?1
-sec-fetch-dest:document
------------------
-25.07.2022 20:41:48
-Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
-Accept-Encoding:gzip, deflate, br
-Accept-Language:en-US,en;q=0.9
-Connection:close
-Host:localhost:44317
-User-Agent:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.134 Safari/537.36
-sec-ch-ua:".Not/A)Brand";v="99", "Google Chrome";v="103", "Chromium";v="103"
-sec-ch-ua-mobile:?0
-sec-ch-ua-platform:"Windows"
-upgrade-insecure-requests:1
-sec-fetch-site:none
-sec-fetch-mode:navigate
-sec-fetch-user:?1
-sec-fetch-dest:document
------------------
-25.07.2022 22:18:08
-Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
-Accept-Encoding:gzip, deflate, br
-Accept-Language:en-US,en;q=0.9
-Connection:close
-Host:localhost:44317
-User-Agent:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.134 Safari/537.36
-sec-ch-ua:".Not/A)Brand";v="99", "Google Chrome";v="103", "Chromium";v="103"
-sec-ch-ua-mobile:?0
-sec-ch-ua-platform:"Windows"
-upgrade-insecure-requests:1
-sec-fetch-site:none
-sec-fetch-mode:navigate
-sec-fetch-user:?1
-sec-fetch-dest:document
------------------
-25.07.2022 22:30:49
-Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
-Accept-Encoding:gzip, deflate, br
-Accept-Language:en-US,en;q=0.9
-Cache-Control:max-age=0
 Connection:close
 Host:localhost:44317
 Referer:https://localhost:44317/
@@ -359,217 +30,164 @@ sec-ch-ua-platform:"Windows"
 upgrade-insecure-requests:1
 sec-fetch-site:same-origin
 sec-fetch-mode:navigate
+sec-fetch-user:?1
 sec-fetch-dest:document
 -----------------
-25.07.2022 22:32:52
+27.07.2022 21:13:19
+ControllerName: SalesOrderHeaders ActionName: Index Method: GET
 Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
 Accept-Encoding:gzip, deflate, br
 Accept-Language:en-US,en;q=0.9
 Connection:close
 Host:localhost:44317
+Referer:https://localhost:44317/Customers/Details/3
 User-Agent:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.134 Safari/537.36
 sec-ch-ua:".Not/A)Brand";v="99", "Google Chrome";v="103", "Chromium";v="103"
 sec-ch-ua-mobile:?0
 sec-ch-ua-platform:"Windows"
 upgrade-insecure-requests:1
-sec-fetch-site:none
+sec-fetch-site:same-origin
 sec-fetch-mode:navigate
 sec-fetch-user:?1
 sec-fetch-dest:document
 -----------------
-25.07.2022 22:34:26
-Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
-Accept-Encoding:gzip, deflate, br
-Accept-Language:en-US,en;q=0.9
-Connection:close
-Cookie:.AspNet.Consent=yes
-Host:localhost:44317
-User-Agent:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36
-sec-ch-ua:".Not/A)Brand";v="99", "Google Chrome";v="103", "Chromium";v="103"
-sec-ch-ua-mobile:?0
-sec-ch-ua-platform:"Windows"
-upgrade-insecure-requests:1
-sec-fetch-site:none
-sec-fetch-mode:navigate
-sec-fetch-user:?1
-sec-fetch-dest:document
------------------
-25.07.2022 22:34:45
-Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
-Accept-Encoding:gzip, deflate, br
-Accept-Language:en-US,en;q=0.9
-Cache-Control:max-age=0
-Connection:close
-Cookie:.AspNet.Consent=yes
-Host:localhost:44317
-User-Agent:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36
-sec-ch-ua:".Not/A)Brand";v="99", "Google Chrome";v="103", "Chromium";v="103"
-sec-ch-ua-mobile:?0
-sec-ch-ua-platform:"Windows"
-upgrade-insecure-requests:1
-sec-fetch-site:none
-sec-fetch-mode:navigate
-sec-fetch-user:?1
-sec-fetch-dest:document
------------------
-25.07.2022 22:35:36
-Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
-Accept-Encoding:gzip, deflate, br
-Accept-Language:en-US,en;q=0.9
-Cache-Control:max-age=0
-Connection:close
-Cookie:.AspNet.Consent=yes
-Host:localhost:44317
-User-Agent:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36
-sec-ch-ua:".Not/A)Brand";v="99", "Google Chrome";v="103", "Chromium";v="103"
-sec-ch-ua-mobile:?0
-sec-ch-ua-platform:"Windows"
-upgrade-insecure-requests:1
-sec-fetch-site:none
-sec-fetch-mode:navigate
-sec-fetch-user:?1
-sec-fetch-dest:document
------------------
-25.07.2022 22:37:57
-Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
-Accept-Encoding:gzip, deflate, br
-Accept-Language:en-US,en;q=0.9
-Cache-Control:max-age=0
-Connection:close
-Cookie:.AspNet.Consent=yes
-Host:localhost:44317
-User-Agent:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36
-sec-ch-ua:".Not/A)Brand";v="99", "Google Chrome";v="103", "Chromium";v="103"
-sec-ch-ua-mobile:?0
-sec-ch-ua-platform:"Windows"
-upgrade-insecure-requests:1
-sec-fetch-site:none
-sec-fetch-mode:navigate
-sec-fetch-user:?1
-sec-fetch-dest:document
------------------
-25.07.2022 22:39:07
-Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
-Accept-Encoding:gzip, deflate, br
-Accept-Language:en-US,en;q=0.9
-Cache-Control:max-age=0
-Connection:close
-Cookie:.AspNet.Consent=yes
-Host:localhost:44317
-User-Agent:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36
-sec-ch-ua:".Not/A)Brand";v="99", "Google Chrome";v="103", "Chromium";v="103"
-sec-ch-ua-mobile:?0
-sec-ch-ua-platform:"Windows"
-upgrade-insecure-requests:1
-sec-fetch-site:none
-sec-fetch-mode:navigate
-sec-fetch-user:?1
-sec-fetch-dest:document
------------------
-25.07.2022 22:39:30
-Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
-Accept-Encoding:gzip, deflate, br
-Accept-Language:en-US,en;q=0.9
-Cache-Control:max-age=0
-Connection:close
-Cookie:.AspNet.Consent=yes
-Host:localhost:44317
-User-Agent:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36
-sec-ch-ua:".Not/A)Brand";v="99", "Google Chrome";v="103", "Chromium";v="103"
-sec-ch-ua-mobile:?0
-sec-ch-ua-platform:"Windows"
-upgrade-insecure-requests:1
-sec-fetch-site:none
-sec-fetch-mode:navigate
-sec-fetch-user:?1
-sec-fetch-dest:document
------------------
-25.07.2022 22:40:27
+27.07.2022 21:13:32
+ControllerName: ProductCategories ActionName: Index Method: GET
 Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
 Accept-Encoding:gzip, deflate, br
 Accept-Language:en-US,en;q=0.9
 Connection:close
 Host:localhost:44317
+Referer:https://localhost:44317/SalesOrderHeaders
 User-Agent:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.134 Safari/537.36
 sec-ch-ua:".Not/A)Brand";v="99", "Google Chrome";v="103", "Chromium";v="103"
 sec-ch-ua-mobile:?0
 sec-ch-ua-platform:"Windows"
 upgrade-insecure-requests:1
-sec-fetch-site:none
+sec-fetch-site:same-origin
 sec-fetch-mode:navigate
 sec-fetch-user:?1
 sec-fetch-dest:document
 -----------------
-25.07.2022 22:41:28
+27.07.2022 21:13:46
+ControllerName: ProductCategories ActionName: Edit Method: GET
 Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
 Accept-Encoding:gzip, deflate, br
 Accept-Language:en-US,en;q=0.9
-Cache-Control:max-age=0
 Connection:close
 Host:localhost:44317
+Referer:https://localhost:44317/ProductCategories
 User-Agent:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.134 Safari/537.36
 sec-ch-ua:".Not/A)Brand";v="99", "Google Chrome";v="103", "Chromium";v="103"
 sec-ch-ua-mobile:?0
 sec-ch-ua-platform:"Windows"
 upgrade-insecure-requests:1
-sec-fetch-site:none
+sec-fetch-site:same-origin
 sec-fetch-mode:navigate
 sec-fetch-user:?1
 sec-fetch-dest:document
 -----------------
-25.07.2022 22:43:36
+27.07.2022 21:13:55
+ControllerName: Reports ActionName: Index Method: GET
 Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
 Accept-Encoding:gzip, deflate, br
 Accept-Language:en-US,en;q=0.9
 Connection:close
-Cookie:.AspNet.Consent=yes
+Cookie:.AspNetCore.Antiforgery.kK2rsq5suHY=CfDJ8K5MAwfygoBElFTZ2gRNv8Fo0gdnXzbgCjp_2Mc-edNxagMKDahUBy125fikebNJS1HMlrVK5qhvaWAFinNOdjnD0HGDKQ-qIHIe58xqKyRyAqnRHEFklIOiCxJhbuXh3Ft3iNl3Uj3zkN5b1BXvk6I
 Host:localhost:44317
-User-Agent:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36
+Referer:https://localhost:44317/ProductCategories/Edit/1
+User-Agent:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.134 Safari/537.36
 sec-ch-ua:".Not/A)Brand";v="99", "Google Chrome";v="103", "Chromium";v="103"
 sec-ch-ua-mobile:?0
 sec-ch-ua-platform:"Windows"
 upgrade-insecure-requests:1
-sec-fetch-site:none
+sec-fetch-site:same-origin
 sec-fetch-mode:navigate
 sec-fetch-user:?1
 sec-fetch-dest:document
 -----------------
-25.07.2022 22:46:17
+27.07.2022 21:13:57
+ControllerName: Reports ActionName: Products Method: GET
 Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
 Accept-Encoding:gzip, deflate, br
 Accept-Language:en-US,en;q=0.9
 Connection:close
-Cookie:.AspNet.Consent=yes
+Cookie:.AspNetCore.Antiforgery.kK2rsq5suHY=CfDJ8K5MAwfygoBElFTZ2gRNv8Fo0gdnXzbgCjp_2Mc-edNxagMKDahUBy125fikebNJS1HMlrVK5qhvaWAFinNOdjnD0HGDKQ-qIHIe58xqKyRyAqnRHEFklIOiCxJhbuXh3Ft3iNl3Uj3zkN5b1BXvk6I
 Host:localhost:44317
-User-Agent:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36
+Referer:https://localhost:44317/Reports
+User-Agent:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.134 Safari/537.36
 sec-ch-ua:".Not/A)Brand";v="99", "Google Chrome";v="103", "Chromium";v="103"
 sec-ch-ua-mobile:?0
 sec-ch-ua-platform:"Windows"
 upgrade-insecure-requests:1
-sec-fetch-site:none
+sec-fetch-site:same-origin
 sec-fetch-mode:navigate
 sec-fetch-user:?1
 sec-fetch-dest:document
 -----------------
-25.07.2022 22:47:12
+27.07.2022 21:14:14
+ControllerName: Customers ActionName: Index Method: GET
+Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+Accept-Encoding:gzip, deflate, br
+Accept-Language:en-US,en;q=0.9
+Connection:close
+Cookie:.AspNetCore.Antiforgery.kK2rsq5suHY=CfDJ8K5MAwfygoBElFTZ2gRNv8Fo0gdnXzbgCjp_2Mc-edNxagMKDahUBy125fikebNJS1HMlrVK5qhvaWAFinNOdjnD0HGDKQ-qIHIe58xqKyRyAqnRHEFklIOiCxJhbuXh3Ft3iNl3Uj3zkN5b1BXvk6I
+Host:localhost:44317
+Referer:https://localhost:44317/Reports/Products
+User-Agent:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.134 Safari/537.36
+sec-ch-ua:".Not/A)Brand";v="99", "Google Chrome";v="103", "Chromium";v="103"
+sec-ch-ua-mobile:?0
+sec-ch-ua-platform:"Windows"
+upgrade-insecure-requests:1
+sec-fetch-site:same-origin
+sec-fetch-mode:navigate
+sec-fetch-user:?1
+sec-fetch-dest:document
+-----------------
+27.07.2022 21:14:29
+ControllerName: Customers ActionName: Delete Method: GET
+Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+Accept-Encoding:gzip, deflate, br
+Accept-Language:en-US,en;q=0.9
+Connection:close
+Cookie:.AspNetCore.Antiforgery.kK2rsq5suHY=CfDJ8K5MAwfygoBElFTZ2gRNv8Fo0gdnXzbgCjp_2Mc-edNxagMKDahUBy125fikebNJS1HMlrVK5qhvaWAFinNOdjnD0HGDKQ-qIHIe58xqKyRyAqnRHEFklIOiCxJhbuXh3Ft3iNl3Uj3zkN5b1BXvk6I
+Host:localhost:44317
+Referer:https://localhost:44317/
+User-Agent:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.134 Safari/537.36
+sec-ch-ua:".Not/A)Brand";v="99", "Google Chrome";v="103", "Chromium";v="103"
+sec-ch-ua-mobile:?0
+sec-ch-ua-platform:"Windows"
+upgrade-insecure-requests:1
+sec-fetch-site:same-origin
+sec-fetch-mode:navigate
+sec-fetch-user:?1
+sec-fetch-dest:document
+-----------------
+27.07.2022 21:14:32
+ControllerName: Customers ActionName: Delete Method: POST
 Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
 Accept-Encoding:gzip, deflate, br
 Accept-Language:en-US,en;q=0.9
 Cache-Control:max-age=0
 Connection:close
-Cookie:.AspNet.Consent=yes
+Content-Length:195
+Content-Type:application/x-www-form-urlencoded
+Cookie:.AspNetCore.Antiforgery.kK2rsq5suHY=CfDJ8K5MAwfygoBElFTZ2gRNv8Fo0gdnXzbgCjp_2Mc-edNxagMKDahUBy125fikebNJS1HMlrVK5qhvaWAFinNOdjnD0HGDKQ-qIHIe58xqKyRyAqnRHEFklIOiCxJhbuXh3Ft3iNl3Uj3zkN5b1BXvk6I
 Host:localhost:44317
-User-Agent:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36
+Referer:https://localhost:44317/Customers/Delete/3
+User-Agent:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.134 Safari/537.36
 sec-ch-ua:".Not/A)Brand";v="99", "Google Chrome";v="103", "Chromium";v="103"
 sec-ch-ua-mobile:?0
 sec-ch-ua-platform:"Windows"
 upgrade-insecure-requests:1
-sec-fetch-site:none
+origin:https://localhost:44317
+sec-fetch-site:same-origin
 sec-fetch-mode:navigate
 sec-fetch-user:?1
 sec-fetch-dest:document
 -----------------
-25.07.2022 22:48:25
+27.07.2022 21:15:03
+ControllerName: Customers ActionName: Index Method: GET
 Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
 Accept-Encoding:gzip, deflate, br
 Accept-Language:en-US,en;q=0.9
@@ -586,262 +204,11 @@ sec-fetch-mode:navigate
 sec-fetch-user:?1
 sec-fetch-dest:document
 -----------------
-25.07.2022 22:48:48
+27.07.2022 21:15:11
+ControllerName: Customers ActionName: Delete Method: GET
 Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
 Accept-Encoding:gzip, deflate, br
 Accept-Language:en-US,en;q=0.9
-Cache-Control:max-age=0
-Connection:close
-Cookie:.AspNet.Consent=yes
-Host:localhost:44317
-User-Agent:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36
-sec-ch-ua:".Not/A)Brand";v="99", "Google Chrome";v="103", "Chromium";v="103"
-sec-ch-ua-mobile:?0
-sec-ch-ua-platform:"Windows"
-upgrade-insecure-requests:1
-sec-fetch-site:none
-sec-fetch-mode:navigate
-sec-fetch-user:?1
-sec-fetch-dest:document
------------------
-25.07.2022 22:50:00
-Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
-Accept-Encoding:gzip, deflate, br
-Accept-Language:en-US,en;q=0.9
-Cache-Control:max-age=0
-Connection:close
-Cookie:.AspNet.Consent=yes
-Host:localhost:44317
-User-Agent:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36
-sec-ch-ua:".Not/A)Brand";v="99", "Google Chrome";v="103", "Chromium";v="103"
-sec-ch-ua-mobile:?0
-sec-ch-ua-platform:"Windows"
-upgrade-insecure-requests:1
-sec-fetch-site:none
-sec-fetch-mode:navigate
-sec-fetch-user:?1
-sec-fetch-dest:document
------------------
-25.07.2022 22:50:09
-Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
-Accept-Encoding:gzip, deflate, br
-Accept-Language:en-US,en;q=0.9
-Cache-Control:max-age=0
-Connection:close
-Cookie:.AspNet.Consent=yes
-Host:localhost:44317
-User-Agent:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36
-sec-ch-ua:".Not/A)Brand";v="99", "Google Chrome";v="103", "Chromium";v="103"
-sec-ch-ua-mobile:?0
-sec-ch-ua-platform:"Windows"
-upgrade-insecure-requests:1
-sec-fetch-site:none
-sec-fetch-mode:navigate
-sec-fetch-user:?1
-sec-fetch-dest:document
------------------
-25.07.2022 22:51:31
-Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
-Accept-Encoding:gzip, deflate, br
-Accept-Language:en-US,en;q=0.9
-Connection:close
-Cookie:.AspNet.Consent=yes
-Host:localhost:44317
-User-Agent:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36
-sec-ch-ua:".Not/A)Brand";v="99", "Google Chrome";v="103", "Chromium";v="103"
-sec-ch-ua-mobile:?0
-sec-ch-ua-platform:"Windows"
-upgrade-insecure-requests:1
-sec-fetch-site:none
-sec-fetch-mode:navigate
-sec-fetch-user:?1
-sec-fetch-dest:document
------------------
-25.07.2022 22:51:49
-Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
-Accept-Encoding:gzip, deflate, br
-Accept-Language:en-US,en;q=0.9
-Cache-Control:max-age=0
-Connection:close
-Cookie:.AspNet.Consent=yes
-Host:localhost:44317
-User-Agent:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36
-sec-ch-ua:".Not/A)Brand";v="99", "Google Chrome";v="103", "Chromium";v="103"
-sec-ch-ua-mobile:?0
-sec-ch-ua-platform:"Windows"
-upgrade-insecure-requests:1
-sec-fetch-site:none
-sec-fetch-mode:navigate
-sec-fetch-user:?1
-sec-fetch-dest:document
------------------
-25.07.2022 22:52:30
-Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
-Accept-Encoding:gzip, deflate, br
-Accept-Language:en-US,en;q=0.9
-Cache-Control:max-age=0
-Connection:close
-Cookie:.AspNet.Consent=yes
-Host:localhost:44317
-User-Agent:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36
-sec-ch-ua:".Not/A)Brand";v="99", "Google Chrome";v="103", "Chromium";v="103"
-sec-ch-ua-mobile:?0
-sec-ch-ua-platform:"Windows"
-upgrade-insecure-requests:1
-sec-fetch-site:none
-sec-fetch-mode:navigate
-sec-fetch-user:?1
-sec-fetch-dest:document
------------------
-25.07.2022 22:52:57
-Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
-Accept-Encoding:gzip, deflate, br
-Accept-Language:en-US,en;q=0.9
-Cache-Control:max-age=0
-Connection:close
-Cookie:.AspNet.Consent=yes
-Host:localhost:44317
-User-Agent:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36
-sec-ch-ua:".Not/A)Brand";v="99", "Google Chrome";v="103", "Chromium";v="103"
-sec-ch-ua-mobile:?0
-sec-ch-ua-platform:"Windows"
-upgrade-insecure-requests:1
-sec-fetch-site:none
-sec-fetch-mode:navigate
-sec-fetch-user:?1
-sec-fetch-dest:document
------------------
-25.07.2022 22:53:45
-Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
-Accept-Encoding:gzip, deflate, br
-Accept-Language:en-US,en;q=0.9
-Cache-Control:max-age=0
-Connection:close
-Cookie:.AspNet.Consent=yes
-Host:localhost:44317
-User-Agent:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36
-sec-ch-ua:".Not/A)Brand";v="99", "Google Chrome";v="103", "Chromium";v="103"
-sec-ch-ua-mobile:?0
-sec-ch-ua-platform:"Windows"
-upgrade-insecure-requests:1
-sec-fetch-site:none
-sec-fetch-mode:navigate
-sec-fetch-user:?1
-sec-fetch-dest:document
------------------
-25.07.2022 22:54:27
-Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
-Accept-Encoding:gzip, deflate, br
-Accept-Language:en-US,en;q=0.9
-Cache-Control:max-age=0
-Connection:close
-Cookie:.AspNet.Consent=yes
-Host:localhost:44317
-User-Agent:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36
-sec-ch-ua:".Not/A)Brand";v="99", "Google Chrome";v="103", "Chromium";v="103"
-sec-ch-ua-mobile:?0
-sec-ch-ua-platform:"Windows"
-upgrade-insecure-requests:1
-sec-fetch-site:none
-sec-fetch-mode:navigate
-sec-fetch-user:?1
-sec-fetch-dest:document
------------------
-25.07.2022 22:55:18
-Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
-Accept-Encoding:gzip, deflate, br
-Accept-Language:en-US,en;q=0.9
-Cache-Control:max-age=0
-Connection:close
-Cookie:.AspNet.Consent=yes
-Host:localhost:44317
-User-Agent:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36
-sec-ch-ua:".Not/A)Brand";v="99", "Google Chrome";v="103", "Chromium";v="103"
-sec-ch-ua-mobile:?0
-sec-ch-ua-platform:"Windows"
-upgrade-insecure-requests:1
-sec-fetch-site:none
-sec-fetch-mode:navigate
-sec-fetch-user:?1
-sec-fetch-dest:document
------------------
-25.07.2022 22:56:19
-Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
-Accept-Encoding:gzip, deflate, br
-Accept-Language:en-US,en;q=0.9
-Cache-Control:max-age=0
-Connection:close
-Cookie:.AspNet.Consent=yes
-Host:localhost:44317
-User-Agent:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36
-sec-ch-ua:".Not/A)Brand";v="99", "Google Chrome";v="103", "Chromium";v="103"
-sec-ch-ua-mobile:?0
-sec-ch-ua-platform:"Windows"
-upgrade-insecure-requests:1
-sec-fetch-site:none
-sec-fetch-mode:navigate
-sec-fetch-user:?1
-sec-fetch-dest:document
------------------
-25.07.2022 22:56:21
-Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
-Accept-Encoding:gzip, deflate, br
-Accept-Language:en-US,en;q=0.9
-Cache-Control:max-age=0
-Connection:close
-Cookie:.AspNet.Consent=yes
-Host:localhost:44317
-User-Agent:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36
-sec-ch-ua:".Not/A)Brand";v="99", "Google Chrome";v="103", "Chromium";v="103"
-sec-ch-ua-mobile:?0
-sec-ch-ua-platform:"Windows"
-upgrade-insecure-requests:1
-sec-fetch-site:none
-sec-fetch-mode:navigate
-sec-fetch-user:?1
-sec-fetch-dest:document
------------------
-25.07.2022 22:56:52
-Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
-Accept-Encoding:gzip, deflate, br
-Accept-Language:en-US,en;q=0.9
-Cache-Control:max-age=0
-Connection:close
-Cookie:.AspNet.Consent=yes
-Host:localhost:44317
-User-Agent:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36
-sec-ch-ua:".Not/A)Brand";v="99", "Google Chrome";v="103", "Chromium";v="103"
-sec-ch-ua-mobile:?0
-sec-ch-ua-platform:"Windows"
-upgrade-insecure-requests:1
-sec-fetch-site:none
-sec-fetch-mode:navigate
-sec-fetch-user:?1
-sec-fetch-dest:document
------------------
-25.07.2022 22:57:27
-Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
-Accept-Encoding:gzip, deflate, br
-Accept-Language:en-US,en;q=0.9
-Cache-Control:max-age=0
-Connection:close
-Cookie:.AspNet.Consent=yes
-Host:localhost:44317
-User-Agent:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36
-sec-ch-ua:".Not/A)Brand";v="99", "Google Chrome";v="103", "Chromium";v="103"
-sec-ch-ua-mobile:?0
-sec-ch-ua-platform:"Windows"
-upgrade-insecure-requests:1
-sec-fetch-site:none
-sec-fetch-mode:navigate
-sec-fetch-user:?1
-sec-fetch-dest:document
------------------
-25.07.2022 22:58:49
-Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
-Accept-Encoding:gzip, deflate, br
-Accept-Language:en-US,en;q=0.9
-Cache-Control:max-age=0
 Connection:close
 Cookie:.AspNet.Consent=yes
 Host:localhost:44317
@@ -853,15 +220,64 @@ sec-ch-ua-platform:"Windows"
 upgrade-insecure-requests:1
 sec-fetch-site:same-origin
 sec-fetch-mode:navigate
+sec-fetch-user:?1
 sec-fetch-dest:document
 -----------------
-25.07.2022 23:03:24
+27.07.2022 21:15:14
+ControllerName: Customers ActionName: Delete Method: POST
+Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+Accept-Encoding:gzip, deflate, br
+Accept-Language:en-US,en;q=0.9
+Cache-Control:max-age=0
+Connection:close
+Content-Length:195
+Content-Type:application/x-www-form-urlencoded
+Cookie:.AspNet.Consent=yes; .AspNetCore.Antiforgery.kK2rsq5suHY=CfDJ8K5MAwfygoBElFTZ2gRNv8EymLOQ1BFmQIF2cc0m-yuumm3JqS0S3_1raUJxRthSfkgzHNjfSNRSjZX3COKOq85nMlZ7SVDBVqeFjR3-ArRq_9FyfdROuOV_E8xgTZtVXv1mx-WXxwU3Tx_13cuxTMQ
+Host:localhost:44317
+Referer:https://localhost:44317/Customers/Delete/3
+User-Agent:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36
+sec-ch-ua:".Not/A)Brand";v="99", "Google Chrome";v="103", "Chromium";v="103"
+sec-ch-ua-mobile:?0
+sec-ch-ua-platform:"Windows"
+upgrade-insecure-requests:1
+origin:https://localhost:44317
+sec-fetch-site:same-origin
+sec-fetch-mode:navigate
+sec-fetch-user:?1
+sec-fetch-dest:document
+-----------------
+27.07.2022 21:15:37
+ControllerName: Customers ActionName: Delete Method: POST
+Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+Accept-Encoding:gzip, deflate, br
+Accept-Language:en-US,en;q=0.9
+Cache-Control:max-age=0
+Connection:close
+Content-Length:195
+Content-Type:application/x-www-form-urlencoded
+Cookie:.AspNet.Consent=yes; .AspNetCore.Antiforgery.kK2rsq5suHY=CfDJ8K5MAwfygoBElFTZ2gRNv8EymLOQ1BFmQIF2cc0m-yuumm3JqS0S3_1raUJxRthSfkgzHNjfSNRSjZX3COKOq85nMlZ7SVDBVqeFjR3-ArRq_9FyfdROuOV_E8xgTZtVXv1mx-WXxwU3Tx_13cuxTMQ
+Host:localhost:44317
+Referer:https://localhost:44317/Customers/Delete/3
+User-Agent:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36
+sec-ch-ua:".Not/A)Brand";v="99", "Google Chrome";v="103", "Chromium";v="103"
+sec-ch-ua-mobile:?0
+sec-ch-ua-platform:"Windows"
+upgrade-insecure-requests:1
+origin:https://localhost:44317
+sec-fetch-site:same-origin
+sec-fetch-mode:navigate
+sec-fetch-user:?1
+sec-fetch-dest:document
+-----------------
+27.07.2022 21:15:48
+ControllerName: Customers ActionName: Index Method: GET
 Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
 Accept-Encoding:gzip, deflate, br
 Accept-Language:en-US,en;q=0.9
 Connection:close
+Cookie:.AspNet.Consent=yes; .AspNetCore.Antiforgery.kK2rsq5suHY=CfDJ8K5MAwfygoBElFTZ2gRNv8EymLOQ1BFmQIF2cc0m-yuumm3JqS0S3_1raUJxRthSfkgzHNjfSNRSjZX3COKOq85nMlZ7SVDBVqeFjR3-ArRq_9FyfdROuOV_E8xgTZtVXv1mx-WXxwU3Tx_13cuxTMQ
 Host:localhost:44317
-User-Agent:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.134 Safari/537.36
+User-Agent:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36
 sec-ch-ua:".Not/A)Brand";v="99", "Google Chrome";v="103", "Chromium";v="103"
 sec-ch-ua-mobile:?0
 sec-ch-ua-platform:"Windows"
@@ -871,19 +287,40 @@ sec-fetch-mode:navigate
 sec-fetch-user:?1
 sec-fetch-dest:document
 -----------------
-25.07.2022 23:06:46
+27.07.2022 21:16:01
+ControllerName: Customers ActionName: Details Method: GET
 Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
 Accept-Encoding:gzip, deflate, br
 Accept-Language:en-US,en;q=0.9
 Connection:close
-Cookie:.AspNet.Consent=yes
+Cookie:.AspNet.Consent=yes; .AspNetCore.Antiforgery.kK2rsq5suHY=CfDJ8K5MAwfygoBElFTZ2gRNv8EymLOQ1BFmQIF2cc0m-yuumm3JqS0S3_1raUJxRthSfkgzHNjfSNRSjZX3COKOq85nMlZ7SVDBVqeFjR3-ArRq_9FyfdROuOV_E8xgTZtVXv1mx-WXxwU3Tx_13cuxTMQ
 Host:localhost:44317
+Referer:https://localhost:44317/Customers
 User-Agent:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36
 sec-ch-ua:".Not/A)Brand";v="99", "Google Chrome";v="103", "Chromium";v="103"
 sec-ch-ua-mobile:?0
 sec-ch-ua-platform:"Windows"
 upgrade-insecure-requests:1
-sec-fetch-site:none
+sec-fetch-site:same-origin
+sec-fetch-mode:navigate
+sec-fetch-user:?1
+sec-fetch-dest:document
+-----------------
+27.07.2022 21:16:03
+ControllerName: Customers ActionName: Index Method: GET
+Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+Accept-Encoding:gzip, deflate, br
+Accept-Language:en-US,en;q=0.9
+Connection:close
+Cookie:.AspNet.Consent=yes; .AspNetCore.Antiforgery.kK2rsq5suHY=CfDJ8K5MAwfygoBElFTZ2gRNv8EymLOQ1BFmQIF2cc0m-yuumm3JqS0S3_1raUJxRthSfkgzHNjfSNRSjZX3COKOq85nMlZ7SVDBVqeFjR3-ArRq_9FyfdROuOV_E8xgTZtVXv1mx-WXxwU3Tx_13cuxTMQ
+Host:localhost:44317
+Referer:https://localhost:44317/Customers/Details/3
+User-Agent:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36
+sec-ch-ua:".Not/A)Brand";v="99", "Google Chrome";v="103", "Chromium";v="103"
+sec-ch-ua-mobile:?0
+sec-ch-ua-platform:"Windows"
+upgrade-insecure-requests:1
+sec-fetch-site:same-origin
 sec-fetch-mode:navigate
 sec-fetch-user:?1
 sec-fetch-dest:document

@@ -9,9 +9,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using OnlineShopAdmin.DataAccess.DbContexts;
 using OnlineShopAdmin.DataAccess.Models;
+using OnlineShopAdmin.Filters;
 
 namespace OnlineShopAdmin.Controllers
 {
+    [HttpRequestInfo]
     public class ProductsController : Controller
     {
         private readonly AdventureWorksLT2019Context _context;

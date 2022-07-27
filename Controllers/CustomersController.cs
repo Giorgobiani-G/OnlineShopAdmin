@@ -13,7 +13,7 @@ using OnlineShopAdmin.Filters;
 
 namespace OnlineShopAdmin.Controllers
 {
-    [CustomFilter]
+    [HttpRequestInfo]
     public class CustomersController : Controller
     {
         private readonly AdventureWorksLT2019Context _context;
@@ -26,7 +26,6 @@ namespace OnlineShopAdmin.Controllers
         // GET: Customers
         public async Task<IActionResult> Index()
         {
-            throw new NullReferenceException();
             return View(await _context.Customers.ToListAsync());
         }
 
@@ -61,8 +60,6 @@ namespace OnlineShopAdmin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("CustomerId,NameStyle,Title,FirstName,MiddleName,LastName,Suffix,CompanyName,SalesPerson,EmailAddress,Phone,PasswordHash,PasswordSalt,Rowguid,ModifiedDate")] Customer customer)
         {
-           
-
 
             if (ModelState.IsValid)
             {
@@ -198,6 +195,7 @@ namespace OnlineShopAdmin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
+            throw new NullReferenceException("testpurpose");
             var customer = await _context.Customers.FindAsync(id);
             _context.Customers.Remove(customer);
             await _context.SaveChangesAsync();

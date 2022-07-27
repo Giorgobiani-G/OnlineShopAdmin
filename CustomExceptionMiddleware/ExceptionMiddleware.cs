@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using OnlineShopAdmin.Models;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Threading.Tasks;
@@ -24,7 +25,13 @@ namespace OnlineShopAdmin.CustomExceptionMiddleware
             }
             catch (Exception ex)
             {
-                File.AppendAllText("Exceptions.txt",$"Excepton message: {ex.Message} {Environment.NewLine}ExceptonType: " +
+                var values = ((object[])httpContext.Request.RouteValues.Values);
+                string method = httpContext.Request.Method;
+                string controller = values[0].ToString();
+                string action = values[1].ToString();
+              
+                File.AppendAllText("Exceptions.txt",$"Exception thrown by controller-{controller} action-{action} method-{method}" +
+                    $"{Environment.NewLine}" + $"Excepton message: {ex.Message} {Environment.NewLine}ExceptonType: " +
                     $"{ex.GetType().FullName} {Environment.NewLine}LogDate: {DateTime.Now}" + 
                     Environment.NewLine + "---------" + Environment.NewLine);
                 await HandleExceptionAsync(httpContext, ex);

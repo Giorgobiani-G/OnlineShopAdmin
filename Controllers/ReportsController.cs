@@ -10,6 +10,7 @@ using OnlineShopAdmin.Filters;
 
 namespace OnlineShopAdmin.Controllers
 {
+    [HttpRequestInfo]
     public class ReportsController : Controller
     {
         private readonly AdventureWorksLT2019Context _context;

@@ -1,9 +1,15 @@
-﻿Excepton message: Object reference not set to an instance of an object. 
+﻿Exception thrown by controller-Customers action-Delete method-POST
+Excepton message: testpurpose 
 ExceptonType: System.NullReferenceException 
-Path: / 
- LogDate: 25.07.2022 23:03:29
+LogDate: 27.07.2022 21:14:36
 ---------
-Excepton message: Object reference not set to an instance of an object. 
+Exception thrown by controller-Customers action-Delete method-POST
+Excepton message: testpurpose 
 ExceptonType: System.NullReferenceException 
-LogDate: 25.07.2022 23:06:46
+LogDate: 27.07.2022 21:15:14
+---------
+Exception thrown by controller-Customers action-Delete method-POST
+Excepton message: testpurpose 
+ExceptonType: System.NullReferenceException 
+LogDate: 27.07.2022 21:15:37
 ---------
