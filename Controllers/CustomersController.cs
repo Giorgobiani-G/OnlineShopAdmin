@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using OnlineShopAdmin.DataAccess.DbContexts;
 using OnlineShopAdmin.DataAccess.Models;
+using OnlineShopAdmin.DataAccess.Repository;
 using OnlineShopAdmin.Filters;
 
 namespace OnlineShopAdmin.Controllers
@@ -17,28 +18,25 @@ namespace OnlineShopAdmin.Controllers
     public class CustomersController : Controller
     {
         private readonly AdventureWorksLT2019Context _context;
-       
-        public CustomersController(AdventureWorksLT2019Context context)
+        private readonly IRepository<Customer> _customerRepository;
+
+        public CustomersController(AdventureWorksLT2019Context context, IRepository<Customer> customerRepository)
         {
             _context = context;
+            _customerRepository = customerRepository;
         }
 
         // GET: Customers
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Customers.ToListAsync());
+            return View(await _customerRepository.GetListAsync());
         }
 
         // GET: Customers/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details(int id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            var customer = await _customerRepository.GetByIdAsync(id);
 
-            var customer = await _context.Customers
-                .FirstOrDefaultAsync(m => m.CustomerId == id);
             if (customer == null)
             {
                 return NotFound();
@@ -58,42 +56,11 @@ namespace OnlineShopAdmin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CustomerId,NameStyle,Title,FirstName,MiddleName,LastName,Suffix,CompanyName,SalesPerson,EmailAddress,Phone,PasswordHash,PasswordSalt,Rowguid,ModifiedDate")] Customer customer)
+        public async Task<IActionResult> Create(Customer customer)
         {
 
             if (ModelState.IsValid)
             {
-                //HashAlgorithm algorithm = new SHA256Managed();
-
-                //byte[] plainTextWithSaltBytes =
-                //  new byte[customer.PasswordHash.Length + customer.PasswordSalt.Length];
-
-                //for (int i = 0; i < customer.PasswordHash.Length; i++)
-                //{
-                //    plainTextWithSaltBytes[i] = (byte)customer.PasswordHash[i];
-                //}
-                //for (int i = 0; i < customer.PasswordSalt.Length; i++)
-                //{
-                //    plainTextWithSaltBytes[customer.PasswordHash.Length + i] = (byte)customer.PasswordSalt[i];
-                //}
-
-                // var a = algorithm.ComputeHash(plainTextWithSaltBytes);
-
-                //byte[] aa =
-                //  new byte[customer.PasswordSalt.Length];
-                //var b = algorithm.ComputeHash(a);
-                //int nSalt = Convert.ToByte(customer.PasswordSalt.Length);
-
-                //RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider();
-                //byte[] buff = new byte[nSalt];
-                //rng.GetBytes(buff);
-                //customer.PasswordSalt = Convert.ToBase64String(buff);
-
-                //byte[] bytes = Encoding.UTF8.GetBytes(customer.PasswordSalt + customer.PasswordSalt);
-                //SHA256Managed sHA256ManagedString = new SHA256Managed();
-                //byte[] hash = sHA256ManagedString.ComputeHash(bytes);
-                //customer.PasswordHash = Convert.ToBase64String(hash);
-
                 _context.Add(customer);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -123,7 +90,7 @@ namespace OnlineShopAdmin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("CustomerId,NameStyle,Title,FirstName,MiddleName,LastName,Suffix,CompanyName,SalesPerson,EmailAddress,Phone,PasswordHash,PasswordSalt,Rowguid,ModifiedDate")] Customer customer)
+        public async Task<IActionResult> Edit(int id, Customer customer)
         {
             if (id != customer.CustomerId)
             {
@@ -134,27 +101,8 @@ namespace OnlineShopAdmin.Controllers
             {
                 try
                 {
-                    //string passwordchanged = (string)TempData["pa"];
-                    //bool result = string.Equals(passwordchanged, customer.PasswordHash);
-                    
-                    //if (result==false)
-                    //{
-                    //    int nSalt = Convert.ToByte(customer.PasswordSalt.Length);
-
-                    //    RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider();
-                    //    byte[] buff = new byte[nSalt];
-                    //    rng.GetBytes(buff);
-                    //    customer.PasswordSalt = Convert.ToBase64String(buff);
-
-                    //    byte[] bytes = Encoding.UTF8.GetBytes(customer.PasswordSalt + customer.PasswordSalt);
-                    //    SHA256Managed sHA256ManagedString = new SHA256Managed();
-                    //    byte[] hash = sHA256ManagedString.ComputeHash(bytes);
-                    //    customer.PasswordHash = Convert.ToBase64String(hash);
-                    //}
-                   
-
-                    _context.Update(customer);
-                    await _context.SaveChangesAsync();
+                    _customerRepository.UpdateAsynch(customer);
+                     
                 }
                 catch (DbUpdateConcurrencyException)
                 {

@@ -13,3 +13,23 @@ Excepton message: testpurpose
 ExceptonType: System.NullReferenceException 
 LogDate: 27.07.2022 21:15:37
 ---------
+Exception thrown by controller-Customers action-Index method-GET
+Excepton message: Cannot consume scoped service 'OnlineShopAdmin.DataAccess.DbContexts.AdventureWorksLT2019Context' from singleton 'OnlineShopAdmin.DataAccess.Repository.IRepository`1[OnlineShopAdmin.DataAccess.Models.Customer]'. 
+ExceptonType: System.InvalidOperationException 
+LogDate: 02.09.2022 20:58:43
+---------
+Exception thrown by controller-Customers action-Index method-GET
+Excepton message: Cannot consume scoped service 'OnlineShopAdmin.DataAccess.DbContexts.AdventureWorksLT2019Context' from singleton 'OnlineShopAdmin.DataAccess.Repository.IRepository`1[OnlineShopAdmin.DataAccess.Models.Customer]'. 
+ExceptonType: System.InvalidOperationException 
+LogDate: 02.09.2022 20:59:50
+---------
+Exception thrown by controller-Customers action-Index method-GET
+Excepton message: Cannot consume scoped service 'OnlineShopAdmin.DataAccess.DbContexts.AdventureWorksLT2019Context' from singleton 'OnlineShopAdmin.DataAccess.Repository.IRepository`1[OnlineShopAdmin.DataAccess.Models.Customer]'. 
+ExceptonType: System.InvalidOperationException 
+LogDate: 02.09.2022 21:00:25
+---------
+Exception thrown by controller-Customers action-Index method-GET
+Excepton message: Cannot consume scoped service 'OnlineShopAdmin.DataAccess.DbContexts.AdventureWorksLT2019Context' from singleton 'OnlineShopAdmin.DataAccess.Repository.IRepository`1[OnlineShopAdmin.DataAccess.Models.Customer]'. 
+ExceptonType: System.InvalidOperationException 
+LogDate: 02.09.2022 21:01:18
+---------

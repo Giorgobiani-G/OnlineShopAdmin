@@ -9,6 +9,7 @@ using Microsoft.Extensions.Hosting;
 using OnlineShopAdmin.CustomExceptionMiddleware;
 using OnlineShopAdmin.DataAccess;
 using OnlineShopAdmin.DataAccess.DbContexts;
+using OnlineShopAdmin.DataAccess.Repository;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -33,6 +34,7 @@ namespace OnlineShopAdmin
             services.AddScoped<IProductsDA, ProductsDA>();
             string constring = Configuration.GetConnectionString("con");
             services.AddDbContext<AdventureWorksLT2019Context>(x => x.UseSqlServer(constring));
+            services.AddScoped(typeof(IRepository<>),typeof(Repository<>));
             services.AddSingleton<IFileProvider>(
             new PhysicalFileProvider(
                 Path.Combine(Directory.GetCurrentDirectory(), "wwwroot")));
