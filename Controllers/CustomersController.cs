@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Primitives;
 using OnlineShopAdmin.DataAccess.DbContexts;
 using OnlineShopAdmin.DataAccess.Models;
 using OnlineShopAdmin.DataAccess.Repository;
@@ -27,15 +29,15 @@ namespace OnlineShopAdmin.Controllers
         }
 
         // GET: Customers
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(CancellationToken cancellationToken = default)
         {
-            return View(await _customerRepository.GetListAsync());
+            return View(await _customerRepository.GetListAsync(cancellationToken));
         }
 
         // GET: Customers/Details/5
-        public async Task<IActionResult> Details(int id)
+        public async Task<IActionResult> Details(int id,CancellationToken cancellationToken = default)
         {
-            var customer = await _customerRepository.GetByIdAsync(id);
+            var customer = await _customerRepository.GetByIdAsync(id, cancellationToken);
 
             if (customer == null)
             {
@@ -51,32 +53,29 @@ namespace OnlineShopAdmin.Controllers
             return View();
         }
 
-        // POST: Customers/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+       
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Customer customer)
+        public async Task<IActionResult> Create(Customer customer, CancellationToken cancellationToken = default)
         {
 
             if (ModelState.IsValid)
             {
-                _context.Add(customer);
-                await _context.SaveChangesAsync();
+                await _customerRepository.InseretAsynch(customer, cancellationToken);
                 return RedirectToAction(nameof(Index));
             }
             return View(customer);
         }
 
         // GET: Customers/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> Edit(int? id, CancellationToken cancellationToken = default)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var customer = await _context.Customers.FindAsync(id);
+            var customer = await _customerRepository.GetByIdAsync((int)id, cancellationToken);
             if (customer == null)
             {
                 return NotFound();
@@ -85,12 +84,8 @@ namespace OnlineShopAdmin.Controllers
             return View(customer);
         }
 
-        // POST: Customers/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, Customer customer)
+        public async Task<IActionResult> Edit(int id, Customer customer, CancellationToken cancellationToken = default)
         {
             if (id != customer.CustomerId)
             {
@@ -101,13 +96,13 @@ namespace OnlineShopAdmin.Controllers
             {
                 try
                 {
-                    _customerRepository.UpdateAsynch(customer);
-                     
+                    await _customerRepository.UpdateAsynch(customer, cancellationToken);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!CustomerExists(customer.CustomerId))
+                    if (!await _customerRepository.CustomerExists(customer.CustomerId))
                     {
+                        
                         return NotFound();
                     }
                     else
@@ -121,15 +116,10 @@ namespace OnlineShopAdmin.Controllers
         }
 
         // GET: Customers/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public async Task<IActionResult> Delete(int id, CancellationToken cancellationToken = default)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var customer = await _context.Customers
-                .FirstOrDefaultAsync(m => m.CustomerId == id);
+            var customer = await _customerRepository.GetByIdAsync(id, cancellationToken);
+                
             if (customer == null)
             {
                 return NotFound();
@@ -140,19 +130,10 @@ namespace OnlineShopAdmin.Controllers
 
         // POST: Customers/Delete/5
         [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> DeleteConfirmed(int id, CancellationToken cancellationToken = default)
         {
-            throw new NullReferenceException("testpurpose");
-            var customer = await _context.Customers.FindAsync(id);
-            _context.Customers.Remove(customer);
-            await _context.SaveChangesAsync();
+            await _customerRepository.DeleteAsynch(id, cancellationToken);
             return RedirectToAction(nameof(Index));
-        }
-
-        private bool CustomerExists(int id)
-        {
-            return _context.Customers.Any(e => e.CustomerId == id);
         }
     }
 }
