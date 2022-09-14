@@ -1,42 +1,40 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using OnlineShopAdmin.DataAccess.DbContexts;
 using OnlineShopAdmin.DataAccess.Models;
+using OnlineShopAdmin.DataAccess.Repository;
 using OnlineShopAdmin.Filters;
+using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace OnlineShopAdmin.Controllers
 {
     [HttpRequestInfo]
     public class AddressesController : Controller
     {
-        private readonly AdventureWorksLT2019Context _context;
+        private readonly IRepository<Address> _addressRepository;
 
-        public AddressesController(AdventureWorksLT2019Context context)
+        public AddressesController(IRepository<Address> addressRepository)
         {
-            _context = context;
+            _addressRepository = addressRepository;
         }
 
         // GET: Addresses
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(CancellationToken cancellationToken = default)
         {
-            return View(await _context.Addresses.ToListAsync());
+            return View(await _addressRepository.GetListAsync(cancellationToken));
         }
 
         // GET: Addresses/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details(int? id, CancellationToken cancellationToken = default)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var address = await _context.Addresses
-                .FirstOrDefaultAsync(m => m.AddressId == id);
+            var address = await _addressRepository.GetByIdAsync((int)id, cancellationToken);
             if (address == null)
             {
                 return NotFound();
@@ -56,26 +54,25 @@ namespace OnlineShopAdmin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("AddressId,AddressLine1,AddressLine2,City,StateProvince,CountryRegion,PostalCode,Rowguid,ModifiedDate")] Address address)
+        public async Task<IActionResult> Create(Address address, CancellationToken cancellationToken = default)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(address);
-                await _context.SaveChangesAsync();
+                await _addressRepository.InseretAsynch(address, cancellationToken);
                 return RedirectToAction(nameof(Index));
             }
             return View(address);
         }
 
         // GET: Addresses/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> Edit(int? id, CancellationToken cancellationToken = default)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var address = await _context.Addresses.FindAsync(id);
+            var address = await _addressRepository.GetByIdAsync((int)id, cancellationToken);
             if (address == null)
             {
                 return NotFound();
@@ -88,7 +85,7 @@ namespace OnlineShopAdmin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("AddressId,AddressLine1,AddressLine2,City,StateProvince,CountryRegion,PostalCode,Rowguid,ModifiedDate")] Address address)
+        public async Task<IActionResult> Edit(int id, Address address, CancellationToken cancellationToken = default)
         {
             if (id != address.AddressId)
             {
@@ -99,12 +96,11 @@ namespace OnlineShopAdmin.Controllers
             {
                 try
                 {
-                    _context.Update(address);
-                    await _context.SaveChangesAsync();
+                    await _addressRepository.UpdateAsynch(address, cancellationToken);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!AddressExists(address.AddressId))
+                    if (!await _addressRepository.CustomExists(address.AddressId))
                     {
                         return NotFound();
                     }
@@ -119,15 +115,14 @@ namespace OnlineShopAdmin.Controllers
         }
 
         // GET: Addresses/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public async Task<IActionResult> Delete(int? id, CancellationToken cancellationToken = default)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var address = await _context.Addresses
-                .FirstOrDefaultAsync(m => m.AddressId == id);
+            var address = await _addressRepository.GetByIdAsync((int)id, cancellationToken);
             if (address == null)
             {
                 return NotFound();
@@ -139,17 +134,10 @@ namespace OnlineShopAdmin.Controllers
         // POST: Addresses/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> DeleteConfirmed(int id, CancellationToken cancellationToken = default)
         {
-            var address = await _context.Addresses.FindAsync(id);
-            _context.Addresses.Remove(address);
-            await _context.SaveChangesAsync();
+            await _addressRepository.DeleteAsynch(id, cancellationToken);
             return RedirectToAction(nameof(Index));
-        }
-
-        private bool AddressExists(int id)
-        {
-            return _context.Addresses.Any(e => e.AddressId == id);
         }
     }
 }

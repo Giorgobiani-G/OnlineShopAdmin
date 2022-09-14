@@ -19,12 +19,10 @@ namespace OnlineShopAdmin.Controllers
     [HttpRequestInfo]
     public class CustomersController : Controller
     {
-        private readonly AdventureWorksLT2019Context _context;
         private readonly IRepository<Customer> _customerRepository;
 
-        public CustomersController(AdventureWorksLT2019Context context, IRepository<Customer> customerRepository)
+        public CustomersController(IRepository<Customer> customerRepository)
         {
-            _context = context;
             _customerRepository = customerRepository;
         }
 
@@ -58,7 +56,6 @@ namespace OnlineShopAdmin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Customer customer, CancellationToken cancellationToken = default)
         {
-
             if (ModelState.IsValid)
             {
                 await _customerRepository.InseretAsynch(customer, cancellationToken);
@@ -100,7 +97,7 @@ namespace OnlineShopAdmin.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!await _customerRepository.CustomerExists(customer.CustomerId))
+                    if (!await _customerRepository.CustomExists(customer.CustomerId))
                     {
                         
                         return NotFound();

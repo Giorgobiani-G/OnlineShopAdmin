@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using OnlineShopAdmin.DataAccess.DbContexts;
 using OnlineShopAdmin.DataAccess.Models;
+using OnlineShopAdmin.DataAccess.Repository;
 using OnlineShopAdmin.Filters;
 
 namespace OnlineShopAdmin.Controllers
@@ -15,10 +16,13 @@ namespace OnlineShopAdmin.Controllers
     public class ProductCategoriesController : Controller
     {
         private readonly AdventureWorksLT2019Context _context;
+        private readonly IRepository<ProductCategory> _productCategoryRepository;
 
-        public ProductCategoriesController(AdventureWorksLT2019Context context)
+
+        public ProductCategoriesController(AdventureWorksLT2019Context context, IRepository<ProductCategory> productCategoryRepository)
         {
             _context = context;
+            _productCategoryRepository = productCategoryRepository;
         }
 
         // GET: ProductCategories
