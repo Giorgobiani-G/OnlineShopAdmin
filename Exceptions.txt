@@ -203,3 +203,138 @@ Excepton message: Exception of type 'Microsoft.EntityFrameworkCore.DbUpdateConcu
 ExceptonType: Microsoft.EntityFrameworkCore.DbUpdateConcurrencyException 
 LogDate: 14.09.2022 20:27:04
 ---------
+Exception thrown by controller-ProductCategories action-Details method-GET
+Excepton message: Exception has been thrown by the target of an invocation. 
+ExceptonType: System.Reflection.TargetInvocationException 
+LogDate: 16.09.2022 19:19:58
+---------
+Exception thrown by controller-ProductCategories action-Details method-GET
+Excepton message: Exception has been thrown by the target of an invocation. 
+ExceptonType: System.Reflection.TargetInvocationException 
+LogDate: 16.09.2022 19:22:50
+---------
+Exception thrown by controller-ProductCategories action-Details method-GET
+Excepton message: Exception has been thrown by the target of an invocation. 
+ExceptonType: System.Reflection.TargetInvocationException 
+LogDate: 16.09.2022 19:30:30
+---------
+Exception thrown by controller-ProductCategories action-Details method-GET
+Excepton message: Object does not match target type. 
+ExceptonType: System.Reflection.TargetException 
+LogDate: 16.09.2022 20:02:22
+---------
+Exception thrown by controller-ProductCategories action-Details method-GET
+Excepton message: Object does not match target type. 
+ExceptonType: System.Reflection.TargetException 
+LogDate: 16.09.2022 20:41:52
+---------
+Exception thrown by controller-ProductCategories action-Details method-GET
+Excepton message: Object does not match target type. 
+ExceptonType: System.Reflection.TargetException 
+LogDate: 16.09.2022 20:47:36
+---------
+Exception thrown by controller-ProductCategories action-Details method-GET
+Excepton message: Unable to cast object of type 'OnlineShopAdmin.DataAccess.Models.ProductCategory' to type 'System.Linq.IQueryable`1[OnlineShopAdmin.DataAccess.Models.ProductCategory]'. 
+ExceptonType: System.InvalidCastException 
+LogDate: 16.09.2022 20:52:50
+---------
+Exception thrown by controller-ProductCategories action-Details method-GET
+Excepton message: Object does not match target type. 
+ExceptonType: System.Reflection.TargetException 
+LogDate: 16.09.2022 22:32:34
+---------
+Exception thrown by controller-ProductCategories action-Details method-GET
+Excepton message: Object does not match target type. 
+ExceptonType: System.Reflection.TargetException 
+LogDate: 16.09.2022 22:47:54
+---------
+Exception thrown by controller-ProductCategories action-Details method-GET
+Excepton message: Instance property '8' is not defined for type 'OnlineShopAdmin.DataAccess.Models.ProductCategory' (Parameter 'propertyName') 
+ExceptonType: System.ArgumentException 
+LogDate: 16.09.2022 22:49:37
+---------
+Exception thrown by controller-ProductCategories action-Details method-GET
+Excepton message: Instance property '9' is not defined for type 'OnlineShopAdmin.DataAccess.Models.ProductCategory' (Parameter 'propertyName') 
+ExceptonType: System.ArgumentException 
+LogDate: 16.09.2022 22:52:38
+---------
+Exception thrown by controller-ProductCategories action-Details method-GET
+Excepton message: ParameterExpression of type 'System.Int32' cannot be used for delegate parameter of type 'OnlineShopAdmin.DataAccess.Models.ProductCategory' 
+ExceptonType: System.ArgumentException 
+LogDate: 16.09.2022 23:05:51
+---------
+Exception thrown by controller-ProductCategories action-Details method-GET
+Excepton message: ParameterExpression of type 'System.Int32' cannot be used for delegate parameter of type 'OnlineShopAdmin.DataAccess.Models.ProductCategory' 
+ExceptonType: System.ArgumentException 
+LogDate: 16.09.2022 23:08:11
+---------
+Exception thrown by controller-ProductCategories action-Details method-GET
+Excepton message: ParameterExpression of type 'System.Int32' cannot be used for delegate parameter of type 'OnlineShopAdmin.DataAccess.Models.ProductCategory' 
+ExceptonType: System.ArgumentException 
+LogDate: 18.09.2022 17:27:34
+---------
+Exception thrown by controller-ProductCategories action-Details method-GET
+Excepton message: ParameterExpression of type 'System.Int32' cannot be used for delegate parameter of type 'OnlineShopAdmin.DataAccess.Models.ProductCategory' 
+ExceptonType: System.ArgumentException 
+LogDate: 18.09.2022 17:30:37
+---------
+Exception thrown by controller-ProductCategories action-Details method-GET
+Excepton message: ParameterExpression of type 'System.Int32' cannot be used for delegate parameter of type 'OnlineShopAdmin.DataAccess.Models.ProductCategory' 
+ExceptonType: System.ArgumentException 
+LogDate: 18.09.2022 17:41:14
+---------
+Exception thrown by controller-ProductCategories action-Details method-GET
+Excepton message: The LINQ expression 'Id' could not be translated. Either rewrite the query in a form that can be translated, or switch to client evaluation explicitly by inserting a call to 'AsEnumerable', 'AsAsyncEnumerable', 'ToList', or 'ToListAsync'. See https://go.microsoft.com/fwlink/?linkid=2101038 for more information. 
+ExceptonType: System.InvalidOperationException 
+LogDate: 18.09.2022 17:47:24
+---------
+Exception thrown by controller-ProductCategories action-Details method-GET
+Excepton message: The LINQ expression 'Id' could not be translated. Either rewrite the query in a form that can be translated, or switch to client evaluation explicitly by inserting a call to 'AsEnumerable', 'AsAsyncEnumerable', 'ToList', or 'ToListAsync'. See https://go.microsoft.com/fwlink/?linkid=2101038 for more information. 
+ExceptonType: System.InvalidOperationException 
+LogDate: 18.09.2022 18:10:05
+---------
+Exception thrown by controller-ProductCategories action-Details method-GET
+Excepton message: The LINQ expression 'id' could not be translated. Either rewrite the query in a form that can be translated, or switch to client evaluation explicitly by inserting a call to 'AsEnumerable', 'AsAsyncEnumerable', 'ToList', or 'ToListAsync'. See https://go.microsoft.com/fwlink/?linkid=2101038 for more information. 
+ExceptonType: System.InvalidOperationException 
+LogDate: 18.09.2022 18:24:10
+---------
+Exception thrown by controller-ProductCategories action-Details method-GET
+Excepton message: Instance property 'id' is not defined for type 'OnlineShopAdmin.DataAccess.Models.ProductCategory' (Parameter 'propertyName') 
+ExceptonType: System.ArgumentException 
+LogDate: 18.09.2022 18:47:42
+---------
+Exception thrown by controller-ProductCategories action-Details method-GET
+Excepton message: Instance property 'id' is not defined for type 'OnlineShopAdmin.DataAccess.Models.ProductCategory' (Parameter 'propertyName') 
+ExceptonType: System.ArgumentException 
+LogDate: 18.09.2022 18:49:01
+---------
+Exception thrown by controller-ProductCategories action-Details method-GET
+Excepton message: The LINQ expression 'id' could not be translated. Either rewrite the query in a form that can be translated, or switch to client evaluation explicitly by inserting a call to 'AsEnumerable', 'AsAsyncEnumerable', 'ToList', or 'ToListAsync'. See https://go.microsoft.com/fwlink/?linkid=2101038 for more information. 
+ExceptonType: System.InvalidOperationException 
+LogDate: 18.09.2022 18:52:44
+---------
+Exception thrown by controller-ProductCategories action-Details method-GET
+Excepton message: Incorrect number of parameters supplied for lambda declaration 
+ExceptonType: System.ArgumentException 
+LogDate: 18.09.2022 19:16:27
+---------
+Exception thrown by controller-ProductCategories action-Details method-GET
+Excepton message: Incorrect number of parameters supplied for lambda declaration 
+ExceptonType: System.ArgumentException 
+LogDate: 18.09.2022 19:16:50
+---------
+Exception thrown by controller-ProductCategories action-Details method-GET
+Excepton message: Incorrect number of parameters supplied for lambda declaration 
+ExceptonType: System.ArgumentException 
+LogDate: 18.09.2022 19:25:52
+---------
+Exception thrown by controller-ProductCategories action-Details method-GET
+Excepton message: The LINQ expression 'id' could not be translated. Either rewrite the query in a form that can be translated, or switch to client evaluation explicitly by inserting a call to 'AsEnumerable', 'AsAsyncEnumerable', 'ToList', or 'ToListAsync'. See https://go.microsoft.com/fwlink/?linkid=2101038 for more information. 
+ExceptonType: System.InvalidOperationException 
+LogDate: 18.09.2022 19:35:33
+---------
+Exception thrown by controller-ProductCategories action-Details method-GET
+Excepton message: Incorrect number of parameters supplied for lambda declaration 
+ExceptonType: System.ArgumentException 
+LogDate: 18.09.2022 19:54:17
+---------
