@@ -38,9 +38,6 @@ namespace OnlineShopAdmin.Controllers
             }
             var productCategory = await _productCategoryRepository.GetByIdAsync((int)id, cancellationToken, new string[] { "ParentProductCategory" });
 
-            //var productCategory = await _context.ProductCategories
-            //    .Include(p => p.ParentProductCategory)
-            //    .FirstOrDefaultAsync(m => m.ProductCategoryId == id);
             if (productCategory == null)
             {
                 return NotFound();
@@ -50,7 +47,7 @@ namespace OnlineShopAdmin.Controllers
         }
 
         // GET: ProductCategories/Create
-        public IActionResult Create(CancellationToken cancellationToken = default)
+        public IActionResult Create()
         {
             ViewData["ParentProductCategoryId"] = new SelectList(_productCategoryRepository.GetList(), "ProductCategoryId", "Name");
             return View();

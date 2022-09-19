@@ -1,46 +1,48 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using OnlineShopAdmin.DataAccess.DbContexts;
 using OnlineShopAdmin.DataAccess.Models;
+using OnlineShopAdmin.DataAccess.Repository;
 using OnlineShopAdmin.Filters;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace OnlineShopAdmin.Controllers
 {
     [HttpRequestInfo]
     public class SalesOrderHeadersController : Controller
     {
-        private readonly AdventureWorksLT2019Context _context;
+        private readonly IRepository<SalesOrderHeader> _salesOrderHeaderRepository;
+        private readonly IRepository<Customer> _customerRepository;
+        private readonly IRepository<Address> _addressRepository;
 
-        public SalesOrderHeadersController(AdventureWorksLT2019Context context)
+        public SalesOrderHeadersController(IRepository<SalesOrderHeader> salesOrderHeaderRepository,
+                                           IRepository<Customer> customerRepository,
+                                           IRepository<Address> addressRepository)
         {
-            _context = context;
+            _salesOrderHeaderRepository = salesOrderHeaderRepository;
+            _customerRepository = customerRepository;
+            _addressRepository = addressRepository;
         }
 
         // GET: SalesOrderHeaders
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(CancellationToken cancellationToken = default)
         {
-            var adventureWorksLT2019Context = _context.SalesOrderHeaders.Include(s => s.BillToAddress).Include(s => s.Customer).Include(s => s.ShipToAddress);
-            return View(await adventureWorksLT2019Context.ToListAsync());
+            var adventureWorksLT2019Context = await _salesOrderHeaderRepository.GetListAsync(cancellationToken, new string[] { "BillToAddress", "Customer", "ShipToAddress" });
+            return View(adventureWorksLT2019Context);
         }
 
         // GET: SalesOrderHeaders/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details(int? id, CancellationToken cancellationToken = default)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var salesOrderHeader = await _context.SalesOrderHeaders
-                .Include(s => s.BillToAddress)
-                .Include(s => s.Customer)
-                .Include(s => s.ShipToAddress)
-                .FirstOrDefaultAsync(m => m.SalesOrderId == id);
+            var salesOrderHeader = await _salesOrderHeaderRepository.GetByIdAsync((int)id, cancellationToken, new string[] { "BillToAddress", "Customer", "ShipToAddress" });
+
             if (salesOrderHeader == null)
             {
                 return NotFound();
@@ -52,56 +54,49 @@ namespace OnlineShopAdmin.Controllers
         // GET: SalesOrderHeaders/Create
         public IActionResult Create()
         {
-            ViewData["BillToAddressId"] = new SelectList(_context.Addresses, "AddressId", "AddressLine1");
-            ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "FirstName");
-            ViewData["ShipToAddressId"] = new SelectList(_context.Addresses, "AddressId", "AddressLine1");
+            ViewData["BillToAddressId"] = new SelectList(_addressRepository.GetList(), "AddressId", "AddressLine1");
+            ViewData["CustomerId"] = new SelectList(_customerRepository.GetList(), "CustomerId", "FirstName");
+            ViewData["ShipToAddressId"] = new SelectList(_addressRepository.GetList(), "AddressId", "AddressLine1");
             return View();
         }
 
-        // POST: SalesOrderHeaders/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("SalesOrderId,RevisionNumber,OrderDate,DueDate,ShipDate,Status,OnlineOrderFlag,SalesOrderNumber,PurchaseOrderNumber,AccountNumber,CustomerId,ShipToAddressId,BillToAddressId,ShipMethod,CreditCardApprovalCode,SubTotal,TaxAmt,Freight,TotalDue,Comment,Rowguid,ModifiedDate")] SalesOrderHeader salesOrderHeader)
+        public async Task<IActionResult> Create(SalesOrderHeader salesOrderHeader, CancellationToken cancellationToken = default)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(salesOrderHeader);
-                await _context.SaveChangesAsync();
+                await _salesOrderHeaderRepository.InseretAsynch(salesOrderHeader, cancellationToken);
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["BillToAddressId"] = new SelectList(_context.Addresses, "AddressId", "AddressLine1", salesOrderHeader.BillToAddressId);
-            ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "FirstName", salesOrderHeader.CustomerId);
-            ViewData["ShipToAddressId"] = new SelectList(_context.Addresses, "AddressId", "AddressLine1", salesOrderHeader.ShipToAddressId);
+            ViewData["BillToAddressId"] = new SelectList(_addressRepository.GetList(), "AddressId", "AddressLine1", salesOrderHeader.BillToAddressId);
+            ViewData["CustomerId"] = new SelectList(_customerRepository.GetList(), "CustomerId", "FirstName", salesOrderHeader.CustomerId);
+            ViewData["ShipToAddressId"] = new SelectList(_addressRepository.GetList(), "AddressId", "AddressLine1", salesOrderHeader.ShipToAddressId);
             return View(salesOrderHeader);
         }
 
         // GET: SalesOrderHeaders/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> Edit(int? id, CancellationToken cancellationToken = default)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var salesOrderHeader = await _context.SalesOrderHeaders.FindAsync(id);
+            var salesOrderHeader = await _salesOrderHeaderRepository.GetByIdAsync((int)id, cancellationToken);
             if (salesOrderHeader == null)
             {
                 return NotFound();
             }
-            ViewData["BillToAddressId"] = new SelectList(_context.Addresses, "AddressId", "AddressLine1", salesOrderHeader.BillToAddressId);
-            ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "FirstName", salesOrderHeader.CustomerId);
-            ViewData["ShipToAddressId"] = new SelectList(_context.Addresses, "AddressId", "AddressLine1", salesOrderHeader.ShipToAddressId);
+            ViewData["BillToAddressId"] = new SelectList(_addressRepository.GetList(), "AddressId", "AddressLine1", salesOrderHeader.BillToAddressId);
+            ViewData["CustomerId"] = new SelectList(_customerRepository.GetList(), "CustomerId", "FirstName", salesOrderHeader.CustomerId);
+            ViewData["ShipToAddressId"] = new SelectList(_addressRepository.GetList(), "AddressId", "AddressLine1", salesOrderHeader.ShipToAddressId);
             return View(salesOrderHeader);
         }
 
-        // POST: SalesOrderHeaders/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("SalesOrderId,RevisionNumber,OrderDate,DueDate,ShipDate,Status,OnlineOrderFlag,SalesOrderNumber,PurchaseOrderNumber,AccountNumber,CustomerId,ShipToAddressId,BillToAddressId,ShipMethod,CreditCardApprovalCode,SubTotal,TaxAmt,Freight,TotalDue,Comment,Rowguid,ModifiedDate")] SalesOrderHeader salesOrderHeader)
+        public async Task<IActionResult> Edit(int id, SalesOrderHeader salesOrderHeader, CancellationToken cancellationToken = default)
         {
             if (id != salesOrderHeader.SalesOrderId)
             {
@@ -112,12 +107,11 @@ namespace OnlineShopAdmin.Controllers
             {
                 try
                 {
-                    _context.Update(salesOrderHeader);
-                    await _context.SaveChangesAsync();
+                    await _salesOrderHeaderRepository.UpdateAsynch(salesOrderHeader, cancellationToken);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!SalesOrderHeaderExists(salesOrderHeader.SalesOrderId))
+                    if (!await _salesOrderHeaderRepository.CustomExists(salesOrderHeader.SalesOrderId))
                     {
                         return NotFound();
                     }
@@ -128,25 +122,22 @@ namespace OnlineShopAdmin.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["BillToAddressId"] = new SelectList(_context.Addresses, "AddressId", "AddressLine1", salesOrderHeader.BillToAddressId);
-            ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "FirstName", salesOrderHeader.CustomerId);
-            ViewData["ShipToAddressId"] = new SelectList(_context.Addresses, "AddressId", "AddressLine1", salesOrderHeader.ShipToAddressId);
+            ViewData["BillToAddressId"] = new SelectList(_addressRepository.GetList(), "AddressId", "AddressLine1", salesOrderHeader.BillToAddressId);
+            ViewData["CustomerId"] = new SelectList(_customerRepository.GetList(), "CustomerId", "FirstName", salesOrderHeader.CustomerId);
+            ViewData["ShipToAddressId"] = new SelectList(_addressRepository.GetList(), "AddressId", "AddressLine1", salesOrderHeader.ShipToAddressId);
             return View(salesOrderHeader);
         }
 
         // GET: SalesOrderHeaders/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public async Task<IActionResult> Delete(int? id, CancellationToken cancellationToken = default)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var salesOrderHeader = await _context.SalesOrderHeaders
-                .Include(s => s.BillToAddress)
-                .Include(s => s.Customer)
-                .Include(s => s.ShipToAddress)
-                .FirstOrDefaultAsync(m => m.SalesOrderId == id);
+            var salesOrderHeader = await _salesOrderHeaderRepository.GetByIdAsync((int)id, cancellationToken, new string[] { "BillToAddress", "Customer", "ShipToAddress" });
+
             if (salesOrderHeader == null)
             {
                 return NotFound();
@@ -158,17 +149,11 @@ namespace OnlineShopAdmin.Controllers
         // POST: SalesOrderHeaders/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> DeleteConfirmed(int id, CancellationToken cancellationToken = default)
         {
-            var salesOrderHeader = await _context.SalesOrderHeaders.FindAsync(id);
-            _context.SalesOrderHeaders.Remove(salesOrderHeader);
-            await _context.SaveChangesAsync();
+            var salesOrderHeader = await _salesOrderHeaderRepository.GetByIdAsync(id, cancellationToken);
+            await _salesOrderHeaderRepository.DeleteAsynch(salesOrderHeader, cancellationToken);
             return RedirectToAction(nameof(Index));
-        }
-
-        private bool SalesOrderHeaderExists(int id)
-        {
-            return _context.SalesOrderHeaders.Any(e => e.SalesOrderId == id);
         }
     }
 }

@@ -338,3 +338,28 @@ Excepton message: Incorrect number of parameters supplied for lambda declaration
 ExceptonType: System.ArgumentException 
 LogDate: 18.09.2022 19:54:17
 ---------
+Exception thrown by controller-Index action-Products method-GET
+Excepton message: There is already an open DataReader associated with this Connection which must be closed first. 
+ExceptonType: System.InvalidOperationException 
+LogDate: 19.09.2022 18:33:10
+---------
+Exception thrown by controller-Products action-Create method-POST
+Excepton message: An error occurred while saving the entity changes. See the inner exception for details. 
+ExceptonType: Microsoft.EntityFrameworkCore.DbUpdateException 
+LogDate: 19.09.2022 19:43:46
+---------
+Exception thrown by controller-Products action-Create method-POST
+Excepton message: An error occurred while saving the entity changes. See the inner exception for details. 
+ExceptonType: Microsoft.EntityFrameworkCore.DbUpdateException 
+LogDate: 19.09.2022 19:44:21
+---------
+Exception thrown by controller-Products action-Create method-POST
+Excepton message: An error occurred while saving the entity changes. See the inner exception for details. 
+ExceptonType: Microsoft.EntityFrameworkCore.DbUpdateException 
+LogDate: 19.09.2022 19:48:50
+---------
+Exception thrown by controller-Index action-Products method-GET
+Excepton message: A task was canceled. 
+ExceptonType: System.Threading.Tasks.TaskCanceledException 
+LogDate: 19.09.2022 20:29:20
+---------
