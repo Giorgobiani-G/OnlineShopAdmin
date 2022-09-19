@@ -363,3 +363,48 @@ Excepton message: A task was canceled.
 ExceptonType: System.Threading.Tasks.TaskCanceledException 
 LogDate: 19.09.2022 20:29:20
 ---------
+Exception thrown by controller-Index action-Reports method-GET
+Excepton message: Unable to resolve service for type 'OnlineShopAdmin.DataAccess.ReportingDA' while attempting to activate 'OnlineShopAdmin.Controllers.ReportsController'. 
+ExceptonType: System.InvalidOperationException 
+LogDate: 19.09.2022 21:28:34
+---------
+Exception thrown by controller-Index action-Reports method-GET
+Excepton message: Unable to resolve service for type 'OnlineShopAdmin.DataAccess.ReportingDA' while attempting to activate 'OnlineShopAdmin.Controllers.ReportsController'. 
+ExceptonType: System.InvalidOperationException 
+LogDate: 19.09.2022 21:28:40
+---------
+Exception thrown by controller-Index action-Reports method-GET
+Excepton message: Unable to resolve service for type 'OnlineShopAdmin.DataAccess.ReportingDA' while attempting to activate 'OnlineShopAdmin.Controllers.ReportsController'. 
+ExceptonType: System.InvalidOperationException 
+LogDate: 19.09.2022 21:30:33
+---------
+Exception thrown by controller-Index action-Reports method-GET
+Excepton message: Unable to resolve service for type 'OnlineShopAdmin.DataAccess.ReportingDA' while attempting to activate 'OnlineShopAdmin.Controllers.ReportsController'. 
+ExceptonType: System.InvalidOperationException 
+LogDate: 19.09.2022 21:31:11
+---------
+Exception thrown by controller-Index action-Reports method-GET
+Excepton message: Unable to resolve service for type 'OnlineShopAdmin.DataAccess.ReportingDA' while attempting to activate 'OnlineShopAdmin.Controllers.ReportsController'. 
+ExceptonType: System.InvalidOperationException 
+LogDate: 19.09.2022 21:31:16
+---------
+Exception thrown by controller-Index action-Reports method-GET
+Excepton message: Unable to resolve service for type 'OnlineShopAdmin.DataAccess.ReportingDA' while attempting to activate 'OnlineShopAdmin.Controllers.ReportsController'. 
+ExceptonType: System.InvalidOperationException 
+LogDate: 19.09.2022 21:31:26
+---------
+Exception thrown by controller-Index action-Reports method-GET
+Excepton message: Unable to resolve service for type 'OnlineShopAdmin.DataAccess.ReportingDA' while attempting to activate 'OnlineShopAdmin.Controllers.ReportsController'. 
+ExceptonType: System.InvalidOperationException 
+LogDate: 19.09.2022 21:34:17
+---------
+Exception thrown by controller-Reports action-YearAndMonth method-GET
+Excepton message: The model item passed into the ViewDataDictionary is of type 'System.Collections.Generic.List`1[OnlineShopAdmin.DataAccess.ReportingDA+YearAndMonthViewModel]', but this ViewDataDictionary instance requires a model item of type 'System.Collections.Generic.IEnumerable`1[OnlineShopAdmin.Models.YearAndMonthViewModel]'. 
+ExceptonType: System.InvalidOperationException 
+LogDate: 19.09.2022 22:10:32
+---------
+Exception thrown by controller-Index action-Products method-GET
+Excepton message: A task was canceled. 
+ExceptonType: System.Threading.Tasks.TaskCanceledException 
+LogDate: 19.09.2022 23:55:27
+---------

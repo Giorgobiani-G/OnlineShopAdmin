@@ -34,6 +34,7 @@ namespace OnlineShopAdmin
             string constring = Configuration.GetConnectionString("con");
             services.AddDbContext<AdventureWorksLT2019Context>(x => x.UseSqlServer(constring));
             services.AddScoped(typeof(IRepository<>),typeof(Repository<>));
+            services.AddScoped<ReportingDA>();
             services.AddSingleton<IFileProvider>(
             new PhysicalFileProvider(
                 Path.Combine(Directory.GetCurrentDirectory(), "wwwroot")));
