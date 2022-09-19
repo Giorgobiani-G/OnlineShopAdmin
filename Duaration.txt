@@ -34,3 +34,4 @@ Products: 143ms Date: 19.09.2022 23:58:26
 ProductCateGories: 114ms Date: 19.09.2022 23:58:27
 City: 19ms Date: 19.09.2022 23:58:30
 CustomersAndYears: 37ms Date: 19.09.2022 23:58:32
+ProductCateGories: 573ms Date: 20.09.2022 00:01:51

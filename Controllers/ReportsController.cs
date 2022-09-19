@@ -17,11 +17,9 @@ namespace OnlineShopAdmin.Controllers
     [HttpRequestInfo]
     public class ReportsController : Controller
     {
-        private readonly AdventureWorksLT2019Context _context;
         private readonly ReportingDA _reportingDA;
-        public ReportsController(AdventureWorksLT2019Context context, ReportingDA reportingDA)
+        public ReportsController(ReportingDA reportingDA)
         {
-            _context = context;
             _reportingDA = reportingDA;
         }
 
