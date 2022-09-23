@@ -1,1 +1,1 @@
-Before Run the Project Restore (download separately before) Database Backup (DBAdvanture2019_22.09.22.bak File)  on Sql Server.
+Before Run the Project download Database Backup File - DBAdvanture2019_22.09.22.bak and Restore the Database.
