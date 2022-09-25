@@ -83,7 +83,7 @@ namespace OnlineShopAdmin.Controllers
 
                     using (var stream = new FileStream(path, FileMode.Create))
                     {
-                        await product.Photo.CopyToAsync(stream);
+                        await product.Photo.CopyToAsync(stream,cancellationToken);
                     }
                     product.ThumbnailPhotoFileName = UniequeFileName;
                 }
