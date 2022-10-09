@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -10,6 +8,7 @@ namespace OnlineShopAdmin.DataAccess.Repository
     public interface IRepository<T> where T : class
     {
         Task<IEnumerable<T>> GetListAsync(CancellationToken cancellationToken, string[] includeProperties = null);
+        Task<Tuple<IEnumerable<T>, Pager>> GetListAsync(int pageSize, CancellationToken cancellationToken, int pg, string[] includeProperties = null);
         IEnumerable<T> GetList();
         Task<T> GetByIdAsync(int id, CancellationToken cancellationToken, string[] includeProperties = null);
         Task InseretAsynch(T entity, CancellationToken cancellationToken);

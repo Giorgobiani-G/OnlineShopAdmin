@@ -1,17 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using OnlineShopAdmin.DataAccess.DbContexts;
 using OnlineShopAdmin.DataAccess.Models;
 using OnlineShopAdmin.DataAccess.Repository;
 using OnlineShopAdmin.Filters;
+using System;
+using System.IO;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace OnlineShopAdmin.Controllers
 {
@@ -32,15 +28,20 @@ namespace OnlineShopAdmin.Controllers
         }
 
         // GET: Products
-        public async Task<IActionResult> Index(CancellationToken cancellationToken = default)
+        public async Task<IActionResult> Index(int pg, int pageSize = 20, CancellationToken cancellationToken = default)
         {
-            var adventureWorksLT2019Context = await _productsRepository.GetListAsync(cancellationToken, new string[] { "ProductCategory", "ProductModel", "SalesOrderDetails" });
-            return View(adventureWorksLT2019Context);
+
+            var adventureWorksLT2019Context = await _productsRepository.GetListAsync(pageSize, cancellationToken, pg, new string[] { "ProductCategory", "ProductModel", "SalesOrderDetails" });
+            ViewBag.Pager = adventureWorksLT2019Context.Item2;
+            TempData["page"] = pg;
+            return View(adventureWorksLT2019Context.Item1);
         }
 
         // GET: Products/Details/5
-        public async Task<IActionResult> Details(int? id, CancellationToken cancellationToken = default)
+        public async Task<IActionResult> Details(int? id, int pg, CancellationToken cancellationToken = default)
         {
+            TempData["page"] = pg;
+
             if (id == null)
             {
                 return NotFound();
@@ -83,7 +84,7 @@ namespace OnlineShopAdmin.Controllers
 
                     using (var stream = new FileStream(path, FileMode.Create))
                     {
-                        await product.Photo.CopyToAsync(stream,cancellationToken);
+                        await product.Photo.CopyToAsync(stream, cancellationToken);
                     }
                     product.ThumbnailPhotoFileName = UniequeFileName;
                 }
@@ -96,8 +97,10 @@ namespace OnlineShopAdmin.Controllers
         }
 
         // GET: Products/Edit/5
-        public async Task<IActionResult> Edit(int? id, CancellationToken cancellationToken = default)
+        public async Task<IActionResult> Edit(int? id, int pg, CancellationToken cancellationToken = default)
         {
+            TempData["page"] = pg;
+
             if (id == null)
             {
                 return NotFound();
@@ -118,7 +121,7 @@ namespace OnlineShopAdmin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id,Product product, CancellationToken cancellationToken = default)
+        public async Task<IActionResult> Edit(int id, Product product, int pg, CancellationToken cancellationToken = default)
         {
             if (id != product.ProductId)
             {
@@ -162,7 +165,7 @@ namespace OnlineShopAdmin.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Index), new { pg });
             }
             ViewData["ProductCategoryId"] = new SelectList(_productsCategoryRepository.GetList(), "ProductCategoryId", "Name", product.ProductCategoryId);
             ViewData["ProductModelId"] = new SelectList(_productsModelRepository.GetList(), "ProductModelId", "Name", product.ProductModelId);
@@ -170,8 +173,10 @@ namespace OnlineShopAdmin.Controllers
         }
 
         // GET: Products/Delete/5
-        public async Task<IActionResult> Delete(int? id, CancellationToken cancellationToken = default)
+        public async Task<IActionResult> Delete(int? id, int pg, CancellationToken cancellationToken = default)
         {
+            TempData["page"] = pg;
+
             if (id == null)
             {
                 return NotFound();
@@ -190,10 +195,10 @@ namespace OnlineShopAdmin.Controllers
         // POST: Products/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id, CancellationToken cancellationToken = default)
+        public async Task<IActionResult> DeleteConfirmed(int id, int pg, CancellationToken cancellationToken = default)
         {
             //unit of work is needed here
-            var product = await _productsRepository.GetByIdAsync(id,cancellationToken);
+            var product = await _productsRepository.GetByIdAsync(id, cancellationToken);
             if (product.ThumbnailPhotoFileName is not null)
             {
                 FileInfo file = new FileInfo(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "Images", product.ThumbnailPhotoFileName));
@@ -201,7 +206,7 @@ namespace OnlineShopAdmin.Controllers
             }
 
             await _productsRepository.DeleteAsynch(product, cancellationToken);
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(Index), new { pg });
         }
     }
 }

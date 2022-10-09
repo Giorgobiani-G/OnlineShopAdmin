@@ -363,3 +363,78 @@ Excepton message: A task was canceled.
 ExceptonType: System.Threading.Tasks.TaskCanceledException 
 LogDate: 19.09.2022 23:55:27
 ---------
+Exception thrown by controller-Index action-Products method-GET
+Excepton message: Attempted to divide by zero. 
+ExceptonType: System.DivideByZeroException 
+LogDate: 07.10.2022 22:36:28
+---------
+Exception thrown by controller-Index action-Products method-GET
+Excepton message: A task was canceled. 
+ExceptonType: System.Threading.Tasks.TaskCanceledException 
+LogDate: 07.10.2022 22:43:44
+---------
+Exception thrown by controller-Index action-Products method-GET
+Excepton message: A second operation was started on this context instance before a previous operation completed. This is usually caused by different threads concurrently using the same instance of DbContext. For more information on how to avoid threading issues with DbContext, see https://go.microsoft.com/fwlink/?linkid=2097913. 
+ExceptonType: System.InvalidOperationException 
+LogDate: 07.10.2022 22:43:44
+---------
+Exception thrown by controller-Index action-Products method-GET
+Excepton message: The model item passed into the ViewDataDictionary is of type 'System.Tuple`2[System.Collections.Generic.IEnumerable`1[OnlineShopAdmin.DataAccess.Models.Product],OnlineShopAdmin.DataAccess.Repository.Pager]', but this ViewDataDictionary instance requires a model item of type 'System.Collections.Generic.IEnumerable`1[OnlineShopAdmin.DataAccess.Models.Product]'. 
+ExceptonType: System.InvalidOperationException 
+LogDate: 09.10.2022 18:30:58
+---------
+Exception thrown by controller-Products action-Delete method-POST
+Excepton message: An error occurred while saving the entity changes. See the inner exception for details. 
+ExceptonType: Microsoft.EntityFrameworkCore.DbUpdateException 
+LogDate: 09.10.2022 19:42:32
+---------
+Exception thrown by controller-Products action-Delete method-POST
+Excepton message: An error occurred while saving the entity changes. See the inner exception for details. 
+ExceptonType: Microsoft.EntityFrameworkCore.DbUpdateException 
+LogDate: 09.10.2022 20:17:56
+---------
+Exception thrown by controller-Products action-Delete method-POST
+Excepton message: An error occurred while saving the entity changes. See the inner exception for details. 
+ExceptonType: Microsoft.EntityFrameworkCore.DbUpdateException 
+LogDate: 09.10.2022 20:19:59
+---------
+Exception thrown by controller-Products action-Delete method-POST
+Excepton message: An error occurred while saving the entity changes. See the inner exception for details. 
+ExceptonType: Microsoft.EntityFrameworkCore.DbUpdateException 
+LogDate: 09.10.2022 20:22:54
+---------
+Exception thrown by controller-Products action-Delete method-POST
+Excepton message: An error occurred while saving the entity changes. See the inner exception for details. 
+ExceptonType: Microsoft.EntityFrameworkCore.DbUpdateException 
+LogDate: 09.10.2022 20:29:01
+---------
+Exception thrown by controller-Products action-Delete method-POST
+Excepton message: An error occurred while saving the entity changes. See the inner exception for details. 
+ExceptonType: Microsoft.EntityFrameworkCore.DbUpdateException 
+LogDate: 09.10.2022 20:29:14
+---------
+Exception thrown by controller-Products action-Delete method-POST
+Excepton message: An error occurred while saving the entity changes. See the inner exception for details. 
+ExceptonType: Microsoft.EntityFrameworkCore.DbUpdateException 
+LogDate: 09.10.2022 20:32:48
+---------
+Exception thrown by controller-Products action-Delete method-POST
+Excepton message: An error occurred while saving the entity changes. See the inner exception for details. 
+ExceptonType: Microsoft.EntityFrameworkCore.DbUpdateException 
+LogDate: 09.10.2022 20:38:25
+---------
+Exception thrown by controller-Products action-Delete method-POST
+Excepton message: An error occurred while saving the entity changes. See the inner exception for details. 
+ExceptonType: Microsoft.EntityFrameworkCore.DbUpdateException 
+LogDate: 09.10.2022 20:39:02
+---------
+Exception thrown by controller-Products action-Delete method-POST
+Excepton message: An error occurred while saving the entity changes. See the inner exception for details. 
+ExceptonType: Microsoft.EntityFrameworkCore.DbUpdateException 
+LogDate: 09.10.2022 20:57:20
+---------
+Exception thrown by controller-Products action-Delete method-POST
+Excepton message: An error occurred while saving the entity changes. See the inner exception for details. 
+ExceptonType: Microsoft.EntityFrameworkCore.DbUpdateException 
+LogDate: 09.10.2022 20:58:45
+---------

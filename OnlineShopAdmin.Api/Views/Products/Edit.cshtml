@@ -107,15 +107,15 @@
                    
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Save" class="btn btn-primary" asp-route-pg=@TempData["page"] />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Delete" asp-route-id="@Model.ProductId">Delete</a> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Delete" asp-route-id="@Model.ProductId" asp-route-pg=@TempData["page"]>Delete</a> |
+    <a asp-action="Index" asp-route-pg=@TempData["page"]>Back to List</a>
 </div>
 
 @section scripts{  
