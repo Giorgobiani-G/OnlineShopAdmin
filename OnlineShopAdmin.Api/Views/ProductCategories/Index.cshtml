@@ -1,7 +1,15 @@
-﻿@model IEnumerable<OnlineShopAdmin.DataAccess.Models.ProductCategory>
+﻿@using OnlineShopAdmin.DataAccess.Repository
+@model IEnumerable<OnlineShopAdmin.DataAccess.Models.ProductCategory>
 
 @{
     ViewData["Title"] = "Index";
+    Pager pager = new Pager();
+    int pageNo = 0;
+    if (ViewBag.Pager != null)
+    {
+        pager = ViewBag.Pager;
+        pageNo = pager.CurrentPage;
+    }
 }
 
 <h1>ProductCategories</h1>
@@ -48,11 +56,44 @@
                 @Html.DisplayFor(modelItem => item.ParentProductCategory.Name)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.ProductCategoryId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ProductCategoryId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ProductCategoryId">Delete</a>
+                    <a asp-action="Edit" asp-route-id="@item.ProductCategoryId" asp-route-pg="@TempData["page"]">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.ProductCategoryId" asp-route-pg="@TempData["page"]">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.ProductCategoryId" asp-route-pg="@TempData["page"]">Delete</a>
             </td>
         </tr>
 }
     </tbody>
 </table>
+
+<div class="container">
+    @if (pager.TotalPages > 0)
+    {
+        <ul class="pagination justify-content-end">
+
+            @if (pager.CurrentPage > 1)
+            {
+                <li class="page-item">
+                    <a class="page-link" asp-controller="ProductCategories" asp-action="Index" asp-route-pg="1">First</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" asp-controller="ProductCategories" asp-action="Index" asp-route-pg="@(pager.CurrentPage-1)">Previous</a>
+                </li>
+            }
+            @for (var pge = pager.StartPage; pge <= pager.EndPage; pge++)
+            {
+                <li class="page-item @(pge==pager.CurrentPage ? "active" : "")">
+                    <a class="page-link" asp-controller="ProductCategories" asp-action="Index" asp-route-pg="@pge">@pge</a>
+                </li>
+            }
+            @if (pager.CurrentPage < pager.TotalPages)
+            {
+                <li class="page-item">
+                    <a class="page-link" asp-controller="ProductCategories" asp-action="Index" asp-route-pg="@(pager.CurrentPage+1)">Next</a>
+                </li>
+                <li>
+                    <a class="page-link" asp-controller="ProProductCategoriesducts" asp-action="Index" asp-route-pg="@(pager.TotalPages)">Last</a>
+                </li>
+            }
+        </ul>
+    }
+</div>

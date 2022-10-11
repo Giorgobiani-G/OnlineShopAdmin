@@ -20,7 +20,7 @@ namespace OnlineShopAdmin.DataAccess.Repository
             _table = context.Set<T>();
         }
 
-        public async Task<T> GetByIdAsync(int id, CancellationToken cancellationToken, string[] includeProperties)
+        public async Task<T> GetByIdAsync(int id, string[] includeProperties, CancellationToken cancellationToken = default)
         {
             if (includeProperties is not null)
             {
@@ -44,7 +44,7 @@ namespace OnlineShopAdmin.DataAccess.Repository
             return await _table.FindAsync(new object[] { id }, cancellationToken);
         }
 
-        public async Task<IEnumerable<T>> GetListAsync(CancellationToken cancellationToken, string[] includeProperties)
+        public async Task<IEnumerable<T>> GetListAsync(string[] includeProperties, CancellationToken cancellationToken = default)
         {
             if (includeProperties is not null)
             {
@@ -59,26 +59,26 @@ namespace OnlineShopAdmin.DataAccess.Repository
             return await _table.ToListAsync(cancellationToken);
         }
 
-        public async Task InseretAsynch(T entity, CancellationToken cancellationToken)
+        public async Task InseretAsynch(T entity, CancellationToken cancellationToken = default)
         {
             await _table.AddAsync(entity, cancellationToken);
             await SaveAsynch(cancellationToken);
         }
 
-        public async Task UpdateAsynch(T entity, CancellationToken cancellationToken)
+        public async Task UpdateAsynch(T entity, CancellationToken cancellationToken = default)
         {
             _table.Update(entity);
             await SaveAsynch(cancellationToken);
         }
 
-        public async Task DeleteAsynch(int id, CancellationToken cancellationToken)
+        public async Task DeleteAsynch(int id, CancellationToken cancellationToken = default)
         {
             T TypeTobeDeleted = _table.Find(id);
             _table.Remove(TypeTobeDeleted);
             await SaveAsynch(cancellationToken);
         }
 
-        public async Task DeleteAsynch(T entity, CancellationToken cancellationToken)
+        public async Task DeleteAsynch(T entity, CancellationToken cancellationToken = default)
         {
             _table.Remove(entity);
             await SaveAsynch(cancellationToken);
@@ -107,12 +107,15 @@ namespace OnlineShopAdmin.DataAccess.Repository
             return _table.ToList();
         }
 
-        public async Task<Tuple<IEnumerable<T>, Pager>> GetListAsync(int pageSize, CancellationToken cancellationToken, int pg = 1, string[] includeProperties = null)
+        public async Task<(IEnumerable<T> list, Pager pageDetails)> GetListAsync(int pg = 1, int pageSize = 20, string[] includeProperties = null, CancellationToken cancellationToken = default)
         {
             var benefCount = _table.AsQueryable().Count();
 
             if (pg < 1)
                 pg = 1;
+
+            if (pageSize < 1)
+                pageSize = 20;
 
             var pager = new Pager(benefCount, pg, pageSize);
 
@@ -129,11 +132,11 @@ namespace OnlineShopAdmin.DataAccess.Repository
 
                 var res = await query.Skip(benfSkip).Take(pager.PageSize).ToListAsync(cancellationToken);
 
-                return new Tuple<IEnumerable<T>, Pager>(res, pager);
+                return (list: res, pageDetails: pager);
             }
             var result = await _table.Skip(benfSkip).Take(pager.PageSize).ToListAsync(cancellationToken);
 
-            return new Tuple<IEnumerable<T>, Pager>(result, pager);
+            return (list: result, pageDetails: pager);
         }
     }
 

@@ -21,7 +21,7 @@ namespace OnlineShopAdmin.DataAccess
 
         public async Task<IEnumerable<Address>> Index(CancellationToken cancellationToken = default)
         {
-            var result = await _addressRepository.GetListAsync(cancellationToken);
+            var result = await _addressRepository.GetListAsync(cancellationToken:cancellationToken);
             return result ;
         }
     }

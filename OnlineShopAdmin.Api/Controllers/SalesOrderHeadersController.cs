@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using OnlineShopAdmin.DataAccess.DbContexts;
 using OnlineShopAdmin.DataAccess.Models;
 using OnlineShopAdmin.DataAccess.Repository;
 using OnlineShopAdmin.Filters;
@@ -27,21 +26,25 @@ namespace OnlineShopAdmin.Controllers
         }
 
         // GET: SalesOrderHeaders
-        public async Task<IActionResult> Index(CancellationToken cancellationToken = default)
+        public async Task<IActionResult> Index(int pg, int pageSize, CancellationToken cancellationToken = default)
         {
-            var adventureWorksLT2019Context = await _salesOrderHeaderRepository.GetListAsync(cancellationToken, new string[] { "BillToAddress", "Customer", "ShipToAddress" });
-            return View(adventureWorksLT2019Context);
+            var (list, pagerDetails) = await _salesOrderHeaderRepository.GetListAsync(pg, pageSize, new string[] { "BillToAddress", "Customer", "ShipToAddress" }, cancellationToken);
+            ViewBag.Pager = pagerDetails;
+            TempData["page"] = pg;
+            return View(list);
         }
 
         // GET: SalesOrderHeaders/Details/5
-        public async Task<IActionResult> Details(int? id, CancellationToken cancellationToken = default)
+        public async Task<IActionResult> Details(int? id, int pg, CancellationToken cancellationToken = default)
         {
+            TempData["page"] = pg;
+
             if (id == null)
             {
                 return NotFound();
             }
 
-            var salesOrderHeader = await _salesOrderHeaderRepository.GetByIdAsync((int)id, cancellationToken, new string[] { "BillToAddress", "Customer", "ShipToAddress" });
+            var salesOrderHeader = await _salesOrderHeaderRepository.GetByIdAsync((int)id, new string[] { "BillToAddress", "Customer", "ShipToAddress" }, cancellationToken);
 
             if (salesOrderHeader == null)
             {
@@ -76,14 +79,16 @@ namespace OnlineShopAdmin.Controllers
         }
 
         // GET: SalesOrderHeaders/Edit/5
-        public async Task<IActionResult> Edit(int? id, CancellationToken cancellationToken = default)
+        public async Task<IActionResult> Edit(int? id, int pg, CancellationToken cancellationToken = default)
         {
+            TempData["page"] = pg;
+
             if (id == null)
             {
                 return NotFound();
             }
 
-            var salesOrderHeader = await _salesOrderHeaderRepository.GetByIdAsync((int)id, cancellationToken);
+            var salesOrderHeader = await _salesOrderHeaderRepository.GetByIdAsync((int)id, cancellationToken: cancellationToken);
             if (salesOrderHeader == null)
             {
                 return NotFound();
@@ -96,7 +101,7 @@ namespace OnlineShopAdmin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, SalesOrderHeader salesOrderHeader, CancellationToken cancellationToken = default)
+        public async Task<IActionResult> Edit(int id, SalesOrderHeader salesOrderHeader, int pg, CancellationToken cancellationToken = default)
         {
             if (id != salesOrderHeader.SalesOrderId)
             {
@@ -120,7 +125,7 @@ namespace OnlineShopAdmin.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Index), new { pg });
             }
             ViewData["BillToAddressId"] = new SelectList(_addressRepository.GetList(), "AddressId", "AddressLine1", salesOrderHeader.BillToAddressId);
             ViewData["CustomerId"] = new SelectList(_customerRepository.GetList(), "CustomerId", "FirstName", salesOrderHeader.CustomerId);
@@ -129,14 +134,16 @@ namespace OnlineShopAdmin.Controllers
         }
 
         // GET: SalesOrderHeaders/Delete/5
-        public async Task<IActionResult> Delete(int? id, CancellationToken cancellationToken = default)
+        public async Task<IActionResult> Delete(int? id, int pg, CancellationToken cancellationToken = default)
         {
+            TempData["page"] = pg;
+
             if (id == null)
             {
                 return NotFound();
             }
 
-            var salesOrderHeader = await _salesOrderHeaderRepository.GetByIdAsync((int)id, cancellationToken, new string[] { "BillToAddress", "Customer", "ShipToAddress" });
+            var salesOrderHeader = await _salesOrderHeaderRepository.GetByIdAsync((int)id, new string[] { "BillToAddress", "Customer", "ShipToAddress" }, cancellationToken);
 
             if (salesOrderHeader == null)
             {
@@ -149,11 +156,11 @@ namespace OnlineShopAdmin.Controllers
         // POST: SalesOrderHeaders/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id, CancellationToken cancellationToken = default)
+        public async Task<IActionResult> DeleteConfirmed(int id, int pg, CancellationToken cancellationToken = default)
         {
-            var salesOrderHeader = await _salesOrderHeaderRepository.GetByIdAsync(id, cancellationToken);
+            var salesOrderHeader = await _salesOrderHeaderRepository.GetByIdAsync(id, cancellationToken: cancellationToken);
             await _salesOrderHeaderRepository.DeleteAsynch(salesOrderHeader, cancellationToken);
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(Index), new { pg });
         }
     }
 }

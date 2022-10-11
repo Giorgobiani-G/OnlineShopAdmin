@@ -139,7 +139,7 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.SalesOrderId">Edit</a> |
-     <a asp-action="Delete" asp-route-id="@Model.SalesOrderId">Delete</a> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Edit" asp-route-id="@Model.SalesOrderId" asp-route-pg="@TempData["page"]">Edit</a> |
+    <a asp-action="Delete" asp-route-id="@Model.SalesOrderId" asp-route-pg="@TempData["page"]">Delete</a> |
+    <a asp-action="Index" asp-route-pg="@TempData["page"]">Back to List</a>
 </div>

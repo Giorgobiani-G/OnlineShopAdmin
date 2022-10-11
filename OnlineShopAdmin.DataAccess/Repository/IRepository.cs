@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -7,15 +6,15 @@ namespace OnlineShopAdmin.DataAccess.Repository
 {
     public interface IRepository<T> where T : class
     {
-        Task<IEnumerable<T>> GetListAsync(CancellationToken cancellationToken, string[] includeProperties = null);
-        Task<Tuple<IEnumerable<T>, Pager>> GetListAsync(int pageSize, CancellationToken cancellationToken, int pg, string[] includeProperties = null);
+        Task<IEnumerable<T>> GetListAsync(string[] includeProperties = null, CancellationToken cancellationToken = default);
+        Task<(IEnumerable<T> list, Pager pageDetails)> GetListAsync(int pg, int pageSize, string[] includeProperties = null, CancellationToken cancellationToken = default);
         IEnumerable<T> GetList();
-        Task<T> GetByIdAsync(int id, CancellationToken cancellationToken, string[] includeProperties = null);
-        Task InseretAsynch(T entity, CancellationToken cancellationToken);
-        Task UpdateAsynch(T entity, CancellationToken cancellationToken);
-        Task DeleteAsynch(int id, CancellationToken cancellationToken);
-        Task DeleteAsynch(T entity, CancellationToken cancellationToken);
-        Task SaveAsynch(CancellationToken cancellationToken);
+        Task<T> GetByIdAsync(int id, string[] includeProperties = null, CancellationToken cancellationToken = default);
+        Task InseretAsynch(T entity, CancellationToken cancellationToken = default);
+        Task UpdateAsynch(T entity, CancellationToken cancellationToken = default);
+        Task DeleteAsynch(int id, CancellationToken cancellationToken = default);
+        Task DeleteAsynch(T entity, CancellationToken cancellationToken = default);
+        Task SaveAsynch(CancellationToken cancellationToken = default);
         Task<bool> CustomExists(int id);
     }
 }
