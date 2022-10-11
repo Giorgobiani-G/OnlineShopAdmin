@@ -28,13 +28,13 @@ namespace OnlineShopAdmin.Controllers
         }
 
         // GET: Products
-        public async Task<IActionResult> Index(int pg, int pageSize = 20, CancellationToken cancellationToken = default)
+        public async Task<IActionResult> Index(int pg, int pageSize, CancellationToken cancellationToken = default)
         {
 
-            var adventureWorksLT2019Context = await _productsRepository.GetListAsync(pageSize, cancellationToken, pg, new string[] { "ProductCategory", "ProductModel", "SalesOrderDetails" });
-            ViewBag.Pager = adventureWorksLT2019Context.Item2;
+            var (list, pagerDetails) = await _productsRepository.GetListAsync(pg, pageSize, new string[] { "ProductCategory", "ProductModel", "SalesOrderDetails" }, cancellationToken);
+            ViewBag.Pager = pagerDetails;
             TempData["page"] = pg;
-            return View(adventureWorksLT2019Context.Item1);
+            return View(list);
         }
 
         // GET: Products/Details/5
@@ -47,7 +47,7 @@ namespace OnlineShopAdmin.Controllers
                 return NotFound();
             }
 
-            var product = await _productsRepository.GetByIdAsync((int)id, cancellationToken, new string[] { "ProductCategory", "ProductModel" });
+            var product = await _productsRepository.GetByIdAsync((int)id, new string[] { "ProductCategory", "ProductModel" }, cancellationToken);
 
             if (product == null)
             {
@@ -106,7 +106,7 @@ namespace OnlineShopAdmin.Controllers
                 return NotFound();
             }
 
-            var product = await _productsRepository.GetByIdAsync((int)id, cancellationToken);
+            var product = await _productsRepository.GetByIdAsync((int)id, cancellationToken: cancellationToken);
             if (product == null)
             {
                 return NotFound();
@@ -182,7 +182,7 @@ namespace OnlineShopAdmin.Controllers
                 return NotFound();
             }
 
-            var product = await _productsRepository.GetByIdAsync((int)id, cancellationToken, new string[] { "ProductCategory", "ProductModel" });
+            var product = await _productsRepository.GetByIdAsync((int)id, new string[] { "ProductCategory", "ProductModel" }, cancellationToken);
 
             if (product == null)
             {
@@ -198,7 +198,7 @@ namespace OnlineShopAdmin.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id, int pg, CancellationToken cancellationToken = default)
         {
             //unit of work is needed here
-            var product = await _productsRepository.GetByIdAsync(id, cancellationToken);
+            var product = await _productsRepository.GetByIdAsync(id, cancellationToken: cancellationToken);
             if (product.ThumbnailPhotoFileName is not null)
             {
                 FileInfo file = new FileInfo(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "Images", product.ThumbnailPhotoFileName));

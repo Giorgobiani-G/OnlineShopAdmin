@@ -141,10 +141,10 @@
     
     <form asp-action="Delete">
         <input type="hidden" asp-for="SalesOrderId" />
-        <input type="submit" value="Delete" class="btn btn-danger" />
+        <input type="submit" value="Delete" class="btn btn-danger" asp-route-pg="@TempData["page"]" />
     </form>
     <br />
 
-    <a asp-action="Edit" asp-route-id="@Model.SalesOrderId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Edit" asp-route-id="@Model.SalesOrderId" asp-route-pg="@TempData["page"]">Edit</a> |
+    <a asp-action="Index" asp-route-pg="@TempData["page"]">Back to List</a>
 </div>

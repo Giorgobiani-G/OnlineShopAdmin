@@ -1,10 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using OnlineShopAdmin.DataAccess.DbContexts;
 using OnlineShopAdmin.DataAccess.Models;
 using OnlineShopAdmin.DataAccess.Repository;
 using OnlineShopAdmin.Filters;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -23,7 +21,7 @@ namespace OnlineShopAdmin.Controllers
         // GET: Addresses
         public async Task<IActionResult> Index(CancellationToken cancellationToken = default)
         {
-            return View(await _addressRepository.GetListAsync(cancellationToken));
+            return View(await _addressRepository.GetListAsync(cancellationToken: cancellationToken));
         }
 
         // GET: Addresses/Details/5
@@ -34,7 +32,7 @@ namespace OnlineShopAdmin.Controllers
                 return NotFound();
             }
 
-            var address = await _addressRepository.GetByIdAsync((int)id, cancellationToken);
+            var address = await _addressRepository.GetByIdAsync((int)id, cancellationToken: cancellationToken);
             if (address == null)
             {
                 return NotFound();
@@ -49,7 +47,7 @@ namespace OnlineShopAdmin.Controllers
             return View();
         }
 
-     
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Address address, CancellationToken cancellationToken = default)
@@ -70,7 +68,7 @@ namespace OnlineShopAdmin.Controllers
                 return NotFound();
             }
 
-            var address = await _addressRepository.GetByIdAsync((int)id, cancellationToken);
+            var address = await _addressRepository.GetByIdAsync((int)id, cancellationToken: cancellationToken);
             if (address == null)
             {
                 return NotFound();
@@ -78,7 +76,7 @@ namespace OnlineShopAdmin.Controllers
             return View(address);
         }
 
-        
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, Address address, CancellationToken cancellationToken = default)
@@ -118,7 +116,7 @@ namespace OnlineShopAdmin.Controllers
                 return NotFound();
             }
 
-            var address = await _addressRepository.GetByIdAsync((int)id, cancellationToken);
+            var address = await _addressRepository.GetByIdAsync((int)id, cancellationToken: cancellationToken);
             if (address == null)
             {
                 return NotFound();
