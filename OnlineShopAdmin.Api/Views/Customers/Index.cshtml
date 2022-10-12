@@ -1,23 +1,16 @@
-﻿@using OnlineShopAdmin.DataAccess.Repository
-@model IEnumerable<OnlineShopAdmin.DataAccess.Models.Customer>
-
-@{
-    ViewData["Title"] = "Index";
-    Pager pager = new Pager();
-    int pageNo = 0;
-    if (ViewBag.Pager != null)
-    {
-        pager = ViewBag.Pager;
-        pageNo = pager.CurrentPage;
-    }
-}
+﻿@model IEnumerable<Customer>
 
 <h1>Customers</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-<table class="table table-striped table-hover">
+
+@*<p>
+    <input class="form-control col-2" id="searchbox" placeholder="searchbox" type="text">
+</p>*@
+
+<table class="table table-striped table-hover" id="table">
     <thead>
         <tr>
             @*<th>
@@ -65,7 +58,7 @@
             <th></th>
         </tr>
     </thead>
-    <tbody>
+    <tbody id="tbbody">
 @foreach (var item in Model) {
         <tr>
             @*<td>
@@ -120,35 +113,6 @@
     </tbody>
 </table>
 
-<div class="container">
-    @if (pager.TotalPages > 0)
-    {
-        <ul class="pagination justify-content-end">
+<partial name="_Paging"  />
 
-            @if (pager.CurrentPage > 1)
-            {
-                <li class="page-item">
-                    <a class="page-link" asp-controller="Customers" asp-action="Index" asp-route-pg="1">First</a>
-                </li>
-                <li class="page-item">
-                    <a class="page-link" asp-controller="Customers" asp-action="Index" asp-route-pg="@(pager.CurrentPage-1)">Previous</a>
-                </li>
-            }
-            @for (var pge = pager.StartPage; pge <= pager.EndPage; pge++)
-            {
-                <li class="page-item @(pge==pager.CurrentPage ? "active" : "")">
-                    <a class="page-link" asp-controller="Customers" asp-action="Index" asp-route-pg="@pge">@pge</a>
-                </li>
-            }
-            @if (pager.CurrentPage < pager.TotalPages)
-            {
-                <li class="page-item">
-                    <a class="page-link" asp-controller="Customers" asp-action="Index" asp-route-pg="@(pager.CurrentPage+1)">Next</a>
-                </li>
-                <li>
-                    <a class="page-link" asp-controller="Customers" asp-action="Index" asp-route-pg="@(pager.TotalPages)">Last</a>
-                </li>
-            }
-        </ul>
-    }
-</div>
+@*<script src="~/js/Search.js"></script>*@
