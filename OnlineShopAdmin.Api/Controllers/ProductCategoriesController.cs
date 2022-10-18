@@ -22,9 +22,9 @@ namespace OnlineShopAdmin.Controllers
         }
 
         // GET: ProductCategories
-        public async Task<IActionResult> Index(int pg, int pageSize, CancellationToken cancellationToken = default)
+        public async Task<IActionResult> Index(int pg, int pageSize, string search, CancellationToken cancellationToken = default)
         {
-            var (list, pagerDetails) = await _productCategoryRepository.GetListAsync(pg, pageSize, new string[] { "ParentProductCategory", "Products" }, cancellationToken);
+            var (list, pagerDetails) = await _productCategoryRepository.GetListAsync(pg, pageSize, search, new string[] { "ParentProductCategory", "Products" }, cancellationToken);
             ViewBag.Pager = pagerDetails;
             TempData["page"] = pg;
             return View(list);

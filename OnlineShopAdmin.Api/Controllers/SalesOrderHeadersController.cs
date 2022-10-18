@@ -26,9 +26,9 @@ namespace OnlineShopAdmin.Controllers
         }
 
         // GET: SalesOrderHeaders
-        public async Task<IActionResult> Index(int pg, int pageSize, CancellationToken cancellationToken = default)
+        public async Task<IActionResult> Index(int pg, int pageSize, string search, CancellationToken cancellationToken = default)
         {
-            var (list, pagerDetails) = await _salesOrderHeaderRepository.GetListAsync(pg, pageSize, new string[] { "BillToAddress", "Customer", "ShipToAddress" }, cancellationToken);
+            var (list, pagerDetails) = await _salesOrderHeaderRepository.GetListAsync(pg, pageSize, search, new string[] { "BillToAddress", "Customer", "ShipToAddress" }, cancellationToken);
             ViewBag.Pager = pagerDetails;
             TempData["page"] = pg;
             return View(list);

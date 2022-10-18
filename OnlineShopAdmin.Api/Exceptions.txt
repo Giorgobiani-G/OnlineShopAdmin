@@ -438,3 +438,23 @@ Excepton message: An error occurred while saving the entity changes. See the inn
 ExceptonType: Microsoft.EntityFrameworkCore.DbUpdateException 
 LogDate: 09.10.2022 20:58:45
 ---------
+Exception thrown by controller-Customers action-Index method-GET
+Excepton message: The binary operator Equal is not defined for the types 'System.Int32' and 'System.String'. 
+ExceptonType: System.InvalidOperationException 
+LogDate: 13.10.2022 14:23:57
+---------
+Exception thrown by controller-Customers action-Index method-GET
+Excepton message: The binary operator Equal is not defined for the types 'System.Int32' and 'System.String'. 
+ExceptonType: System.InvalidOperationException 
+LogDate: 13.10.2022 14:24:02
+---------
+Exception thrown by controller-Customers action-Index method-GET
+Excepton message: The binary operator Equal is not defined for the types 'System.Int32' and 'System.String'. 
+ExceptonType: System.InvalidOperationException 
+LogDate: 13.10.2022 15:15:17
+---------
+Exception thrown by controller-Customers action-Index method-GET
+Excepton message: The binary operator Equal is not defined for the types 'System.Int32' and 'System.String'. 
+ExceptonType: System.InvalidOperationException 
+LogDate: 13.10.2022 19:01:53
+---------
