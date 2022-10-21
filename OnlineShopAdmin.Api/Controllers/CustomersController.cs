@@ -1,8 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using OnlineShopAdmin.DataAccess.Models;
 using OnlineShopAdmin.DataAccess.Repository;
 using OnlineShopAdmin.Filters;
+using System;
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -23,9 +26,30 @@ namespace OnlineShopAdmin.Controllers
         {
             var (list, pagerDetails) = await _customerRepository.GetListAsync(pg, pageSize, search, cancellationToken: cancellationToken);
             ViewBag.Pager = pagerDetails;
+            ViewBag.PageSizes = GetPageSizes(pageSize);   
             TempData["page"] = pg;
-            ViewData["CurrentFilter"] = search;
+            TempData["CurrentFilter"] = search;
+            TempData["pageSize"] = pageSize;
             return View(list);
+        }
+
+        private List<SelectListItem> GetPageSizes(int selectedPageSize)
+        {
+            var pageSizes = new List<SelectListItem>();
+
+            for (int i = 10; i <= 50; i += 10)
+            {
+                if (i == selectedPageSize)
+                {
+                    pageSizes.Add(new SelectListItem(i.ToString(), i.ToString(), true));
+                }
+                else
+                {
+                    pageSizes.Add(new SelectListItem(i.ToString(), i.ToString()));
+                }
+            }
+
+            return pageSizes;
         }
 
         // GET: Customers/Details/5

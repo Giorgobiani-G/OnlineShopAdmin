@@ -1,460 +1,75 @@
-﻿Exception thrown by controller-Customers action-Edit method-POST
-Excepton message: No database provider has been configured for this DbContext. A provider can be configured by overriding the 'DbContext.OnConfiguring' method or by using 'AddDbContext' on the application service provider. If 'AddDbContext' is used, then also ensure that your DbContext type accepts a DbContextOptions<TContext> object in its constructor and passes it to the base constructor for DbContext. 
+﻿Exception thrown by controller-Customers action-Index method-GET
+Excepton message: The model item passed into the ViewDataDictionary is of type 'System.Collections.Generic.List`1[OnlineShopAdmin.DataAccess.Models.Customer]', but this ViewDataDictionary instance requires a model item of type 'OnlineShopAdmin.DataAccess.Repository.Pager'. 
 ExceptonType: System.InvalidOperationException 
-LogDate: 06.09.2022 18:17:00
----------
-Exception thrown by controller-Customers action-Create method-POST
-Excepton message: An error occurred while saving the entity changes. See the inner exception for details. 
-ExceptonType: Microsoft.EntityFrameworkCore.DbUpdateException 
-LogDate: 06.09.2022 18:20:40
----------
-Exception thrown by controller-Customers action-Edit method-POST
-Excepton message: No database provider has been configured for this DbContext. A provider can be configured by overriding the 'DbContext.OnConfiguring' method or by using 'AddDbContext' on the application service provider. If 'AddDbContext' is used, then also ensure that your DbContext type accepts a DbContextOptions<TContext> object in its constructor and passes it to the base constructor for DbContext. 
-ExceptonType: System.InvalidOperationException 
-LogDate: 06.09.2022 19:35:56
----------
-Exception thrown by controller-Customers action-Details method-GET
-Excepton message: Entity type 'Customer' is defined with a single key property, but 2 values were passed to the 'Find' method. 
-ExceptonType: System.ArgumentException 
-LogDate: 06.09.2022 20:07:49
----------
-Exception thrown by controller-Customers action-Create method-POST
-Excepton message: An error occurred while saving the entity changes. See the inner exception for details. 
-ExceptonType: Microsoft.EntityFrameworkCore.DbUpdateException 
-LogDate: 06.09.2022 23:11:14
----------
-Exception thrown by controller-Customers action-Delete method-GET
-Excepton message: Entity type 'Customer' is defined with a single key property, but 2 values were passed to the 'Find' method. 
-ExceptonType: System.ArgumentException 
-LogDate: 06.09.2022 23:15:26
----------
-Exception thrown by controller-Customers action-Edit method-POST
-Excepton message: Exception of type 'Microsoft.EntityFrameworkCore.DbUpdateConcurrencyException' was thrown. 
-ExceptonType: Microsoft.EntityFrameworkCore.DbUpdateConcurrencyException 
-LogDate: 11.09.2022 20:04:54
----------
-Exception thrown by controller-Customers action-Edit method-POST
-Excepton message: The entity type 'RuntimeType' was not found. Ensure that the entity type has been added to the model. 
-ExceptonType: System.InvalidOperationException 
-LogDate: 11.09.2022 20:10:27
----------
-Exception thrown by controller-Customers action-Edit method-POST
-Excepton message: The entity type 'RuntimeType' was not found. Ensure that the entity type has been added to the model. 
-ExceptonType: System.InvalidOperationException 
-LogDate: 11.09.2022 20:21:40
----------
-Exception thrown by controller-Customers action-Edit method-GET
-Excepton message: A task was canceled. 
-ExceptonType: System.Threading.Tasks.TaskCanceledException 
-LogDate: 11.09.2022 22:05:04
----------
-Exception thrown by controller-Customers action-Edit method-POST
-Excepton message: Object reference not set to an instance of an object. 
-ExceptonType: System.NullReferenceException 
-LogDate: 11.09.2022 22:33:21
----------
-Exception thrown by controller-Customers action-Edit method-POST
-Excepton message: The entity type 'RuntimeType' was not found. Ensure that the entity type has been added to the model. 
-ExceptonType: System.InvalidOperationException 
-LogDate: 11.09.2022 22:53:30
----------
-Exception thrown by controller-Customers action-Edit method-POST
-Excepton message: The entity type 'RuntimeType' was not found. Ensure that the entity type has been added to the model. 
-ExceptonType: System.InvalidOperationException 
-LogDate: 11.09.2022 22:53:46
----------
-Exception thrown by controller-Customers action-Edit method-POST
-Excepton message: The entity type 'RuntimeType' was not found. Ensure that the entity type has been added to the model. 
-ExceptonType: System.InvalidOperationException 
-LogDate: 11.09.2022 22:54:18
----------
-Exception thrown by controller-Customers action-Edit method-POST
-Excepton message: The entity type 'RuntimeType' was not found. Ensure that the entity type has been added to the model. 
-ExceptonType: System.InvalidOperationException 
-LogDate: 11.09.2022 22:54:50
----------
-Exception thrown by controller-Customers action-Edit method-POST
-Excepton message: The entity type 'RuntimeType' was not found. Ensure that the entity type has been added to the model. 
-ExceptonType: System.InvalidOperationException 
-LogDate: 11.09.2022 22:55:25
----------
-Exception thrown by controller-Customers action-Edit method-POST
-Excepton message: The entity type 'string' was not found. Ensure that the entity type has been added to the model. 
-ExceptonType: System.InvalidOperationException 
-LogDate: 11.09.2022 23:10:39
----------
-Exception thrown by controller-Customers action-Edit method-POST
-Excepton message: The entity type 'string' was not found. Ensure that the entity type has been added to the model. 
-ExceptonType: System.InvalidOperationException 
-LogDate: 11.09.2022 23:23:03
----------
-Exception thrown by controller-Customers action-Edit method-POST
-Excepton message: Input string was not in a correct format. 
-ExceptonType: System.FormatException 
-LogDate: 12.09.2022 18:50:08
----------
-Exception thrown by controller-Customers action-Edit method-POST
-Excepton message: Method not found: 'System.String Microsoft.EntityFrameworkCore.RelationalKeyExtensions.GetName(Microsoft.EntityFrameworkCore.Metadata.IKey)'. 
-ExceptonType: System.MissingMethodException 
-LogDate: 12.09.2022 19:35:32
----------
-Exception thrown by controller-Customers action-Edit method-POST
-Excepton message: Method not found: 'System.String Microsoft.EntityFrameworkCore.RelationalKeyExtensions.GetName(Microsoft.EntityFrameworkCore.Metadata.IKey)'. 
-ExceptonType: System.MissingMethodException 
-LogDate: 12.09.2022 19:35:41
----------
-Exception thrown by controller-Customers action-Edit method-POST
-Excepton message: Method not found: 'System.String Microsoft.EntityFrameworkCore.RelationalKeyExtensions.GetName(Microsoft.EntityFrameworkCore.Metadata.IKey)'. 
-ExceptonType: System.MissingMethodException 
-LogDate: 12.09.2022 19:56:05
----------
-Exception thrown by controller-Customers action-Edit method-POST
-Excepton message: Method not found: 'System.String Microsoft.EntityFrameworkCore.RelationalKeyExtensions.GetName(Microsoft.EntityFrameworkCore.Metadata.IKey)'. 
-ExceptonType: System.MissingMethodException 
-LogDate: 12.09.2022 19:56:25
----------
-Exception thrown by controller-Customers action-Edit method-POST
-Excepton message: Method not found: 'System.String Microsoft.EntityFrameworkCore.RelationalKeyExtensions.GetName(Microsoft.EntityFrameworkCore.Metadata.IKey)'. 
-ExceptonType: System.MissingMethodException 
-LogDate: 12.09.2022 19:56:35
----------
-Exception thrown by controller-Customers action-Edit method-POST
-Excepton message: Input string was not in a correct format. 
-ExceptonType: System.FormatException 
-LogDate: 12.09.2022 23:49:09
----------
-Exception thrown by controller-Customers action-Edit method-POST
-Excepton message: Method not found: 'System.String Microsoft.EntityFrameworkCore.Metadata.IPropertyBase.get_Name()'. 
-ExceptonType: System.MissingMethodException 
-LogDate: 13.09.2022 00:08:55
----------
-Exception thrown by controller-Customers action-Edit method-POST
-Excepton message: Input string was not in a correct format. 
-ExceptonType: System.FormatException 
-LogDate: 13.09.2022 00:15:44
----------
-Exception thrown by controller-Customers action-Edit method-POST
-Excepton message: Unable to cast object of type 'ValueCollection[System.String,System.Object]' to type 'System.IConvertible'. 
-ExceptonType: System.InvalidCastException 
-LogDate: 13.09.2022 00:27:45
----------
-Exception thrown by controller-Customers action-Edit method-POST
-Excepton message: Unable to cast object of type 'ValueCollection[System.String,System.Object]' to type 'System.IConvertible'. 
-ExceptonType: System.InvalidCastException 
-LogDate: 13.09.2022 00:28:18
----------
-Exception thrown by controller-Customers action-Edit method-POST
-Excepton message: Unable to cast object of type 'ValueCollection[System.String,System.Object]' to type 'System.IConvertible'. 
-ExceptonType: System.InvalidCastException 
-LogDate: 13.09.2022 00:32:00
----------
-Exception thrown by controller-Customers action-Edit method-POST
-Excepton message: Object does not match target type. 
-ExceptonType: System.Reflection.TargetException 
-LogDate: 13.09.2022 00:39:46
----------
-Exception thrown by controller-Customers action-Edit method-POST
-Excepton message: Exception of type 'Microsoft.EntityFrameworkCore.DbUpdateConcurrencyException' was thrown. 
-ExceptonType: Microsoft.EntityFrameworkCore.DbUpdateConcurrencyException 
-LogDate: 14.09.2022 20:27:04
----------
-Exception thrown by controller-ProductCategories action-Details method-GET
-Excepton message: Exception has been thrown by the target of an invocation. 
-ExceptonType: System.Reflection.TargetInvocationException 
-LogDate: 16.09.2022 19:19:58
----------
-Exception thrown by controller-ProductCategories action-Details method-GET
-Excepton message: Exception has been thrown by the target of an invocation. 
-ExceptonType: System.Reflection.TargetInvocationException 
-LogDate: 16.09.2022 19:22:50
----------
-Exception thrown by controller-ProductCategories action-Details method-GET
-Excepton message: Exception has been thrown by the target of an invocation. 
-ExceptonType: System.Reflection.TargetInvocationException 
-LogDate: 16.09.2022 19:30:30
----------
-Exception thrown by controller-ProductCategories action-Details method-GET
-Excepton message: Object does not match target type. 
-ExceptonType: System.Reflection.TargetException 
-LogDate: 16.09.2022 20:02:22
----------
-Exception thrown by controller-ProductCategories action-Details method-GET
-Excepton message: Object does not match target type. 
-ExceptonType: System.Reflection.TargetException 
-LogDate: 16.09.2022 20:41:52
----------
-Exception thrown by controller-ProductCategories action-Details method-GET
-Excepton message: Object does not match target type. 
-ExceptonType: System.Reflection.TargetException 
-LogDate: 16.09.2022 20:47:36
----------
-Exception thrown by controller-ProductCategories action-Details method-GET
-Excepton message: Unable to cast object of type 'OnlineShopAdmin.DataAccess.Models.ProductCategory' to type 'System.Linq.IQueryable`1[OnlineShopAdmin.DataAccess.Models.ProductCategory]'. 
-ExceptonType: System.InvalidCastException 
-LogDate: 16.09.2022 20:52:50
----------
-Exception thrown by controller-ProductCategories action-Details method-GET
-Excepton message: Object does not match target type. 
-ExceptonType: System.Reflection.TargetException 
-LogDate: 16.09.2022 22:32:34
----------
-Exception thrown by controller-ProductCategories action-Details method-GET
-Excepton message: Object does not match target type. 
-ExceptonType: System.Reflection.TargetException 
-LogDate: 16.09.2022 22:47:54
----------
-Exception thrown by controller-ProductCategories action-Details method-GET
-Excepton message: Instance property '8' is not defined for type 'OnlineShopAdmin.DataAccess.Models.ProductCategory' (Parameter 'propertyName') 
-ExceptonType: System.ArgumentException 
-LogDate: 16.09.2022 22:49:37
----------
-Exception thrown by controller-ProductCategories action-Details method-GET
-Excepton message: Instance property '9' is not defined for type 'OnlineShopAdmin.DataAccess.Models.ProductCategory' (Parameter 'propertyName') 
-ExceptonType: System.ArgumentException 
-LogDate: 16.09.2022 22:52:38
----------
-Exception thrown by controller-ProductCategories action-Details method-GET
-Excepton message: ParameterExpression of type 'System.Int32' cannot be used for delegate parameter of type 'OnlineShopAdmin.DataAccess.Models.ProductCategory' 
-ExceptonType: System.ArgumentException 
-LogDate: 16.09.2022 23:05:51
----------
-Exception thrown by controller-ProductCategories action-Details method-GET
-Excepton message: ParameterExpression of type 'System.Int32' cannot be used for delegate parameter of type 'OnlineShopAdmin.DataAccess.Models.ProductCategory' 
-ExceptonType: System.ArgumentException 
-LogDate: 16.09.2022 23:08:11
----------
-Exception thrown by controller-ProductCategories action-Details method-GET
-Excepton message: ParameterExpression of type 'System.Int32' cannot be used for delegate parameter of type 'OnlineShopAdmin.DataAccess.Models.ProductCategory' 
-ExceptonType: System.ArgumentException 
-LogDate: 18.09.2022 17:27:34
----------
-Exception thrown by controller-ProductCategories action-Details method-GET
-Excepton message: ParameterExpression of type 'System.Int32' cannot be used for delegate parameter of type 'OnlineShopAdmin.DataAccess.Models.ProductCategory' 
-ExceptonType: System.ArgumentException 
-LogDate: 18.09.2022 17:30:37
----------
-Exception thrown by controller-ProductCategories action-Details method-GET
-Excepton message: ParameterExpression of type 'System.Int32' cannot be used for delegate parameter of type 'OnlineShopAdmin.DataAccess.Models.ProductCategory' 
-ExceptonType: System.ArgumentException 
-LogDate: 18.09.2022 17:41:14
----------
-Exception thrown by controller-ProductCategories action-Details method-GET
-Excepton message: The LINQ expression 'Id' could not be translated. Either rewrite the query in a form that can be translated, or switch to client evaluation explicitly by inserting a call to 'AsEnumerable', 'AsAsyncEnumerable', 'ToList', or 'ToListAsync'. See https://go.microsoft.com/fwlink/?linkid=2101038 for more information. 
-ExceptonType: System.InvalidOperationException 
-LogDate: 18.09.2022 17:47:24
----------
-Exception thrown by controller-ProductCategories action-Details method-GET
-Excepton message: The LINQ expression 'Id' could not be translated. Either rewrite the query in a form that can be translated, or switch to client evaluation explicitly by inserting a call to 'AsEnumerable', 'AsAsyncEnumerable', 'ToList', or 'ToListAsync'. See https://go.microsoft.com/fwlink/?linkid=2101038 for more information. 
-ExceptonType: System.InvalidOperationException 
-LogDate: 18.09.2022 18:10:05
----------
-Exception thrown by controller-ProductCategories action-Details method-GET
-Excepton message: The LINQ expression 'id' could not be translated. Either rewrite the query in a form that can be translated, or switch to client evaluation explicitly by inserting a call to 'AsEnumerable', 'AsAsyncEnumerable', 'ToList', or 'ToListAsync'. See https://go.microsoft.com/fwlink/?linkid=2101038 for more information. 
-ExceptonType: System.InvalidOperationException 
-LogDate: 18.09.2022 18:24:10
----------
-Exception thrown by controller-ProductCategories action-Details method-GET
-Excepton message: Instance property 'id' is not defined for type 'OnlineShopAdmin.DataAccess.Models.ProductCategory' (Parameter 'propertyName') 
-ExceptonType: System.ArgumentException 
-LogDate: 18.09.2022 18:47:42
----------
-Exception thrown by controller-ProductCategories action-Details method-GET
-Excepton message: Instance property 'id' is not defined for type 'OnlineShopAdmin.DataAccess.Models.ProductCategory' (Parameter 'propertyName') 
-ExceptonType: System.ArgumentException 
-LogDate: 18.09.2022 18:49:01
----------
-Exception thrown by controller-ProductCategories action-Details method-GET
-Excepton message: The LINQ expression 'id' could not be translated. Either rewrite the query in a form that can be translated, or switch to client evaluation explicitly by inserting a call to 'AsEnumerable', 'AsAsyncEnumerable', 'ToList', or 'ToListAsync'. See https://go.microsoft.com/fwlink/?linkid=2101038 for more information. 
-ExceptonType: System.InvalidOperationException 
-LogDate: 18.09.2022 18:52:44
----------
-Exception thrown by controller-ProductCategories action-Details method-GET
-Excepton message: Incorrect number of parameters supplied for lambda declaration 
-ExceptonType: System.ArgumentException 
-LogDate: 18.09.2022 19:16:27
----------
-Exception thrown by controller-ProductCategories action-Details method-GET
-Excepton message: Incorrect number of parameters supplied for lambda declaration 
-ExceptonType: System.ArgumentException 
-LogDate: 18.09.2022 19:16:50
----------
-Exception thrown by controller-ProductCategories action-Details method-GET
-Excepton message: Incorrect number of parameters supplied for lambda declaration 
-ExceptonType: System.ArgumentException 
-LogDate: 18.09.2022 19:25:52
----------
-Exception thrown by controller-ProductCategories action-Details method-GET
-Excepton message: The LINQ expression 'id' could not be translated. Either rewrite the query in a form that can be translated, or switch to client evaluation explicitly by inserting a call to 'AsEnumerable', 'AsAsyncEnumerable', 'ToList', or 'ToListAsync'. See https://go.microsoft.com/fwlink/?linkid=2101038 for more information. 
-ExceptonType: System.InvalidOperationException 
-LogDate: 18.09.2022 19:35:33
----------
-Exception thrown by controller-ProductCategories action-Details method-GET
-Excepton message: Incorrect number of parameters supplied for lambda declaration 
-ExceptonType: System.ArgumentException 
-LogDate: 18.09.2022 19:54:17
----------
-Exception thrown by controller-Index action-Products method-GET
-Excepton message: There is already an open DataReader associated with this Connection which must be closed first. 
-ExceptonType: System.InvalidOperationException 
-LogDate: 19.09.2022 18:33:10
----------
-Exception thrown by controller-Products action-Create method-POST
-Excepton message: An error occurred while saving the entity changes. See the inner exception for details. 
-ExceptonType: Microsoft.EntityFrameworkCore.DbUpdateException 
-LogDate: 19.09.2022 19:43:46
----------
-Exception thrown by controller-Products action-Create method-POST
-Excepton message: An error occurred while saving the entity changes. See the inner exception for details. 
-ExceptonType: Microsoft.EntityFrameworkCore.DbUpdateException 
-LogDate: 19.09.2022 19:44:21
----------
-Exception thrown by controller-Products action-Create method-POST
-Excepton message: An error occurred while saving the entity changes. See the inner exception for details. 
-ExceptonType: Microsoft.EntityFrameworkCore.DbUpdateException 
-LogDate: 19.09.2022 19:48:50
----------
-Exception thrown by controller-Index action-Products method-GET
-Excepton message: A task was canceled. 
-ExceptonType: System.Threading.Tasks.TaskCanceledException 
-LogDate: 19.09.2022 20:29:20
----------
-Exception thrown by controller-Index action-Reports method-GET
-Excepton message: Unable to resolve service for type 'OnlineShopAdmin.DataAccess.ReportingDA' while attempting to activate 'OnlineShopAdmin.Controllers.ReportsController'. 
-ExceptonType: System.InvalidOperationException 
-LogDate: 19.09.2022 21:28:34
----------
-Exception thrown by controller-Index action-Reports method-GET
-Excepton message: Unable to resolve service for type 'OnlineShopAdmin.DataAccess.ReportingDA' while attempting to activate 'OnlineShopAdmin.Controllers.ReportsController'. 
-ExceptonType: System.InvalidOperationException 
-LogDate: 19.09.2022 21:28:40
----------
-Exception thrown by controller-Index action-Reports method-GET
-Excepton message: Unable to resolve service for type 'OnlineShopAdmin.DataAccess.ReportingDA' while attempting to activate 'OnlineShopAdmin.Controllers.ReportsController'. 
-ExceptonType: System.InvalidOperationException 
-LogDate: 19.09.2022 21:30:33
----------
-Exception thrown by controller-Index action-Reports method-GET
-Excepton message: Unable to resolve service for type 'OnlineShopAdmin.DataAccess.ReportingDA' while attempting to activate 'OnlineShopAdmin.Controllers.ReportsController'. 
-ExceptonType: System.InvalidOperationException 
-LogDate: 19.09.2022 21:31:11
----------
-Exception thrown by controller-Index action-Reports method-GET
-Excepton message: Unable to resolve service for type 'OnlineShopAdmin.DataAccess.ReportingDA' while attempting to activate 'OnlineShopAdmin.Controllers.ReportsController'. 
-ExceptonType: System.InvalidOperationException 
-LogDate: 19.09.2022 21:31:16
----------
-Exception thrown by controller-Index action-Reports method-GET
-Excepton message: Unable to resolve service for type 'OnlineShopAdmin.DataAccess.ReportingDA' while attempting to activate 'OnlineShopAdmin.Controllers.ReportsController'. 
-ExceptonType: System.InvalidOperationException 
-LogDate: 19.09.2022 21:31:26
----------
-Exception thrown by controller-Index action-Reports method-GET
-Excepton message: Unable to resolve service for type 'OnlineShopAdmin.DataAccess.ReportingDA' while attempting to activate 'OnlineShopAdmin.Controllers.ReportsController'. 
-ExceptonType: System.InvalidOperationException 
-LogDate: 19.09.2022 21:34:17
----------
-Exception thrown by controller-Reports action-YearAndMonth method-GET
-Excepton message: The model item passed into the ViewDataDictionary is of type 'System.Collections.Generic.List`1[OnlineShopAdmin.DataAccess.ReportingDA+YearAndMonthViewModel]', but this ViewDataDictionary instance requires a model item of type 'System.Collections.Generic.IEnumerable`1[OnlineShopAdmin.Models.YearAndMonthViewModel]'. 
-ExceptonType: System.InvalidOperationException 
-LogDate: 19.09.2022 22:10:32
----------
-Exception thrown by controller-Index action-Products method-GET
-Excepton message: A task was canceled. 
-ExceptonType: System.Threading.Tasks.TaskCanceledException 
-LogDate: 19.09.2022 23:55:27
----------
-Exception thrown by controller-Index action-Products method-GET
-Excepton message: Attempted to divide by zero. 
-ExceptonType: System.DivideByZeroException 
-LogDate: 07.10.2022 22:36:28
----------
-Exception thrown by controller-Index action-Products method-GET
-Excepton message: A task was canceled. 
-ExceptonType: System.Threading.Tasks.TaskCanceledException 
-LogDate: 07.10.2022 22:43:44
----------
-Exception thrown by controller-Index action-Products method-GET
-Excepton message: A second operation was started on this context instance before a previous operation completed. This is usually caused by different threads concurrently using the same instance of DbContext. For more information on how to avoid threading issues with DbContext, see https://go.microsoft.com/fwlink/?linkid=2097913. 
-ExceptonType: System.InvalidOperationException 
-LogDate: 07.10.2022 22:43:44
----------
-Exception thrown by controller-Index action-Products method-GET
-Excepton message: The model item passed into the ViewDataDictionary is of type 'System.Tuple`2[System.Collections.Generic.IEnumerable`1[OnlineShopAdmin.DataAccess.Models.Product],OnlineShopAdmin.DataAccess.Repository.Pager]', but this ViewDataDictionary instance requires a model item of type 'System.Collections.Generic.IEnumerable`1[OnlineShopAdmin.DataAccess.Models.Product]'. 
-ExceptonType: System.InvalidOperationException 
-LogDate: 09.10.2022 18:30:58
----------
-Exception thrown by controller-Products action-Delete method-POST
-Excepton message: An error occurred while saving the entity changes. See the inner exception for details. 
-ExceptonType: Microsoft.EntityFrameworkCore.DbUpdateException 
-LogDate: 09.10.2022 19:42:32
----------
-Exception thrown by controller-Products action-Delete method-POST
-Excepton message: An error occurred while saving the entity changes. See the inner exception for details. 
-ExceptonType: Microsoft.EntityFrameworkCore.DbUpdateException 
-LogDate: 09.10.2022 20:17:56
----------
-Exception thrown by controller-Products action-Delete method-POST
-Excepton message: An error occurred while saving the entity changes. See the inner exception for details. 
-ExceptonType: Microsoft.EntityFrameworkCore.DbUpdateException 
-LogDate: 09.10.2022 20:19:59
----------
-Exception thrown by controller-Products action-Delete method-POST
-Excepton message: An error occurred while saving the entity changes. See the inner exception for details. 
-ExceptonType: Microsoft.EntityFrameworkCore.DbUpdateException 
-LogDate: 09.10.2022 20:22:54
----------
-Exception thrown by controller-Products action-Delete method-POST
-Excepton message: An error occurred while saving the entity changes. See the inner exception for details. 
-ExceptonType: Microsoft.EntityFrameworkCore.DbUpdateException 
-LogDate: 09.10.2022 20:29:01
----------
-Exception thrown by controller-Products action-Delete method-POST
-Excepton message: An error occurred while saving the entity changes. See the inner exception for details. 
-ExceptonType: Microsoft.EntityFrameworkCore.DbUpdateException 
-LogDate: 09.10.2022 20:29:14
----------
-Exception thrown by controller-Products action-Delete method-POST
-Excepton message: An error occurred while saving the entity changes. See the inner exception for details. 
-ExceptonType: Microsoft.EntityFrameworkCore.DbUpdateException 
-LogDate: 09.10.2022 20:32:48
----------
-Exception thrown by controller-Products action-Delete method-POST
-Excepton message: An error occurred while saving the entity changes. See the inner exception for details. 
-ExceptonType: Microsoft.EntityFrameworkCore.DbUpdateException 
-LogDate: 09.10.2022 20:38:25
----------
-Exception thrown by controller-Products action-Delete method-POST
-Excepton message: An error occurred while saving the entity changes. See the inner exception for details. 
-ExceptonType: Microsoft.EntityFrameworkCore.DbUpdateException 
-LogDate: 09.10.2022 20:39:02
----------
-Exception thrown by controller-Products action-Delete method-POST
-Excepton message: An error occurred while saving the entity changes. See the inner exception for details. 
-ExceptonType: Microsoft.EntityFrameworkCore.DbUpdateException 
-LogDate: 09.10.2022 20:57:20
----------
-Exception thrown by controller-Products action-Delete method-POST
-Excepton message: An error occurred while saving the entity changes. See the inner exception for details. 
-ExceptonType: Microsoft.EntityFrameworkCore.DbUpdateException 
-LogDate: 09.10.2022 20:58:45
+LogDate: 21.10.2022 19:55:03
 ---------
 Exception thrown by controller-Customers action-Index method-GET
-Excepton message: The binary operator Equal is not defined for the types 'System.Int32' and 'System.String'. 
+Excepton message: The model item passed into the ViewDataDictionary is of type 'System.Collections.Generic.List`1[OnlineShopAdmin.DataAccess.Models.Customer]', but this ViewDataDictionary instance requires a model item of type 'OnlineShopAdmin.DataAccess.Repository.Pager'. 
 ExceptonType: System.InvalidOperationException 
-LogDate: 13.10.2022 14:23:57
+LogDate: 21.10.2022 19:57:02
 ---------
 Exception thrown by controller-Customers action-Index method-GET
-Excepton message: The binary operator Equal is not defined for the types 'System.Int32' and 'System.String'. 
+Excepton message: The model item passed into the ViewDataDictionary is of type 'System.Collections.Generic.List`1[OnlineShopAdmin.DataAccess.Models.Customer]', but this ViewDataDictionary instance requires a model item of type 'OnlineShopAdmin.DataAccess.Repository.Pager'. 
 ExceptonType: System.InvalidOperationException 
-LogDate: 13.10.2022 14:24:02
+LogDate: 21.10.2022 20:16:18
 ---------
 Exception thrown by controller-Customers action-Index method-GET
-Excepton message: The binary operator Equal is not defined for the types 'System.Int32' and 'System.String'. 
+Excepton message: The model item passed into the ViewDataDictionary is of type 'System.Collections.Generic.List`1[OnlineShopAdmin.DataAccess.Models.Customer]', but this ViewDataDictionary instance requires a model item of type 'OnlineShopAdmin.DataAccess.Repository.Pager'. 
 ExceptonType: System.InvalidOperationException 
-LogDate: 13.10.2022 15:15:17
+LogDate: 21.10.2022 20:24:17
 ---------
 Exception thrown by controller-Customers action-Index method-GET
-Excepton message: The binary operator Equal is not defined for the types 'System.Int32' and 'System.String'. 
+Excepton message: The model item passed into the ViewDataDictionary is of type 'System.Collections.Generic.List`1[OnlineShopAdmin.DataAccess.Models.Customer]', but this ViewDataDictionary instance requires a model item of type 'OnlineShopAdmin.DataAccess.Repository.Pager'. 
 ExceptonType: System.InvalidOperationException 
-LogDate: 13.10.2022 19:01:53
+LogDate: 21.10.2022 20:28:10
+---------
+Exception thrown by controller-Customers action-Index method-GET
+Excepton message: The model item passed into the ViewDataDictionary is of type 'System.Collections.Generic.List`1[OnlineShopAdmin.DataAccess.Models.Customer]', but this ViewDataDictionary instance requires a model item of type 'OnlineShopAdmin.DataAccess.Repository.Pager'. 
+ExceptonType: System.InvalidOperationException 
+LogDate: 21.10.2022 20:28:58
+---------
+Exception thrown by controller-Customers action-Index method-GET
+Excepton message: The model item passed into the ViewDataDictionary is of type 'System.Collections.Generic.List`1[OnlineShopAdmin.DataAccess.Models.Customer]', but this ViewDataDictionary instance requires a model item of type 'OnlineShopAdmin.DataAccess.Repository.Pager'. 
+ExceptonType: System.InvalidOperationException 
+LogDate: 21.10.2022 20:32:16
+---------
+Exception thrown by controller-Customers action-Index method-GET
+Excepton message: The model item passed into the ViewDataDictionary is of type 'System.Collections.Generic.List`1[OnlineShopAdmin.DataAccess.Models.Customer]', but this ViewDataDictionary instance requires a model item of type 'OnlineShopAdmin.DataAccess.Repository.Pager'. 
+ExceptonType: System.InvalidOperationException 
+LogDate: 21.10.2022 20:33:54
+---------
+Exception thrown by controller-Customers action-Index method-GET
+Excepton message: The model item passed into the ViewDataDictionary is of type 'System.Collections.Generic.List`1[OnlineShopAdmin.DataAccess.Models.Customer]', but this ViewDataDictionary instance requires a model item of type 'OnlineShopAdmin.DataAccess.Repository.Pager'. 
+ExceptonType: System.InvalidOperationException 
+LogDate: 21.10.2022 20:36:29
+---------
+Exception thrown by controller-Customers action-Index method-GET
+Excepton message: The model item passed into the ViewDataDictionary is of type 'System.Collections.Generic.List`1[OnlineShopAdmin.DataAccess.Models.Customer]', but this ViewDataDictionary instance requires a model item of type 'OnlineShopAdmin.DataAccess.Repository.Pager'. 
+ExceptonType: System.InvalidOperationException 
+LogDate: 21.10.2022 20:50:13
+---------
+Exception thrown by controller-Customers action-Index method-GET
+Excepton message: Cannot perform runtime binding on a null reference 
+ExceptonType: Microsoft.CSharp.RuntimeBinder.RuntimeBinderException 
+LogDate: 21.10.2022 21:22:06
+---------
+Exception thrown by controller-Customers action-Index method-GET
+Excepton message: Cannot perform runtime binding on a null reference 
+ExceptonType: Microsoft.CSharp.RuntimeBinder.RuntimeBinderException 
+LogDate: 21.10.2022 21:26:04
+---------
+Exception thrown by controller-Customers action-Index method-GET
+Excepton message: Cannot perform runtime binding on a null reference 
+ExceptonType: Microsoft.CSharp.RuntimeBinder.RuntimeBinderException 
+LogDate: 21.10.2022 21:28:01
+---------
+Exception thrown by controller-Customers action-Index method-GET
+Excepton message: The model item passed into the ViewDataDictionary is of type 'System.Collections.Generic.List`1[OnlineShopAdmin.DataAccess.Models.Customer]', but this ViewDataDictionary instance requires a model item of type 'OnlineShopAdmin.DataAccess.Repository.Pager'. 
+ExceptonType: System.InvalidOperationException 
+LogDate: 21.10.2022 21:35:10
+---------
+Exception thrown by controller-Index action-ProductCategories method-GET
+Excepton message: The model item passed into the ViewDataDictionary is of type 'System.Collections.Generic.List`1[OnlineShopAdmin.DataAccess.Models.ProductCategory]', but this ViewDataDictionary instance requires a model item of type 'OnlineShopAdmin.DataAccess.Repository.Pager'. 
+ExceptonType: System.InvalidOperationException 
+LogDate: 21.10.2022 21:48:33
 ---------

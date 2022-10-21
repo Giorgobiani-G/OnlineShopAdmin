@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using OnlineShopAdmin.DataAccess.DbContexts;
 using System;
 using System.Collections.Generic;
@@ -50,34 +49,48 @@ namespace OnlineShopAdmin.DataAccess.Repository
         {
             bool isnullOrEmpty = !string.IsNullOrEmpty(search);
 
-            IQueryable<T> data = _table;   
+            IQueryable<T> data = _table;
 
             if (isnullOrEmpty)
             {
                 Type type = typeof(T);
 
-                bool isInt = int.TryParse(search, out int resInt);
-
-                if (isInt)
-                {
-
-                }
-
-                PropertyInfo[] properties = type.GetProperties().Where(x => x.PropertyType == typeof(string)).ToArray();
-
-                MethodInfo containsMethod = typeof(string).GetMethod("Contains", new[] { typeof(string) });
+                PropertyInfo[] properties;
 
                 ParameterExpression prm = Expression.Parameter(type, "x");
 
                 ConstantExpression searchParameter = Expression.Constant(search);
 
-                IEnumerable<Expression> expressions = properties.Select(prp => Expression.Call(Expression.Property(prm,prp), containsMethod, searchParameter));
+                bool isDecimal = decimal.TryParse(search, out decimal resInt);
 
-                Expression body = expressions.Aggregate((prev, current) => Expression.Or(prev, current));
+                if (isDecimal)
+                {
+                    properties = type.GetProperties().Where(x => x.PropertyType == typeof(decimal)).ToArray();
 
-                Expression<Func<T, bool>> lambda = Expression.Lambda<Func<T, bool>>(body, prm);
+                    MethodInfo equalMethod = typeof(Expression).GetMethod("Equal", new[] { typeof(Expression), typeof(Expression) });
 
-                data = _table.Where(lambda);
+                    IEnumerable<Expression> expressions = properties.Select(prp => Expression.Call(Expression.Property(prm, prp), equalMethod, searchParameter));
+
+                    Expression body = expressions.Aggregate((prev, current) => Expression.Or(prev, current));
+
+                    Expression<Func<T, bool>> lambda = Expression.Lambda<Func<T, bool>>(body, prm);
+
+                    data = _table.Where(lambda);
+                }
+                else
+                {
+                    properties = type.GetProperties().Where(x => x.PropertyType == typeof(string)).ToArray();
+
+                    MethodInfo containsMethod = typeof(string).GetMethod("Contains", new[] { typeof(string) });
+
+                    IEnumerable<Expression> expressions = properties.Select(prp => Expression.Call(Expression.Property(prm, prp), containsMethod, searchParameter));
+
+                    Expression body = expressions.Aggregate((prev, current) => Expression.Or(prev, current));
+
+                    Expression<Func<T, bool>> lambda = Expression.Lambda<Func<T, bool>>(body, prm);
+
+                    data = _table.Where(lambda);
+                }
             }
 
             var benefCount = data.Count()/* _table.AsQueryable().Count()*/;
