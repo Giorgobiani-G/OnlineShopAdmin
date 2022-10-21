@@ -1,8 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using OnlineShopAdmin.DataAccess.Models;
 using OnlineShopAdmin.DataAccess.Repository;
 using OnlineShopAdmin.Filters;
+using System;
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -19,12 +22,34 @@ namespace OnlineShopAdmin.Controllers
         }
 
         // GET: Customers
-        public async Task<IActionResult> Index(int pg, int pageSize, CancellationToken cancellationToken = default)
+        public async Task<IActionResult> Index(int pg, int pageSize, string search, CancellationToken cancellationToken = default)
         {
-            var (list, pagerDetails) = await _customerRepository.GetListAsync(pg, pageSize, cancellationToken: cancellationToken);
+            var (list, pagerDetails) = await _customerRepository.GetListAsync(pg, pageSize, search, cancellationToken: cancellationToken);
             ViewBag.Pager = pagerDetails;
+            ViewBag.PageSizes = GetPageSizes(pageSize);   
             TempData["page"] = pg;
+            TempData["CurrentFilter"] = search;
+            TempData["pageSize"] = pageSize;
             return View(list);
+        }
+
+        private List<SelectListItem> GetPageSizes(int selectedPageSize)
+        {
+            var pageSizes = new List<SelectListItem>();
+
+            for (int i = 10; i <= 50; i += 10)
+            {
+                if (i == selectedPageSize)
+                {
+                    pageSizes.Add(new SelectListItem(i.ToString(), i.ToString(), true));
+                }
+                else
+                {
+                    pageSizes.Add(new SelectListItem(i.ToString(), i.ToString()));
+                }
+            }
+
+            return pageSizes;
         }
 
         // GET: Customers/Details/5

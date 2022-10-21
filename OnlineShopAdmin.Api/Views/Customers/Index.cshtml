@@ -1,14 +1,23 @@
 ﻿@model IEnumerable<Customer>
 
+@{
+    ViewData["Title"] = "Customer";
+    Pager pager = new Pager();
+    int pageNo = 0;
+    if (ViewBag.Pager != null)
+    {
+        pager = ViewBag.Pager;
+        pageNo = pager.CurrentPage;
+    }
+}
+
 <h1>Customers</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
 </p>
 
-@*<p>
-    <input class="form-control col-2" id="searchbox" placeholder="searchbox" type="text">
-</p>*@
+<partial name="_SearchBox" model="pager" />
 
 <table class="table table-striped table-hover" id="table">
     <thead>
@@ -113,6 +122,11 @@
     </tbody>
 </table>
 
-<partial name="_Paging"  />
+<partial name="_Paging" model="pager"  />
 
-@*<script src="~/js/Search.js"></script>*@
+<script>
+    function ChangePageSize(obj) {
+        var singleValues = $("#searchText").val();
+        window.location.href = "/Customers/Index" + "?pageSize=" + obj.value;
+    }
+</script>

@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -43,6 +44,85 @@ namespace OnlineShopAdmin.DataAccess.Repository
 
             return await _table.FindAsync(new object[] { id }, cancellationToken);
         }
+
+        public async Task<(IEnumerable<T> list, Pager pageDetails)> GetListAsync(int pg = 1, int pageSize = 20, string search = null, string[] includeProperties = null, CancellationToken cancellationToken = default)
+        {
+            bool isnullOrEmpty = !string.IsNullOrEmpty(search);
+
+            IQueryable<T> data = _table;
+
+            if (isnullOrEmpty)
+            {
+                Type type = typeof(T);
+
+                PropertyInfo[] properties;
+
+                ParameterExpression prm = Expression.Parameter(type, "x");
+
+                ConstantExpression searchParameter = Expression.Constant(search);
+
+                bool isDecimal = decimal.TryParse(search, out decimal resInt);
+
+                if (isDecimal)
+                {
+                    properties = type.GetProperties().Where(x => x.PropertyType == typeof(decimal)).ToArray();
+
+                    MethodInfo equalMethod = typeof(Expression).GetMethod("Equal", new[] { typeof(Expression), typeof(Expression) });
+
+                    IEnumerable<Expression> expressions = properties.Select(prp => Expression.Call(Expression.Property(prm, prp), equalMethod, searchParameter));
+
+                    Expression body = expressions.Aggregate((prev, current) => Expression.Or(prev, current));
+
+                    Expression<Func<T, bool>> lambda = Expression.Lambda<Func<T, bool>>(body, prm);
+
+                    data = _table.Where(lambda);
+                }
+                else
+                {
+                    properties = type.GetProperties().Where(x => x.PropertyType == typeof(string)).ToArray();
+
+                    MethodInfo containsMethod = typeof(string).GetMethod("Contains", new[] { typeof(string) });
+
+                    IEnumerable<Expression> expressions = properties.Select(prp => Expression.Call(Expression.Property(prm, prp), containsMethod, searchParameter));
+
+                    Expression body = expressions.Aggregate((prev, current) => Expression.Or(prev, current));
+
+                    Expression<Func<T, bool>> lambda = Expression.Lambda<Func<T, bool>>(body, prm);
+
+                    data = _table.Where(lambda);
+                }
+            }
+
+            var benefCount = data.Count()/* _table.AsQueryable().Count()*/;
+
+            if (pg < 1)
+                pg = 1;
+
+            if (pageSize < 1)
+                pageSize = 20;
+
+            var pager = new Pager(benefCount, pg, pageSize);
+
+            int benfSkip = (pg - 1) * pageSize;
+
+            if (includeProperties is not null)
+            {
+                //IQueryable<T> query = _table;
+
+                foreach (var includeProperty in includeProperties)
+                {
+                    data = data.Include(includeProperty);
+                }
+
+                var res = await data.Skip(benfSkip).Take(pager.PageSize).ToListAsync(cancellationToken);
+
+                return (list: res, pageDetails: pager);
+            }
+            var result = await data.Skip(benfSkip).Take(pager.PageSize).ToListAsync(cancellationToken);
+
+            return (list: result, pageDetails: pager);
+        }
+
 
         public async Task<IEnumerable<T>> GetListAsync(string[] includeProperties, CancellationToken cancellationToken = default)
         {
@@ -105,38 +185,6 @@ namespace OnlineShopAdmin.DataAccess.Repository
         public IEnumerable<T> GetList()
         {
             return _table.ToList();
-        }
-
-        public async Task<(IEnumerable<T> list, Pager pageDetails)> GetListAsync(int pg = 1, int pageSize = 20, string[] includeProperties = null, CancellationToken cancellationToken = default)
-        {
-            var benefCount = _table.AsQueryable().Count();
-
-            if (pg < 1)
-                pg = 1;
-
-            if (pageSize < 1)
-                pageSize = 20;
-
-            var pager = new Pager(benefCount, pg, pageSize);
-
-            int benfSkip = (pg - 1) * pageSize;
-
-            if (includeProperties is not null)
-            {
-                IQueryable<T> query = _table;
-
-                foreach (var includeProperty in includeProperties)
-                {
-                    query = query.Include(includeProperty);
-                }
-
-                var res = await query.Skip(benfSkip).Take(pager.PageSize).ToListAsync(cancellationToken);
-
-                return (list: res, pageDetails: pager);
-            }
-            var result = await _table.Skip(benfSkip).Take(pager.PageSize).ToListAsync(cancellationToken);
-
-            return (list: result, pageDetails: pager);
         }
     }
 

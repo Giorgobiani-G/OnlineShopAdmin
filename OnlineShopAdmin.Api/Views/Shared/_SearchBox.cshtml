@@ -1,0 +1,34 @@
+﻿@model Pager
+@{
+    //Pager pager = new Pager();
+    //int pageNo = 0;
+    //if (ViewBag.Pager != null)
+    //{
+    //    pager = ViewBag.Pager;
+    //    pageNo = pager.CurrentPage;
+
+    //}
+    string controllerName = @ViewContext.RouteData.Values["controller"].ToString();
+}
+
+
+
+<form asp-action="Index" asp-route-pageSize="@TempData["pageSize"]" method="post">
+    <div class="row ml-auto">
+    <div>
+        <input type="text" name="search" id="searchText" value="@TempData["CurrentFilter"]">
+        <input type="submit" value="Search" />
+        <a asp-action="Index" asp-route-pageSize="@TempData["pageSize"]">Back To Full List</a>
+    </div>
+
+        <div class="row ml-auto">
+        <div class="p-2">
+                Showing @((Model.CurrentPage - 1) * Model.PageSize + 1)-@(Model.PageSize * Model.CurrentPage > Model.TotalItems ? Model.TotalItems : Model.PageSize * Model.CurrentPage) of @Model.TotalItems Items
+        </div>
+        <span class="float-right">
+            <select class="form-control" asp-items="ViewBag.PageSizes" onchange="ChangePageSize(this);">
+            </select>
+        </span>
+    </div>
+    </div>
+</form>
