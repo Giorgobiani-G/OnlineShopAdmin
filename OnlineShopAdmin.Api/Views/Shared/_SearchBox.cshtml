@@ -16,7 +16,7 @@
 <form asp-action="Index" asp-route-pageSize="@TempData["pageSize"]" method="post">
     <div class="row ml-auto">
     <div>
-        <input type="text" name="search" id="searchText" value="@TempData["CurrentFilter"]">
+        <input type="text" name="search" id="searchText" value="@TempData["currentFilter"]">
         <input type="submit" value="Search" />
         <a asp-action="Index" asp-route-pageSize="@TempData["pageSize"]">Back To Full List</a>
     </div>

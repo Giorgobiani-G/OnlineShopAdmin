@@ -13,25 +13,25 @@
             @if (pager.CurrentPage > 1)
             {
                 <li class="page-item">
-                    <a class="page-link" asp-controller="@controllerName" asp-action="Index" asp-route-search="@TempData["CurrentFilter"]" asp-route-pg="1">First</a>
+                    <a class="page-link" asp-controller="@controllerName" asp-action="Index" asp-route-search="@TempData["currentFilter"]" asp-route-pg="1">First</a>
                 </li>
                 <li class="page-item">
-                    <a class="page-link" asp-controller="@controllerName" asp-action="Index" asp-route-search="@TempData["CurrentFilter"]" asp-route-pg="@(pager.CurrentPage-1)">Previous</a>
+                    <a class="page-link" asp-controller="@controllerName" asp-action="Index" asp-route-search="@TempData["currentFilter"]" asp-route-pg="@(pager.CurrentPage-1)">Previous</a>
                 </li>
             }
             @for (var pge = pager.StartPage; pge <= pager.EndPage; pge++)
             {
                 <li class="page-item @(pge==pager.CurrentPage ? "active" : "")">
-                    <a class="page-link" asp-controller="@controllerName" asp-action="Index" asp-route-search="@TempData["CurrentFilter"]" asp-route-pg="@pge">@pge</a>
+                    <a class="page-link" asp-controller="@controllerName" asp-action="Index" asp-route-search="@TempData["currentFilter"]" asp-route-pg="@pge">@pge</a>
                 </li>
             }
             @if (pager.CurrentPage < pager.TotalPages)
             {
                 <li class="page-item">
-                    <a class="page-link" asp-controller="@controllerName" asp-action="Index" asp-route-search="@TempData["CurrentFilter"]" asp-route-pg="@(pager.CurrentPage+1)">Next</a>
+                    <a class="page-link" asp-controller="@controllerName" asp-action="Index" asp-route-search="@TempData["currentFilter"]" asp-route-pg="@(pager.CurrentPage+1)">Next</a>
                 </li>
                 <li>
-                    <a class="page-link" asp-controller="@controllerName" asp-action="Index" asp-route-search="@TempData["CurrentFilter"]" asp-route-pg="@(pager.TotalPages)">Last</a>
+                    <a class="page-link" asp-controller="@controllerName" asp-action="Index" asp-route-search="@TempData["currentFilter"]" asp-route-pg="@(pager.TotalPages)">Last</a>
                 </li>
             }
         </ul>

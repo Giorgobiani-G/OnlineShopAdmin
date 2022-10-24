@@ -28,7 +28,7 @@ namespace OnlineShopAdmin.Controllers
             ViewBag.Pager = pagerDetails;
             ViewBag.PageSizes = GetPageSizes(pageSize);   
             TempData["page"] = pg;
-            TempData["CurrentFilter"] = search;
+            TempData["currentFilter"] = search;
             TempData["pageSize"] = pageSize;
             return View(list);
         }
