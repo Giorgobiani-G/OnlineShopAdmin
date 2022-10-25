@@ -9,3 +9,9 @@ ProductCateGories: 573ms Date: 20.09.2022 00:01:51
 YearAndMonth: 1183ms Date: 22.09.2022 22:51:52
 Products: 664ms Date: 22.09.2022 22:51:57
 YearAndMonth: 965ms Date: 23.09.2022 18:46:00
+Products: 228ms Date: 25.10.2022 18:20:41
+Top10ProductsBySalesAmount: 47ms Date: 25.10.2022 18:22:25
+Top10CustomersBysales: 107ms Date: 25.10.2022 18:22:30
+YearAndMonth: 68ms Date: 25.10.2022 18:22:33
+ProductCateGories: 60ms Date: 25.10.2022 18:22:35
+City: 229ms Date: 25.10.2022 18:22:39

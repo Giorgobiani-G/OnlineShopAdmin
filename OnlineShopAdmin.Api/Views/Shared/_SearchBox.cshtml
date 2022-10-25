@@ -1,17 +1,4 @@
 ﻿@model Pager
-@{
-    //Pager pager = new Pager();
-    //int pageNo = 0;
-    //if (ViewBag.Pager != null)
-    //{
-    //    pager = ViewBag.Pager;
-    //    pageNo = pager.CurrentPage;
-
-    //}
-    string controllerName = @ViewContext.RouteData.Values["controller"].ToString();
-}
-
-
 
 <form asp-action="Index" asp-route-pageSize="@TempData["pageSize"]" method="post">
     <div class="row ml-auto">

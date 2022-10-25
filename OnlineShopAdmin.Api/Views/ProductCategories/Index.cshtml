@@ -59,9 +59,9 @@
                         @Html.DisplayFor(modelItem => item.ParentProductCategory.Name)
                 </td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.ProductCategoryId" asp-route-pg="@TempData["page"]">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.ProductCategoryId" asp-route-pg="@TempData["page"]">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.ProductCategoryId" asp-route-pg="@TempData["page"]">Delete</a>
+                    <a asp-action="Edit" asp-route-id="@item.ProductCategoryId" asp-route-pg="@TempData["page"]" asp-route-search="@TempData["currentFilter"]" asp-route-pageSize="@TempData["pageSize"]">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.ProductCategoryId" asp-route-pg="@TempData["page"]" asp-route-search="@TempData["currentFilter"]" asp-route-pageSize="@TempData["pageSize"]">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.ProductCategoryId" asp-route-pg="@TempData["page"]" asp-route-search="@TempData["currentFilter"]" asp-route-pageSize="@TempData["pageSize"]">Delete</a>
                 </td>
             </tr>
         }
@@ -69,3 +69,10 @@
 </table>
 
 <partial name="_Paging" model="pager" />
+
+<script>
+    function ChangePageSize(obj) {
+        var singleValues = $("#searchText").val();
+        window.location.href = "/ProductCategories/Index" + "?pageSize=" + obj.value;
+    }
+</script>

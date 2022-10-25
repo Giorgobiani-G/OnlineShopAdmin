@@ -1,4 +1,4 @@
-﻿@model OnlineShopAdmin.DataAccess.Models.Product
+﻿@model Product
 
 @{
     ViewData["Title"] = "Edit";
@@ -107,15 +107,15 @@
                    
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" asp-route-pg=@TempData["page"] />
+                <input type="submit" value="Save" class="btn btn-primary" asp-route-pg=@TempData["page"] asp-route-search="@TempData["currentFilter"]" asp-route-pageSize="@TempData["pageSize"]" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Delete" asp-route-id="@Model.ProductId" asp-route-pg=@TempData["page"]>Delete</a> |
-    <a asp-action="Index" asp-route-pg=@TempData["page"]>Back to List</a>
+    <a asp-action="Delete" asp-route-id="@Model.ProductId" asp-route-pg=@TempData["page"] asp-route-search="@TempData["currentFilter"]" asp-route-pageSize="@TempData["pageSize"]">Delete</a> |
+    <a asp-action="Index" asp-route-pg=@TempData["page"] asp-route-search="@TempData["currentFilter"]" asp-route-pageSize="@TempData["pageSize"]">Back to List</a>
 </div>
 
 @section scripts{  
