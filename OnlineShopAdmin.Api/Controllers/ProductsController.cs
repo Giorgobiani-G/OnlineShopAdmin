@@ -5,6 +5,7 @@ using OnlineShopAdmin.DataAccess.Models;
 using OnlineShopAdmin.DataAccess.Repository;
 using OnlineShopAdmin.Filters;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
@@ -33,14 +34,38 @@ namespace OnlineShopAdmin.Controllers
 
             var (list, pagerDetails) = await _productsRepository.GetListAsync(pg, pageSize, search, new string[] { "ProductCategory", "ProductModel", "SalesOrderDetails" }, cancellationToken);
             ViewBag.Pager = pagerDetails;
+            ViewBag.PageSizes = GetPageSizes(pageSize);
             TempData["page"] = pg;
+            TempData["currentFilter"] = search;
+            TempData["pageSize"] = pageSize;
             return View(list);
         }
 
+        private List<SelectListItem> GetPageSizes(int selectedPageSize)
+        {
+            var pageSizes = new List<SelectListItem>();
+
+            for (int i = 20; i <= 50; i += 10)
+            {
+                if (i == selectedPageSize)
+                {
+                    pageSizes.Add(new SelectListItem(i.ToString(), i.ToString(), true));
+                }
+                else
+                {
+                    pageSizes.Add(new SelectListItem(i.ToString(), i.ToString()));
+                }
+            }
+
+            return pageSizes;
+        }
+
         // GET: Products/Details/5
-        public async Task<IActionResult> Details(int? id, int pg, CancellationToken cancellationToken = default)
+        public async Task<IActionResult> Details(int? id, int pg, int pageSize, string search, CancellationToken cancellationToken = default)
         {
             TempData["page"] = pg;
+            TempData["currentFilter"] = search;
+            TempData["pageSize"] = pageSize;
 
             if (id == null)
             {
@@ -97,9 +122,11 @@ namespace OnlineShopAdmin.Controllers
         }
 
         // GET: Products/Edit/5
-        public async Task<IActionResult> Edit(int? id, int pg, CancellationToken cancellationToken = default)
+        public async Task<IActionResult> Edit(int? id, int pg, int pageSize, string search, CancellationToken cancellationToken = default)
         {
             TempData["page"] = pg;
+            TempData["currentFilter"] = search;
+            TempData["pageSize"] = pageSize;
 
             if (id == null)
             {
@@ -121,7 +148,7 @@ namespace OnlineShopAdmin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, Product product, int pg, CancellationToken cancellationToken = default)
+        public async Task<IActionResult> Edit(int id, Product product, int pg, int pageSize, string search, CancellationToken cancellationToken = default)
         {
             if (id != product.ProductId)
             {
@@ -165,7 +192,7 @@ namespace OnlineShopAdmin.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index), new { pg });
+                return RedirectToAction(nameof(Index), new { pg, pageSize, search });
             }
             ViewData["ProductCategoryId"] = new SelectList(_productsCategoryRepository.GetList(), "ProductCategoryId", "Name", product.ProductCategoryId);
             ViewData["ProductModelId"] = new SelectList(_productsModelRepository.GetList(), "ProductModelId", "Name", product.ProductModelId);
@@ -173,9 +200,11 @@ namespace OnlineShopAdmin.Controllers
         }
 
         // GET: Products/Delete/5
-        public async Task<IActionResult> Delete(int? id, int pg, CancellationToken cancellationToken = default)
+        public async Task<IActionResult> Delete(int? id, int pg, int pageSize, string search, CancellationToken cancellationToken = default)
         {
             TempData["page"] = pg;
+            TempData["currentFilter"] = search;
+            TempData["pageSize"] = pageSize;
 
             if (id == null)
             {
@@ -195,7 +224,7 @@ namespace OnlineShopAdmin.Controllers
         // POST: Products/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id, int pg, CancellationToken cancellationToken = default)
+        public async Task<IActionResult> DeleteConfirmed(int id, int pg, int pageSize, string search, CancellationToken cancellationToken = default)
         {
             //unit of work is needed here
             var product = await _productsRepository.GetByIdAsync(id, cancellationToken: cancellationToken);
@@ -206,7 +235,7 @@ namespace OnlineShopAdmin.Controllers
             }
 
             await _productsRepository.DeleteAsynch(product, cancellationToken);
-            return RedirectToAction(nameof(Index), new { pg });
+            return RedirectToAction(nameof(Index), new { pg, pageSize, search });
         }
     }
 }

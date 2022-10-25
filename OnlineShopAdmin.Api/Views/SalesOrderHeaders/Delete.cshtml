@@ -1,4 +1,4 @@
-﻿@model OnlineShopAdmin.DataAccess.Models.SalesOrderHeader
+﻿@model SalesOrderHeader
 
 @{
     ViewData["Title"] = "Delete";
@@ -141,10 +141,10 @@
     
     <form asp-action="Delete">
         <input type="hidden" asp-for="SalesOrderId" />
-        <input type="submit" value="Delete" class="btn btn-danger" asp-route-pg="@TempData["page"]" />
+        <input type="submit" value="Delete" class="btn btn-danger" asp-route-pg="@TempData["page"]" asp-route-search="@TempData["currentFilter"]" asp-route-pageSize="@TempData["pageSize"]" />
     </form>
     <br />
 
-    <a asp-action="Edit" asp-route-id="@Model.SalesOrderId" asp-route-pg="@TempData["page"]">Edit</a> |
-    <a asp-action="Index" asp-route-pg="@TempData["page"]">Back to List</a>
+    <a asp-action="Edit" asp-route-id="@Model.SalesOrderId" asp-route-pg="@TempData["page"]" asp-route-search="@TempData["currentFilter"]" asp-route-pageSize="@TempData["pageSize"]">Edit</a> |
+    <a asp-action="Index" asp-route-pg="@TempData["page"]" asp-route-search="@TempData["currentFilter"]" asp-route-pageSize="@TempData["pageSize"]">Back to List</a>
 </div>

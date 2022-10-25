@@ -4,7 +4,6 @@ using Microsoft.EntityFrameworkCore;
 using OnlineShopAdmin.DataAccess.Models;
 using OnlineShopAdmin.DataAccess.Repository;
 using OnlineShopAdmin.Filters;
-using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
@@ -26,9 +25,9 @@ namespace OnlineShopAdmin.Controllers
         {
             var (list, pagerDetails) = await _customerRepository.GetListAsync(pg, pageSize, search, cancellationToken: cancellationToken);
             ViewBag.Pager = pagerDetails;
-            ViewBag.PageSizes = GetPageSizes(pageSize);   
+            ViewBag.PageSizes = GetPageSizes(pageSize);
             TempData["page"] = pg;
-            TempData["CurrentFilter"] = search;
+            TempData["currentFilter"] = search;
             TempData["pageSize"] = pageSize;
             return View(list);
         }
@@ -37,7 +36,7 @@ namespace OnlineShopAdmin.Controllers
         {
             var pageSizes = new List<SelectListItem>();
 
-            for (int i = 10; i <= 50; i += 10)
+            for (int i = 20; i <= 50; i += 10)
             {
                 if (i == selectedPageSize)
                 {
@@ -53,9 +52,11 @@ namespace OnlineShopAdmin.Controllers
         }
 
         // GET: Customers/Details/5
-        public async Task<IActionResult> Details(int id, int pg, CancellationToken cancellationToken = default)
+        public async Task<IActionResult> Details(int id, int pg, int pageSize, string search, CancellationToken cancellationToken = default)
         {
             TempData["page"] = pg;
+            TempData["currentFilter"] = search;
+            TempData["pageSize"] = pageSize;
 
             var customer = await _customerRepository.GetByIdAsync(id, cancellationToken: cancellationToken);
 
@@ -87,9 +88,11 @@ namespace OnlineShopAdmin.Controllers
         }
 
         // GET: Customers/Edit/5
-        public async Task<IActionResult> Edit(int? id, int pg, CancellationToken cancellationToken = default)
+        public async Task<IActionResult> Edit(int? id, int pg, int pageSize, string search, CancellationToken cancellationToken = default)
         {
             TempData["page"] = pg;
+            TempData["currentFilter"] = search;
+            TempData["pageSize"] = pageSize;
 
             if (id == null)
             {
@@ -106,7 +109,7 @@ namespace OnlineShopAdmin.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Edit(int id, int pg, Customer customer, CancellationToken cancellationToken = default)
+        public async Task<IActionResult> Edit(int id, int pg, int pageSize, string search, Customer customer, CancellationToken cancellationToken = default)
         {
             if (id != customer.CustomerId)
             {
@@ -131,15 +134,17 @@ namespace OnlineShopAdmin.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index), new { pg });
+                return RedirectToAction(nameof(Index), new { pg, pageSize, search });
             }
             return View(customer);
         }
 
         // GET: Customers/Delete/5
-        public async Task<IActionResult> Delete(int id, int pg, CancellationToken cancellationToken = default)
+        public async Task<IActionResult> Delete(int id, int pg, int pageSize, string search, CancellationToken cancellationToken = default)
         {
             TempData["page"] = pg;
+            TempData["currentFilter"] = search;
+            TempData["pageSize"] = pageSize;
 
             var customer = await _customerRepository.GetByIdAsync(id, cancellationToken: cancellationToken);
 
@@ -153,10 +158,10 @@ namespace OnlineShopAdmin.Controllers
 
         // POST: Customers/Delete/5
         [HttpPost, ActionName("Delete")]
-        public async Task<IActionResult> DeleteConfirmed(int id, int pg, CancellationToken cancellationToken = default)
+        public async Task<IActionResult> DeleteConfirmed(int id, int pg, int pageSize, string search, CancellationToken cancellationToken = default)
         {
             await _customerRepository.DeleteAsynch(id, cancellationToken);
-            return RedirectToAction(nameof(Index), new { pg });
+            return RedirectToAction(nameof(Index), new { pg, pageSize, search });
         }
     }
 }

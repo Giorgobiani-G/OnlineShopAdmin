@@ -1,4 +1,4 @@
-﻿@model OnlineShopAdmin.DataAccess.Models.Customer
+﻿@model Customer
 
 @{
     ViewData["Title"] = "Edit";
@@ -84,14 +84,14 @@
                 <span asp-validation-for="ModifiedDate" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" asp-route-pg="@TempData["page"]"/>
+                <input type="submit" value="Save" class="btn btn-primary" asp-route-search="@TempData["currentFilter"]" asp-route-pageSize="@TempData["pageSize"]" asp-route-pg="@TempData["page"]" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Delete" asp-route-id="@Model.CustomerId" asp-route-pg="@TempData["page"]">Delete</a> |
-    <a asp-action="Index" asp-route-pg="@TempData["page"]">Back to List</a>
+    <a asp-action="Delete" asp-route-id="@Model.CustomerId" asp-route-pg="@TempData["page"]" asp-route-pageSize="@TempData["pageSize"]" asp-route-search="@TempData["currentFilter"]">Delete</a> |
+    <a asp-action="Index" asp-route-search="@TempData["currentFilter"]" asp-route-pageSize="@TempData["pageSize"]" asp-route-pg="@TempData["page"]">Back to List</a>
 </div>
 
