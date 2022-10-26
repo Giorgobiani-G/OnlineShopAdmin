@@ -59,17 +59,57 @@ namespace OnlineShopAdmin.DataAccess.Repository
 
                 ParameterExpression prm = Expression.Parameter(type, "x");
 
-                ConstantExpression searchParameter = Expression.Constant(search);
+                ConstantExpression searchValue = Expression.Constant(search);
 
-                bool isDecimal = decimal.TryParse(search, out decimal resInt);
+                bool isDecimal = decimal.TryParse(search, out decimal resDecimal);
+                bool isInt = int.TryParse(search, out int resInt);
+                bool isDAteTime = DateTime.TryParse(search, out DateTime resDAteTime);
 
-                if (isDecimal)
+                if (isDecimal || isInt)
                 {
-                    properties = type.GetProperties().Where(x => x.PropertyType == typeof(decimal)).ToArray();
+                    properties = isInt switch
+                    {
+                        false => type.GetProperties().Where(x => x.PropertyType == typeof(decimal)).ToArray(),
+                        _ => type.GetProperties().Where(x => x.PropertyType == typeof(int) || x.PropertyType == typeof(byte) || x.PropertyType == typeof(short)).ToArray()
+                    };
 
-                    MethodInfo equalMethod = typeof(Expression).GetMethod("Equal", new[] { typeof(Expression), typeof(Expression) });
+                    IEnumerable<MemberExpression> memberExpressions = properties.Select(prp => Expression.Property(prm, prp));
 
-                    IEnumerable<Expression> expressions = properties.Select(prp => Expression.Call(Expression.Property(prm, prp), equalMethod, searchParameter));
+                    ConstantExpression searchValueDecimal = isInt switch
+                    {
+                        false => searchValueDecimal = Expression.Constant(resDecimal),
+                        _ => searchValueDecimal = Expression.Constant(resInt)
+                    };
+
+                    List<Expression> expressions = new();
+
+                    foreach (var item in memberExpressions)
+                    {
+                        var expression = Expression.Equal(item, searchValueDecimal);
+                        expressions.Add(expression);
+                    }
+
+                    Expression body = expressions.Aggregate((prev, current) => Expression.Or(prev, current));
+
+                    Expression<Func<T, bool>> lambda = Expression.Lambda<Func<T, bool>>(body, prm);
+
+                    data = _table.Where(lambda);
+                }
+                else if (isDAteTime)
+                {
+                    properties = type.GetProperties().Where(x => x.PropertyType == typeof(DateTime)).ToArray();
+
+                    IEnumerable<MemberExpression> memberExpressions = properties.Select(prp => Expression.Property(prm, prp));
+
+                    ConstantExpression searchValueDecimal = Expression.Constant(resDAteTime);
+
+                    List<Expression> expressions = new();
+
+                    foreach (var item in memberExpressions)
+                    {
+                        var expression = Expression.Equal(item, searchValueDecimal);
+                        expressions.Add(expression);
+                    }
 
                     Expression body = expressions.Aggregate((prev, current) => Expression.Or(prev, current));
 
@@ -83,7 +123,7 @@ namespace OnlineShopAdmin.DataAccess.Repository
 
                     MethodInfo containsMethod = typeof(string).GetMethod("Contains", new[] { typeof(string) });
 
-                    IEnumerable<Expression> expressions = properties.Select(prp => Expression.Call(Expression.Property(prm, prp), containsMethod, searchParameter));
+                    IEnumerable<Expression> expressions = properties.Select(prp => Expression.Call(Expression.Property(prm, prp), containsMethod, searchValue));
 
                     Expression body = expressions.Aggregate((prev, current) => Expression.Or(prev, current));
 

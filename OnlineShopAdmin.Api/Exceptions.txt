@@ -1,120 +1,84 @@
-﻿Exception thrown by controller-Customers action-Index method-GET
-Excepton message: The model item passed into the ViewDataDictionary is of type 'System.Collections.Generic.List`1[OnlineShopAdmin.DataAccess.Models.Customer]', but this ViewDataDictionary instance requires a model item of type 'OnlineShopAdmin.DataAccess.Repository.Pager'. 
+﻿Exception thrown by controller-Index action-SalesOrderHeaders method-POST
+Excepton message: Static method requires null instance, non-static method requires non-null instance. 
+ExceptonType: System.ArgumentException 
+Inner Exception message: None 
+LogDate: 26.10.2022 17:13:45
+---------
+Exception thrown by controller-Index action-SalesOrderHeaders method-POST
+Excepton message: Expression of type 'System.Int32' cannot be used for parameter of type 'System.Linq.Expressions.Expression' of method 'System.Linq.Expressions.BinaryExpression Equal(System.Linq.Expressions.Expression, System.Linq.Expressions.Expression)' (Parameter 'arg0') 
+ExceptonType: System.ArgumentException 
+Inner Exception message: None 
+LogDate: 26.10.2022 17:20:48
+---------
+Exception thrown by controller-Index action-SalesOrderHeaders method-POST
+Excepton message: Incorrect number of arguments supplied for call to method 'System.Linq.Expressions.BinaryExpression Equal(System.Linq.Expressions.Expression, System.Linq.Expressions.Expression)' (Parameter 'method') 
+ExceptonType: System.ArgumentException 
+Inner Exception message: None 
+LogDate: 26.10.2022 17:55:44
+---------
+Exception thrown by controller-Index action-SalesOrderHeaders method-POST
+Excepton message: Static method requires null instance, non-static method requires non-null instance. 
+ExceptonType: System.ArgumentException 
+Inner Exception message: None 
+LogDate: 26.10.2022 17:58:53
+---------
+Exception thrown by controller-Index action-SalesOrderHeaders method-POST
+Excepton message: Static method requires null instance, non-static method requires non-null instance. 
+ExceptonType: System.ArgumentException 
+Inner Exception message: None 
+LogDate: 26.10.2022 18:11:46
+---------
+Exception thrown by controller-Index action-SalesOrderHeaders method-POST
+Excepton message: The binary operator Equal is not defined for the types 'System.Int32' and 'System.String'. 
 ExceptonType: System.InvalidOperationException 
-LogDate: 21.10.2022 19:55:03
+Inner Exception message: None 
+LogDate: 26.10.2022 18:29:57
 ---------
-Exception thrown by controller-Customers action-Index method-GET
-Excepton message: The model item passed into the ViewDataDictionary is of type 'System.Collections.Generic.List`1[OnlineShopAdmin.DataAccess.Models.Customer]', but this ViewDataDictionary instance requires a model item of type 'OnlineShopAdmin.DataAccess.Repository.Pager'. 
+Exception thrown by controller-Index action-SalesOrderHeaders method-POST
+Excepton message: The binary operator Equal is not defined for the types 'System.Int32' and 'System.Decimal'. 
 ExceptonType: System.InvalidOperationException 
-LogDate: 21.10.2022 19:57:02
+Inner Exception message: None 
+LogDate: 26.10.2022 19:50:03
 ---------
-Exception thrown by controller-Customers action-Index method-GET
-Excepton message: The model item passed into the ViewDataDictionary is of type 'System.Collections.Generic.List`1[OnlineShopAdmin.DataAccess.Models.Customer]', but this ViewDataDictionary instance requires a model item of type 'OnlineShopAdmin.DataAccess.Repository.Pager'. 
+Exception thrown by controller-Index action-SalesOrderHeaders method-POST
+Excepton message: The binary operator Equal is not defined for the types 'System.Byte' and 'System.Int32'. 
 ExceptonType: System.InvalidOperationException 
-LogDate: 21.10.2022 20:16:18
+Inner Exception message: None 
+LogDate: 26.10.2022 20:48:01
 ---------
-Exception thrown by controller-Customers action-Index method-GET
-Excepton message: The model item passed into the ViewDataDictionary is of type 'System.Collections.Generic.List`1[OnlineShopAdmin.DataAccess.Models.Customer]', but this ViewDataDictionary instance requires a model item of type 'OnlineShopAdmin.DataAccess.Repository.Pager'. 
+Exception thrown by controller-Index action-SalesOrderHeaders method-POST
+Excepton message: The binary operator Equal is not defined for the types 'System.Byte' and 'System.Int32'. 
 ExceptonType: System.InvalidOperationException 
-LogDate: 21.10.2022 20:24:17
+Inner Exception message: None 
+LogDate: 26.10.2022 20:56:11
 ---------
-Exception thrown by controller-Customers action-Index method-GET
-Excepton message: The model item passed into the ViewDataDictionary is of type 'System.Collections.Generic.List`1[OnlineShopAdmin.DataAccess.Models.Customer]', but this ViewDataDictionary instance requires a model item of type 'OnlineShopAdmin.DataAccess.Repository.Pager'. 
+Exception thrown by controller-Index action-SalesOrderHeaders method-POST
+Excepton message: The binary operator Equal is not defined for the types 'System.Byte' and 'System.Int32'. 
 ExceptonType: System.InvalidOperationException 
-LogDate: 21.10.2022 20:28:10
+Inner Exception message: None 
+LogDate: 26.10.2022 20:57:32
 ---------
-Exception thrown by controller-Customers action-Index method-GET
-Excepton message: The model item passed into the ViewDataDictionary is of type 'System.Collections.Generic.List`1[OnlineShopAdmin.DataAccess.Models.Customer]', but this ViewDataDictionary instance requires a model item of type 'OnlineShopAdmin.DataAccess.Repository.Pager'. 
+Exception thrown by controller-Index action-SalesOrderHeaders method-POST
+Excepton message: The binary operator Equal is not defined for the types 'System.Byte' and 'System.Int32'. 
 ExceptonType: System.InvalidOperationException 
-LogDate: 21.10.2022 20:28:58
+Inner Exception message: None 
+LogDate: 26.10.2022 20:57:49
 ---------
-Exception thrown by controller-Customers action-Index method-GET
-Excepton message: The model item passed into the ViewDataDictionary is of type 'System.Collections.Generic.List`1[OnlineShopAdmin.DataAccess.Models.Customer]', but this ViewDataDictionary instance requires a model item of type 'OnlineShopAdmin.DataAccess.Repository.Pager'. 
-ExceptonType: System.InvalidOperationException 
-LogDate: 21.10.2022 20:32:16
----------
-Exception thrown by controller-Customers action-Index method-GET
-Excepton message: The model item passed into the ViewDataDictionary is of type 'System.Collections.Generic.List`1[OnlineShopAdmin.DataAccess.Models.Customer]', but this ViewDataDictionary instance requires a model item of type 'OnlineShopAdmin.DataAccess.Repository.Pager'. 
-ExceptonType: System.InvalidOperationException 
-LogDate: 21.10.2022 20:33:54
----------
-Exception thrown by controller-Customers action-Index method-GET
-Excepton message: The model item passed into the ViewDataDictionary is of type 'System.Collections.Generic.List`1[OnlineShopAdmin.DataAccess.Models.Customer]', but this ViewDataDictionary instance requires a model item of type 'OnlineShopAdmin.DataAccess.Repository.Pager'. 
-ExceptonType: System.InvalidOperationException 
-LogDate: 21.10.2022 20:36:29
----------
-Exception thrown by controller-Customers action-Index method-GET
-Excepton message: The model item passed into the ViewDataDictionary is of type 'System.Collections.Generic.List`1[OnlineShopAdmin.DataAccess.Models.Customer]', but this ViewDataDictionary instance requires a model item of type 'OnlineShopAdmin.DataAccess.Repository.Pager'. 
-ExceptonType: System.InvalidOperationException 
-LogDate: 21.10.2022 20:50:13
----------
-Exception thrown by controller-Customers action-Index method-GET
-Excepton message: Cannot perform runtime binding on a null reference 
-ExceptonType: Microsoft.CSharp.RuntimeBinder.RuntimeBinderException 
-LogDate: 21.10.2022 21:22:06
----------
-Exception thrown by controller-Customers action-Index method-GET
-Excepton message: Cannot perform runtime binding on a null reference 
-ExceptonType: Microsoft.CSharp.RuntimeBinder.RuntimeBinderException 
-LogDate: 21.10.2022 21:26:04
----------
-Exception thrown by controller-Customers action-Index method-GET
-Excepton message: Cannot perform runtime binding on a null reference 
-ExceptonType: Microsoft.CSharp.RuntimeBinder.RuntimeBinderException 
-LogDate: 21.10.2022 21:28:01
----------
-Exception thrown by controller-Customers action-Index method-GET
-Excepton message: The model item passed into the ViewDataDictionary is of type 'System.Collections.Generic.List`1[OnlineShopAdmin.DataAccess.Models.Customer]', but this ViewDataDictionary instance requires a model item of type 'OnlineShopAdmin.DataAccess.Repository.Pager'. 
-ExceptonType: System.InvalidOperationException 
-LogDate: 21.10.2022 21:35:10
----------
-Exception thrown by controller-Index action-ProductCategories method-GET
-Excepton message: The model item passed into the ViewDataDictionary is of type 'System.Collections.Generic.List`1[OnlineShopAdmin.DataAccess.Models.ProductCategory]', but this ViewDataDictionary instance requires a model item of type 'OnlineShopAdmin.DataAccess.Repository.Pager'. 
-ExceptonType: System.InvalidOperationException 
-LogDate: 21.10.2022 21:48:33
----------
-Exception thrown by controller-Customers action-Index method-GET
-Excepton message: The process cannot access the file 'C:\Users\admin\source\repos\OnlineShopAdmin\OnlineShopAdmin.Api\HttpRequests.txt' because it is being used by another process. 
-ExceptonType: System.IO.IOException 
-LogDate: 25.10.2022 15:16:12
----------
-Exception thrown by controller-Customers action-Index method-GET
+Exception thrown by controller-Index action-SalesOrderHeaders method-POST
 Excepton message: A task was canceled. 
 ExceptonType: System.Threading.Tasks.TaskCanceledException 
-LogDate: 25.10.2022 15:16:13
+Inner Exception message: None 
+LogDate: 26.10.2022 21:08:39
 ---------
-Exception thrown by controller-Customers action-Index method-GET
-Excepton message: Operation cancelled by user. 
+Exception thrown by controller-Index action-SalesOrderHeaders method-POST
+Excepton message: The binary operator Equal is not defined for the types 'System.Byte' and 'System.Int32'. 
 ExceptonType: System.InvalidOperationException 
-LogDate: 25.10.2022 15:27:57
+Inner Exception message: None 
+LogDate: 26.10.2022 21:11:13
 ---------
-Exception thrown by controller-Products action-Delete method-POST
-Excepton message: An error occurred while saving the entity changes. See the inner exception for details. 
-ExceptonType: Microsoft.EntityFrameworkCore.DbUpdateException 
-LogDate: 25.10.2022 17:30:19
----------
-Exception thrown by controller-Customers action-Index method-GET
-Excepton message: A task was canceled. 
-ExceptonType: System.Threading.Tasks.TaskCanceledException 
-LogDate: 25.10.2022 17:32:11
----------
-Exception thrown by controller-Products action-Delete method-POST
-Excepton message: An error occurred while saving the entity changes. See the inner exception for details. 
-ExceptonType: Microsoft.EntityFrameworkCore.DbUpdateException 
-LogDate: 25.10.2022 17:34:15
----------
-Exception thrown by controller-Products action-Delete method-POST
-Excepton message: An error occurred while saving the entity changes. See the inner exception for details. 
-ExceptonType: Microsoft.EntityFrameworkCore.DbUpdateException 
-LogDate: 25.10.2022 17:36:58
----------
-Exception thrown by controller-Products action-Delete method-POST
-Excepton message: An error occurred while saving the entity changes. See the inner exception for details. 
-ExceptonType: Microsoft.EntityFrameworkCore.DbUpdateException 
-LogDate: 25.10.2022 17:41:53
----------
-Exception thrown by controller-Products action-Delete method-POST
-Excepton message: An error occurred while saving the entity changes. See the inner exception for details. 
-ExceptonType: Microsoft.EntityFrameworkCore.DbUpdateException 
-LogDate: 25.10.2022 17:45:29
+Exception thrown by controller-Index action-Products method-POST
+Excepton message: Sequence contains no elements 
+ExceptonType: System.InvalidOperationException 
+Inner Exception message: None 
+LogDate: 26.10.2022 21:26:22
 ---------
