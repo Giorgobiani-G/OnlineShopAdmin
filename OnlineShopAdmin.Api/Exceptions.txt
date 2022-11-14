@@ -82,3 +82,63 @@ ExceptonType: System.InvalidOperationException
 Inner Exception message: None 
 LogDate: 26.10.2022 21:26:22
 ---------
+Exception thrown by controller-Index action-SalesOrderHeaders method-POST
+Excepton message: The binary operator Equal is not defined for the types 'System.Byte' and 'System.Int32'. 
+ExceptonType: System.InvalidOperationException 
+Inner Exception message: None 
+LogDate: 27.10.2022 18:18:08
+---------
+Exception thrown by controller-Index action-SalesOrderHeaders method-POST
+Excepton message: The binary operator Equal is not defined for the types 'System.Byte' and 'System.Int32'. 
+ExceptonType: System.InvalidOperationException 
+Inner Exception message: None 
+LogDate: 27.10.2022 18:18:18
+---------
+Exception thrown by controller-Index action-Products method-POST
+Excepton message: Sequence contains no elements 
+ExceptonType: System.InvalidOperationException 
+Inner Exception message: None 
+LogDate: 27.10.2022 18:19:25
+---------
+Exception thrown by controller-Index action-Products method-POST
+Excepton message: Sequence contains no elements 
+ExceptonType: System.InvalidOperationException 
+Inner Exception message: None 
+LogDate: 27.10.2022 18:19:46
+---------
+Exception thrown by controller-Index action-Products method-POST
+Excepton message: Sequence contains no elements 
+ExceptonType: System.InvalidOperationException 
+Inner Exception message: None 
+LogDate: 27.10.2022 18:21:35
+---------
+Exception thrown by controller-Index action-Products method-POST
+Excepton message: Sequence contains no elements 
+ExceptonType: System.InvalidOperationException 
+Inner Exception message: None 
+LogDate: 27.10.2022 18:23:39
+---------
+Exception thrown by controller-Index action-Products method-POST
+Excepton message: Sequence contains no elements 
+ExceptonType: System.InvalidOperationException 
+Inner Exception message: None 
+LogDate: 27.10.2022 18:31:08
+---------
+Exception thrown by controller-Index action-SalesOrderHeaders method-POST
+Excepton message: A task was canceled. 
+ExceptonType: System.Threading.Tasks.TaskCanceledException 
+Inner Exception message: None 
+LogDate: 14.11.2022 20:04:38
+---------
+Exception thrown by controller-Index action-SalesOrderHeaders method-POST
+Excepton message: A task was canceled. 
+ExceptonType: System.Threading.Tasks.TaskCanceledException 
+Inner Exception message: None 
+LogDate: 14.11.2022 20:16:04
+---------
+Exception thrown by controller-Index action-SalesOrderHeaders method-POST
+Excepton message: A task was canceled. 
+ExceptonType: System.Threading.Tasks.TaskCanceledException 
+Inner Exception message: None 
+LogDate: 14.11.2022 20:28:50
+---------

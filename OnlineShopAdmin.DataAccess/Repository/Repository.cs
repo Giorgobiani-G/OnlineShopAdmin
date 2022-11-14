@@ -47,93 +47,81 @@ namespace OnlineShopAdmin.DataAccess.Repository
 
         public async Task<(IEnumerable<T> list, Pager pageDetails)> GetListAsync(int pg = 1, int pageSize = 20, string search = null, string[] includeProperties = null, CancellationToken cancellationToken = default)
         {
-            bool isnullOrEmpty = !string.IsNullOrEmpty(search);
+            var isnullOrEmpty = !string.IsNullOrEmpty(search);
 
             IQueryable<T> data = _table;
 
             if (isnullOrEmpty)
             {
-                Type type = typeof(T);
+                var type = typeof(T);
 
                 PropertyInfo[] properties;
 
-                ParameterExpression prm = Expression.Parameter(type, "x");
+                var prm = Expression.Parameter(type, "x");
 
-                ConstantExpression searchValue = Expression.Constant(search);
+                var searchValue = Expression.Constant(search);
+               
+                var isDecimal = decimal.TryParse(search, out _);
+                var isInt = int.TryParse(search, out _);
+                var isDAteTime = DateTime.TryParse(search, out var resDAteTime);
 
-                bool isDecimal = decimal.TryParse(search, out decimal resDecimal);
-                bool isInt = int.TryParse(search, out int resInt);
-                bool isDAteTime = DateTime.TryParse(search, out DateTime resDAteTime);
-
-                if (isDecimal || isInt)
+                if (isDecimal || isInt || isDAteTime)
                 {
-                    properties = isInt switch
-                    {
-                        false => type.GetProperties().Where(x => x.PropertyType == typeof(decimal)).ToArray(),
-                        _ => type.GetProperties().Where(x => x.PropertyType == typeof(int) || x.PropertyType == typeof(byte) || x.PropertyType == typeof(short)).ToArray()
-                    };
+                    properties = type.GetProperties().Where(x => x.PropertyType == typeof(int) || x.PropertyType == typeof(byte)
+                    || x.PropertyType == typeof(short) || x.PropertyType == typeof(decimal)|| x.PropertyType == typeof(DateTime)).ToArray();
 
-                    IEnumerable<MemberExpression> memberExpressions = properties.Select(prp => Expression.Property(prm, prp));
+                    var memberExpressions = properties.Select(prp => Expression.Property(prm, prp));
 
-                    ConstantExpression searchValueDecimal = isInt switch
-                    {
-                        false => searchValueDecimal = Expression.Constant(resDecimal),
-                        _ => searchValueDecimal = Expression.Constant(resInt)
-                    };
+                    var toStringMethod = typeof(object).GetMethod("ToString");
+                    var containsMethod = typeof(string).GetMethod("Contains", new[] { typeof(string) });
+                    var callExpressions =  memberExpressions.Select(mem => Expression.Call(mem, toStringMethod!));
+                    IEnumerable<Expression> methodCallExpressions =callExpressions.Select(expr => Expression.Call(expr, containsMethod!, searchValue));
 
-                    List<Expression> expressions = new();
+                    var body = methodCallExpressions.Aggregate((prev, current) => Expression.Or(prev, current));
 
-                    foreach (var item in memberExpressions)
-                    {
-                        var expression = Expression.Equal(item, searchValueDecimal);
-                        expressions.Add(expression);
-                    }
-
-                    Expression body = expressions.Aggregate((prev, current) => Expression.Or(prev, current));
-
-                    Expression<Func<T, bool>> lambda = Expression.Lambda<Func<T, bool>>(body, prm);
+                    var lambda = Expression.Lambda<Func<T, bool>>(body, prm);
 
                     data = _table.Where(lambda);
                 }
-                else if (isDAteTime)
-                {
-                    properties = type.GetProperties().Where(x => x.PropertyType == typeof(DateTime)).ToArray();
+                //else if (isDAteTime)
+                //{
+                //    properties = type.GetProperties().Where(x => x.PropertyType == typeof(DateTime)).ToArray();
 
-                    IEnumerable<MemberExpression> memberExpressions = properties.Select(prp => Expression.Property(prm, prp));
+                //    var memberExpressions = properties.Select(prp => Expression.Property(prm, prp));
 
-                    ConstantExpression searchValueDecimal = Expression.Constant(resDAteTime);
+                //    var searchValueDecimal = Expression.Constant(resDAteTime);
 
-                    List<Expression> expressions = new();
+                //    List<Expression> expressions = new();
 
-                    foreach (var item in memberExpressions)
-                    {
-                        var expression = Expression.Equal(item, searchValueDecimal);
-                        expressions.Add(expression);
-                    }
+                //    foreach (var item in memberExpressions)
+                //    {
+                //        var expression = Expression.Equal(item, searchValueDecimal);
+                //        expressions.Add(expression);
+                //    }
 
-                    Expression body = expressions.Aggregate((prev, current) => Expression.Or(prev, current));
+                //    var body = expressions.Aggregate((prev, current) => Expression.Or(prev, current));
 
-                    Expression<Func<T, bool>> lambda = Expression.Lambda<Func<T, bool>>(body, prm);
+                //    var lambda = Expression.Lambda<Func<T, bool>>(body, prm);
 
-                    data = _table.Where(lambda);
-                }
+                //    data = _table.Where(lambda);
+                //}
                 else
                 {
                     properties = type.GetProperties().Where(x => x.PropertyType == typeof(string)).ToArray();
 
-                    MethodInfo containsMethod = typeof(string).GetMethod("Contains", new[] { typeof(string) });
+                    var containsMethod = typeof(string).GetMethod("Contains", new[] { typeof(string) });
 
-                    IEnumerable<Expression> expressions = properties.Select(prp => Expression.Call(Expression.Property(prm, prp), containsMethod, searchValue));
+                    IEnumerable<Expression> expressions = properties.Select(prp => Expression.Call(Expression.Property(prm, prp), containsMethod!, searchValue));
 
-                    Expression body = expressions.Aggregate((prev, current) => Expression.Or(prev, current));
+                    var body = expressions.Aggregate((prev, current) => Expression.Or(prev, current));
 
-                    Expression<Func<T, bool>> lambda = Expression.Lambda<Func<T, bool>>(body, prm);
+                    var lambda = Expression.Lambda<Func<T, bool>>(body, prm);
 
                     data = _table.Where(lambda);
                 }
             }
 
-            var benefCount = data.Count()/* _table.AsQueryable().Count()*/;
+            var benefCount = data.Count();
 
             if (pg < 1)
                 pg = 1;
@@ -143,7 +131,7 @@ namespace OnlineShopAdmin.DataAccess.Repository
 
             var pager = new Pager(benefCount, pg, pageSize);
 
-            int benfSkip = (pg - 1) * pageSize;
+            var benfSkip = (pg - 1) * pageSize;
 
             if (includeProperties is not null)
             {
