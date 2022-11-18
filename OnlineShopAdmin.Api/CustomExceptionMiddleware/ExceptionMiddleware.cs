@@ -32,7 +32,8 @@ namespace OnlineShopAdmin.CustomExceptionMiddleware
               
                 File.AppendAllText("Exceptions.txt",$"Exception thrown by controller-{controller} action-{action} method-{method}" +
                     $"{Environment.NewLine}" + $"Excepton message: {ex.Message} {Environment.NewLine}ExceptonType: " +
-                    $"{ex.GetType().FullName} {Environment.NewLine}LogDate: {DateTime.Now}" + 
+                    $"{ex.GetType().FullName} {Environment.NewLine}" + $"Inner Exception message: {ex.InnerException?.Message ?? "None"} {Environment.NewLine}" +
+                    $"LogDate: {DateTime.Now}" +
                     Environment.NewLine + "---------" + Environment.NewLine);
                 await HandleExceptionAsync(httpContext, ex);
             }

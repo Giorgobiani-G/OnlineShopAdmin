@@ -88,10 +88,12 @@ namespace OnlineShopAdmin.DataAccess.Models
         /// <summary>
         /// Sales subtotal. Computed as SUM(SalesOrderDetail.LineTotal)for the appropriate SalesOrderID.
         /// </summary>
+        [DisplayFormat(DataFormatString ="{0:0.0000}")]
         public decimal SubTotal { get; set; }
         /// <summary>
         /// Tax amount.
         /// </summary>
+        [DisplayFormat(DataFormatString = "{0:0.0000}")]
         public decimal TaxAmt { get; set; }
         /// <summary>
         /// Shipping cost.
