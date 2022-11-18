@@ -34,11 +34,14 @@ namespace OnlineShopAdmin.DataAccess.DbContexts
 
             foreach (var entityEntry in entries)
             {
-                ((BaseProperTy)entityEntry.Entity).ModifiedDate = DateTime.Now;
+                var now = DateTime.Now;
+
+                ((BaseProperTy)entityEntry.Entity).ModifiedDate = new DateTime(now.Year,now.Month,now.Day,now.Hour,now.Minute,0);
 
                 if (entityEntry.State == EntityState.Added)
                 {
-                    ((BaseProperTy)entityEntry.Entity).ModifiedDate = DateTime.Now;
+                    ((BaseProperTy)entityEntry.Entity).ModifiedDate = new DateTime
+                        (now.Year, now.Month, now.Day, now.Hour, now.Minute, 0);
                 }
             }
             return base.SaveChangesAsync(cancellationToken);
