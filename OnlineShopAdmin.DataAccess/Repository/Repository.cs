@@ -61,50 +61,58 @@ namespace OnlineShopAdmin.DataAccess.Repository
 
                 var searchValue = Expression.Constant(search);
                
-                var isDecimal = decimal.TryParse(search, out _);
+                var isDecimal = decimal.TryParse(search, out var decimalValue);
                 var isInt = int.TryParse(search, out _);
-                var isDAteTime = DateTime.TryParse(search, out var resDAteTime);
+                var isDAteTime = DateTime.TryParse(search, out var resDateTime);
 
-                if (isDecimal || isInt || isDAteTime)
+                if (isDecimal || isInt)
                 {
-                    properties = type.GetProperties().Where(x => x.PropertyType == typeof(int) || x.PropertyType == typeof(byte)
-                    || x.PropertyType == typeof(short) || x.PropertyType == typeof(decimal)|| x.PropertyType == typeof(DateTime)).ToArray();
-
+                    properties = type.GetProperties().Where(x => x.PropertyType == typeof(decimal) /*|| x.PropertyType == typeof(byte)
+                    || x.PropertyType == typeof(short) || x.PropertyType == typeof(int)|| x.PropertyType == typeof(DateTime)*/).ToArray();
+                    
                     var memberExpressions = properties.Select(prp => Expression.Property(prm, prp));
+                    var searchDecimalValue = Expression.Constant(decimalValue);
+                    
+                    var equalsMethod = typeof(decimal).GetMethod("Equals", new[] { typeof(decimal) });
+                    
+                    IEnumerable<Expression> callExpressions = memberExpressions.Select(mem => Expression.Call(mem, equalsMethod!, searchDecimalValue));
 
-                    var toStringMethod = typeof(object).GetMethod("ToString");
-                    var containsMethod = typeof(string).GetMethod("Contains", new[] { typeof(string) });
-                    var callExpressions =  memberExpressions.Select(mem => Expression.Call(mem, toStringMethod!));
-                    IEnumerable<Expression> methodCallExpressions =callExpressions.Select(expr => Expression.Call(expr, containsMethod!, searchValue));
-
-                    var body = methodCallExpressions.Aggregate((prev, current) => Expression.Or(prev, current));
+                    var body = callExpressions.Aggregate((prev, current) => Expression.Or(prev, current));
 
                     var lambda = Expression.Lambda<Func<T, bool>>(body, prm);
 
                     data = _table.Where(lambda);
                 }
-                //else if (isDAteTime)
-                //{
-                //    properties = type.GetProperties().Where(x => x.PropertyType == typeof(DateTime)).ToArray();
+                else if (isDAteTime)
+                {
+                    var searchValueDateTime = Expression.Constant(resDateTime);
 
-                //    var memberExpressions = properties.Select(prp => Expression.Property(prm, prp));
+                    var nullableProperties = type.GetProperties().Where(x=>x.PropertyType == typeof(DateTime?)).ToArray();
 
-                //    var searchValueDecimal = Expression.Constant(resDAteTime);
+                    var nullableMembers = nullableProperties.Select(prp => Expression.Property(prm, prp));
 
-                //    List<Expression> expressions = new();
+                    var equalsMethodNull = typeof(DateTime?).GetMethod("Equals", new[] { typeof(object) });
+                    
+                    Expression converted= Expression.Convert(searchValueDateTime,typeof(object));
 
-                //    foreach (var item in memberExpressions)
-                //    {
-                //        var expression = Expression.Equal(item, searchValueDecimal);
-                //        expressions.Add(expression);
-                //    }
+                    IEnumerable<Expression> callExpressionsNullable = nullableMembers.Select(mem => Expression.Call(mem, equalsMethodNull!, converted));
 
-                //    var body = expressions.Aggregate((prev, current) => Expression.Or(prev, current));
+                    properties = type.GetProperties().Where(x => x.PropertyType == typeof(DateTime)).ToArray();
 
-                //    var lambda = Expression.Lambda<Func<T, bool>>(body, prm);
+                    var memberExpressions = properties.Select(prp => Expression.Property(prm, prp));
 
-                //    data = _table.Where(lambda);
-                //}
+                    var equalsMethod = typeof(DateTime).GetMethod("Equals", new[] { typeof(DateTime) });
+
+                    IEnumerable<Expression> callExpressions = memberExpressions.Select(mem => Expression.Call(mem, equalsMethod!, searchValueDateTime));
+
+                    var combined = callExpressions.Concat(callExpressionsNullable);
+
+                    var body = combined.Aggregate((prev, current) => Expression.Or(prev, current));
+
+                    var lambda = Expression.Lambda<Func<T, bool>>(body, prm);
+
+                    data = _table.Where(lambda);
+                }
                 else
                 {
                     properties = type.GetProperties().Where(x => x.PropertyType == typeof(string)).ToArray();
@@ -121,7 +129,7 @@ namespace OnlineShopAdmin.DataAccess.Repository
                 }
             }
 
-            var benefCount = data.Count();
+            var items = data.Count();
 
             if (pg < 1)
                 pg = 1;
@@ -129,9 +137,9 @@ namespace OnlineShopAdmin.DataAccess.Repository
             if (pageSize < 1)
                 pageSize = 20;
 
-            var pager = new Pager(benefCount, pg, pageSize);
+            var pager = new Pager(items, pg, pageSize);
 
-            var benfSkip = (pg - 1) * pageSize;
+            var skip = (pg - 1) * pageSize;
 
             if (includeProperties is not null)
             {
@@ -142,11 +150,11 @@ namespace OnlineShopAdmin.DataAccess.Repository
                     data = data.Include(includeProperty);
                 }
 
-                var res = await data.Skip(benfSkip).Take(pager.PageSize).ToListAsync(cancellationToken);
+                var res = await data.Skip(skip).Take(pager.PageSize).ToListAsync(cancellationToken);
 
                 return (list: res, pageDetails: pager);
             }
-            var result = await data.Skip(benfSkip).Take(pager.PageSize).ToListAsync(cancellationToken);
+            var result = await data.Skip(skip).Take(pager.PageSize).ToListAsync(cancellationToken);
 
             return (list: result, pageDetails: pager);
         }
