@@ -54,7 +54,7 @@ namespace OnlineShopAdmin.Controllers
         {
             if (ModelState.IsValid)
             {
-                await _addressRepository.InseretAsynch(address, cancellationToken);
+                await _addressRepository.InsertAsync(address, cancellationToken);
                 return RedirectToAction(nameof(Index));
             }
             return View(address);
@@ -90,7 +90,7 @@ namespace OnlineShopAdmin.Controllers
             {
                 try
                 {
-                    await _addressRepository.UpdateAsynch(address, cancellationToken);
+                    await _addressRepository.UpdateAsync(address, cancellationToken);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -130,7 +130,7 @@ namespace OnlineShopAdmin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id, CancellationToken cancellationToken = default)
         {
-            await _addressRepository.DeleteAsynch(id, cancellationToken);
+            await _addressRepository.DeleteAsync(id, cancellationToken);
             return RedirectToAction(nameof(Index));
         }
     }

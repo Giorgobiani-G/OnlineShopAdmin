@@ -44,11 +44,13 @@ namespace OnlineShopAdmin.DataAccess.Models
         /// Standard cost of the product.
         /// </summary>
         [Required(ErrorMessage = "Mandatory Field!")]
+        [DisplayFormat(DataFormatString = "{0:0.0000}")]
         public decimal? StandardCost { get; set; }
         /// <summary>
         /// Selling price.
         /// </summary>
         [Required(ErrorMessage = "Mandatory Field!")]
+        [DisplayFormat(DataFormatString = "{0:0.0000}")]
         public decimal? ListPrice { get; set; }
         /// <summary>
         /// Product size.

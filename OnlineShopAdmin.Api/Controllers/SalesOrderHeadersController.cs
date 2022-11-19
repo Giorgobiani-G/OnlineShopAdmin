@@ -94,7 +94,7 @@ namespace OnlineShopAdmin.Controllers
         {
             if (ModelState.IsValid)
             {
-                await _salesOrderHeaderRepository.InseretAsynch(salesOrderHeader, cancellationToken);
+                await _salesOrderHeaderRepository.InsertAsync(salesOrderHeader, cancellationToken);
                 return RedirectToAction(nameof(Index));
             }
             ViewData["BillToAddressId"] = new SelectList(_addressRepository.GetList(), "AddressId", "AddressLine1", salesOrderHeader.BillToAddressId);
@@ -139,7 +139,7 @@ namespace OnlineShopAdmin.Controllers
             {
                 try
                 {
-                    await _salesOrderHeaderRepository.UpdateAsynch(salesOrderHeader, cancellationToken);
+                    await _salesOrderHeaderRepository.UpdateAsync(salesOrderHeader, cancellationToken);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -188,7 +188,7 @@ namespace OnlineShopAdmin.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id, int pg, int pageSize, string search, CancellationToken cancellationToken = default)
         {
             var salesOrderHeader = await _salesOrderHeaderRepository.GetByIdAsync(id, cancellationToken: cancellationToken);
-            await _salesOrderHeaderRepository.DeleteAsynch(salesOrderHeader, cancellationToken);
+            await _salesOrderHeaderRepository.DeleteAsync(salesOrderHeader, cancellationToken);
             return RedirectToAction(nameof(Index), new { pg, pageSize, search });
         }
     }

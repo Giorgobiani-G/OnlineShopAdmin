@@ -10,11 +10,11 @@ namespace OnlineShopAdmin.DataAccess.Repository
         Task<(IEnumerable<T> list, Pager pageDetails)> GetListAsync(int pg, int pageSize, string search=null, string[] includeProperties = null, CancellationToken cancellationToken = default);
         IEnumerable<T> GetList();
         Task<T> GetByIdAsync(int id, string[] includeProperties = null, CancellationToken cancellationToken = default);
-        Task InseretAsynch(T entity, CancellationToken cancellationToken = default);
-        Task UpdateAsynch(T entity, CancellationToken cancellationToken = default);
-        Task DeleteAsynch(int id, CancellationToken cancellationToken = default);
-        Task DeleteAsynch(T entity, CancellationToken cancellationToken = default);
-        Task SaveAsynch(CancellationToken cancellationToken = default);
+        Task InsertAsync(T entity, CancellationToken cancellationToken = default);
+        Task UpdateAsync(T entity, CancellationToken cancellationToken = default);
+        Task DeleteAsync(int id, CancellationToken cancellationToken = default);
+        Task DeleteAsync(T entity, CancellationToken cancellationToken = default);
+        Task SaveAsync(CancellationToken cancellationToken = default);
         Task<bool> CustomExists(int id);
     }
 }

@@ -30,16 +30,16 @@ namespace OnlineShopAdmin.DataAccess.Repository
 
                 ParameterExpression pe = Expression.Parameter(type, "x");
                 MemberExpression me = Expression.Property(pe, pkName);
-                ConstantExpression idpar = Expression.Constant(id);
-                BinaryExpression body = Expression.Equal(me, idpar);
-                Expression<Func<T, bool>> almb = Expression.Lambda<Func<T, bool>>(body, new[] { pe });
+                ConstantExpression idPar = Expression.Constant(id);
+                BinaryExpression body = Expression.Equal(me, idPar);
+                Expression<Func<T, bool>> lambda = Expression.Lambda<Func<T, bool>>(body, new[] { pe });
 
                 IQueryable<T> query = _table;
 
                 foreach (string includeProperty in includeProperties)
                     query = query.Include(includeProperty);
 
-                return await query.FirstOrDefaultAsync(almb, cancellationToken);
+                return await query.FirstOrDefaultAsync(lambda, cancellationToken);
             }
 
             return await _table.FindAsync(new object[] { id }, cancellationToken);
@@ -54,7 +54,7 @@ namespace OnlineShopAdmin.DataAccess.Repository
             if (isnullOrEmpty)
             {
                 var type = typeof(T);
-
+        
                 PropertyInfo[] properties;
 
                 var prm = Expression.Parameter(type, "x");
@@ -67,17 +67,30 @@ namespace OnlineShopAdmin.DataAccess.Repository
 
                 if (isDecimal || isInt)
                 {
+                    var searchDecimalValue = Expression.Constant(decimalValue);
+
+                    var nullableProperties = type.GetProperties().Where(x => x.PropertyType == typeof(decimal?)).ToArray();
+
+                    var nullableMembers = nullableProperties.Select(prp => Expression.Property(prm, prp));
+
+                    var equalsMethodNullable = typeof(decimal?).GetMethod("Equals", new[] { typeof(object) });
+
+                    Expression converted = Expression.Convert(searchDecimalValue, typeof(object));
+
+                    IEnumerable<Expression> callExpressionsNullable = nullableMembers.Select(mem => Expression.Call(mem, equalsMethodNullable!, converted));
+
                     properties = type.GetProperties().Where(x => x.PropertyType == typeof(decimal) /*|| x.PropertyType == typeof(byte)
-                    || x.PropertyType == typeof(short) || x.PropertyType == typeof(int)|| x.PropertyType == typeof(DateTime)*/).ToArray();
+                    || x.PropertyType == typeof(short) || x.PropertyType == typeof(int)*/).ToArray();
                     
                     var memberExpressions = properties.Select(prp => Expression.Property(prm, prp));
-                    var searchDecimalValue = Expression.Constant(decimalValue);
-                    
+
                     var equalsMethod = typeof(decimal).GetMethod("Equals", new[] { typeof(decimal) });
                     
                     IEnumerable<Expression> callExpressions = memberExpressions.Select(mem => Expression.Call(mem, equalsMethod!, searchDecimalValue));
 
-                    var body = callExpressions.Aggregate((prev, current) => Expression.Or(prev, current));
+                    var combined = callExpressions.Concat(callExpressionsNullable);
+
+                    var body = combined.Aggregate((prev, current) => Expression.Or(prev, current));
 
                     var lambda = Expression.Lambda<Func<T, bool>>(body, prm);
 
@@ -175,32 +188,32 @@ namespace OnlineShopAdmin.DataAccess.Repository
             return await _table.ToListAsync(cancellationToken);
         }
 
-        public async Task InseretAsynch(T entity, CancellationToken cancellationToken = default)
+        public async Task InsertAsync(T entity, CancellationToken cancellationToken = default)
         {
             await _table.AddAsync(entity, cancellationToken);
-            await SaveAsynch(cancellationToken);
+            await SaveAsync(cancellationToken);
         }
 
-        public async Task UpdateAsynch(T entity, CancellationToken cancellationToken = default)
+        public async Task UpdateAsync(T entity, CancellationToken cancellationToken = default)
         {
             _table.Update(entity);
-            await SaveAsynch(cancellationToken);
+            await SaveAsync(cancellationToken);
         }
 
-        public async Task DeleteAsynch(int id, CancellationToken cancellationToken = default)
+        public async Task DeleteAsync(int id, CancellationToken cancellationToken = default)
         {
-            T TypeTobeDeleted = _table.Find(id);
-            _table.Remove(TypeTobeDeleted);
-            await SaveAsynch(cancellationToken);
+            T typeToDeleted = _table.Find(id);
+            _table.Remove(typeToDeleted);
+            await SaveAsync(cancellationToken);
         }
 
-        public async Task DeleteAsynch(T entity, CancellationToken cancellationToken = default)
+        public async Task DeleteAsync(T entity, CancellationToken cancellationToken = default)
         {
             _table.Remove(entity);
-            await SaveAsynch(cancellationToken);
+            await SaveAsync(cancellationToken);
         }
 
-        public async Task SaveAsynch(CancellationToken cancellationToken = default)
+        public async Task SaveAsync(CancellationToken cancellationToken = default)
         {
             await _context.SaveChangesAsync(cancellationToken);
         }
@@ -208,11 +221,11 @@ namespace OnlineShopAdmin.DataAccess.Repository
         public async Task<bool> CustomExists(int id)
         {
             var entities = _table.AsAsyncEnumerable();
-            await foreach (var etntity in entities)
+            await foreach (var entity in entities)
             {
-                int pkvalue = (int)etntity.GetType().GetProperties().ToDictionary(x => x.Name, x => x.GetValue(etntity)).Values.ElementAt(0);
+                int pkValue = (int)entity.GetType().GetProperties().ToDictionary(x => x.Name, x => x.GetValue(entity)).Values.ElementAt(0);
 
-                if (pkvalue == id)
+                if (pkValue == id)
                     return true;
             }
             return false;
@@ -237,32 +250,32 @@ namespace OnlineShopAdmin.DataAccess.Repository
 
         public Pager(int totalItems, int page, int pageSize = 5)
         {
-            int totalpages = (int)Math.Ceiling(totalItems / (decimal)pageSize);
-            int currentpage = page;
-            int startpage = currentpage - 5;
-            int endpage = currentpage + 4;
+            int totalPages = (int)Math.Ceiling(totalItems / (decimal)pageSize);
+            int currentPage = page;
+            int startPage = currentPage - 5;
+            int endPage = currentPage + 4;
 
-            if (startpage <= 0)
+            if (startPage <= 0)
             {
-                endpage = endpage - (startpage - 1);
-                startpage = 1;
+                endPage -= (startPage - 1);
+                startPage = 1;
             }
 
-            if (endpage > totalpages)
+            if (endPage > totalPages)
             {
-                endpage = totalpages;
-                if (endpage > 10)
+                endPage = totalPages;
+                if (endPage > 10)
                 {
-                    startpage = endpage - 9;
+                    startPage = endPage - 9;
                 }
             }
 
             TotalItems = totalItems;
-            CurrentPage = currentpage;
+            CurrentPage = currentPage;
             PageSize = pageSize;
-            TotalPages = totalpages;
-            StartPage = startpage;
-            EndPage = endpage;
+            TotalPages = totalPages;
+            StartPage = startPage;
+            EndPage = endPage;
         }
     }
 }

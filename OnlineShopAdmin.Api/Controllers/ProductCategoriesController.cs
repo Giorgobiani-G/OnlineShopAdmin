@@ -90,7 +90,7 @@ namespace OnlineShopAdmin.Controllers
         {
             if (ModelState.IsValid)
             {
-                await _productCategoryRepository.InseretAsynch(productCategory, cancellationToken);
+                await _productCategoryRepository.InsertAsync(productCategory, cancellationToken);
                 return RedirectToAction(nameof(Index));
             }
             ViewData["ParentProductCategoryId"] = new SelectList(_productCategoryRepository.GetList(), "ProductCategoryId", "Name", productCategory.ParentProductCategoryId);
@@ -132,7 +132,7 @@ namespace OnlineShopAdmin.Controllers
             {
                 try
                 {
-                    await _productCategoryRepository.UpdateAsynch(productCategory, cancellationToken);
+                    await _productCategoryRepository.UpdateAsync(productCategory, cancellationToken);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -178,7 +178,7 @@ namespace OnlineShopAdmin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id, int pg, int pageSize, string search, CancellationToken cancellationToken = default)
         {
-            await _productCategoryRepository.DeleteAsynch(id, cancellationToken);
+            await _productCategoryRepository.DeleteAsync(id, cancellationToken);
             return RedirectToAction(nameof(Index), new { pg, pageSize, search });
         }
     }

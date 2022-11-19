@@ -81,7 +81,7 @@ namespace OnlineShopAdmin.Controllers
         {
             if (ModelState.IsValid)
             {
-                await _customerRepository.InseretAsynch(customer, cancellationToken);
+                await _customerRepository.InsertAsync(customer, cancellationToken);
                 return RedirectToAction(nameof(Index));
             }
             return View(customer);
@@ -120,7 +120,7 @@ namespace OnlineShopAdmin.Controllers
             {
                 try
                 {
-                    await _customerRepository.UpdateAsynch(customer, cancellationToken);
+                    await _customerRepository.UpdateAsync(customer, cancellationToken);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -160,7 +160,7 @@ namespace OnlineShopAdmin.Controllers
         [HttpPost, ActionName("Delete")]
         public async Task<IActionResult> DeleteConfirmed(int id, int pg, int pageSize, string search, CancellationToken cancellationToken = default)
         {
-            await _customerRepository.DeleteAsynch(id, cancellationToken);
+            await _customerRepository.DeleteAsync(id, cancellationToken);
             return RedirectToAction(nameof(Index), new { pg, pageSize, search });
         }
     }
