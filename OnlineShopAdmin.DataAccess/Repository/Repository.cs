@@ -67,18 +67,30 @@ namespace OnlineShopAdmin.DataAccess.Repository
 
                 if (isDecimal || isInt)
                 {
+                    var searchDecimalValue = Expression.Constant(decimalValue);
+
+                    var nullableProperties = type.GetProperties().Where(x => x.PropertyType == typeof(decimal?)).ToArray();
+
+                    var nullableMembers = nullableProperties.Select(prp => Expression.Property(prm, prp));
+
+                    var equalsMethodNullable = typeof(decimal?).GetMethod("Equals", new[] { typeof(object) });
+
+                    Expression converted = Expression.Convert(searchDecimalValue, typeof(object));
+
+                    IEnumerable<Expression> callExpressionsNullable = nullableMembers.Select(mem => Expression.Call(mem, equalsMethodNullable!, converted));
+
                     properties = type.GetProperties().Where(x => x.PropertyType == typeof(decimal) /*|| x.PropertyType == typeof(byte)
                     || x.PropertyType == typeof(short) || x.PropertyType == typeof(int)*/).ToArray();
                     
                     var memberExpressions = properties.Select(prp => Expression.Property(prm, prp));
 
-                    var searchDecimalValue = Expression.Constant(decimalValue);
-                    
                     var equalsMethod = typeof(decimal).GetMethod("Equals", new[] { typeof(decimal) });
                     
                     IEnumerable<Expression> callExpressions = memberExpressions.Select(mem => Expression.Call(mem, equalsMethod!, searchDecimalValue));
 
-                    var body = callExpressions.Aggregate((prev, current) => Expression.Or(prev, current));
+                    var combined = callExpressions.Concat(callExpressionsNullable);
+
+                    var body = combined.Aggregate((prev, current) => Expression.Or(prev, current));
 
                     var lambda = Expression.Lambda<Func<T, bool>>(body, prm);
 
