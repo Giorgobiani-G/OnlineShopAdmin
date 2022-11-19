@@ -113,7 +113,7 @@ namespace OnlineShopAdmin.Controllers
                     }
                     product.ThumbnailPhotoFileName = UniequeFileName;
                 }
-                await _productsRepository.InseretAsynch(product, cancellationToken);
+                await _productsRepository.InsertAsync(product, cancellationToken);
                 return RedirectToAction(nameof(Index));
             }
             ViewData["ProductCategoryId"] = new SelectList(_productsCategoryRepository.GetList(), "ProductCategoryId", "Name", product.ProductCategoryId);
@@ -179,7 +179,7 @@ namespace OnlineShopAdmin.Controllers
                         product.ThumbnailPhotoFileName = UniequeFileName;
                     }
 
-                    await _productsRepository.UpdateAsynch(product, cancellationToken);
+                    await _productsRepository.UpdateAsync(product, cancellationToken);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -234,7 +234,7 @@ namespace OnlineShopAdmin.Controllers
                 file.Delete();
             }
 
-            await _productsRepository.DeleteAsynch(product, cancellationToken);
+            await _productsRepository.DeleteAsync(product, cancellationToken);
             return RedirectToAction(nameof(Index), new { pg, pageSize, search });
         }
     }
