@@ -54,13 +54,13 @@ namespace OnlineShopAdmin.DataAccess.Repository
             if (isnullOrEmpty)
             {
                 var type = typeof(T);
-        
+
                 PropertyInfo[] properties;
 
                 var prm = Expression.Parameter(type, "x");
 
                 var searchValue = Expression.Constant(search);
-               
+
                 var isDecimal = decimal.TryParse(search, out var decimalValue);
                 var isInt = int.TryParse(search, out _);
                 var isDAteTime = DateTime.TryParse(search, out var resDateTime);
@@ -69,26 +69,33 @@ namespace OnlineShopAdmin.DataAccess.Repository
                 {
                     var searchDecimalValue = Expression.Constant(decimalValue);
 
-                    var nullableProperties = type.GetProperties().Where(x => x.PropertyType == typeof(decimal?)).ToArray();
-
-                    var nullableMembers = nullableProperties.Select(prp => Expression.Property(prm, prp));
-
-                    var equalsMethodNullable = typeof(decimal?).GetMethod("Equals", new[] { typeof(object) });
-
                     Expression converted = Expression.Convert(searchDecimalValue, typeof(object));
 
-                    IEnumerable<Expression> callExpressionsNullable = nullableMembers.Select(mem => Expression.Call(mem, equalsMethodNullable!, converted));
+                    var wholeNumberProps = type.GetProperties().Where(x => x.PropertyType == typeof(byte)|| x.PropertyType == typeof(byte?)|| 
+                                                                       x.PropertyType == typeof(short)|| x.PropertyType == typeof(short?)||
+                                                                       x.PropertyType == typeof(int)|| x.PropertyType == typeof(int?)).ToArray();
 
-                    properties = type.GetProperties().Where(x => x.PropertyType == typeof(decimal) /*|| x.PropertyType == typeof(byte)
-                    || x.PropertyType == typeof(short) || x.PropertyType == typeof(int)*/).ToArray();
-                    
+                    var toStringMethod = typeof(object).GetMethod("ToString");
+
+                    var containsMethod = typeof(string).GetMethod("Contains", new[] { typeof(string) });
+
+                    var wholeNumberMemberExpressions = wholeNumberProps.Select(prp => Expression.Property(prm, prp));
+
+                    var wholeNumbersToString = wholeNumberMemberExpressions.Select(mem => Expression.Call(mem, toStringMethod!));
+
+                    IEnumerable<Expression> wholeNumberExpressions = wholeNumbersToString.Select(expr => Expression.Call(expr, containsMethod!, searchValue)); 
+
+                    //Decimal
+                    properties = type.GetProperties().Where(x => x.PropertyType == typeof(decimal) || x.PropertyType == typeof(decimal?)).ToArray();
+
                     var memberExpressions = properties.Select(prp => Expression.Property(prm, prp));
 
-                    var equalsMethod = typeof(decimal).GetMethod("Equals", new[] { typeof(decimal) });
-                    
-                    IEnumerable<Expression> callExpressions = memberExpressions.Select(mem => Expression.Call(mem, equalsMethod!, searchDecimalValue));
+                    var equalsMethod = typeof(object).GetMethod("Equals", new[] { typeof(object) });
 
-                    var combined = callExpressions.Concat(callExpressionsNullable);
+                    IEnumerable<Expression> expressions = memberExpressions.Select(mem => Expression.Call(mem, equalsMethod!, converted));
+
+
+                    var combined = expressions.Concat(wholeNumberExpressions);
 
                     var body = combined.Aggregate((prev, current) => Expression.Or(prev, current));
 
@@ -100,27 +107,17 @@ namespace OnlineShopAdmin.DataAccess.Repository
                 {
                     var searchValueDateTime = Expression.Constant(resDateTime);
 
-                    var nullableProperties = type.GetProperties().Where(x=>x.PropertyType == typeof(DateTime?)).ToArray();
+                    Expression converted = Expression.Convert(searchValueDateTime, typeof(object));
 
-                    var nullableMembers = nullableProperties.Select(prp => Expression.Property(prm, prp));
-
-                    var equalsMethodNull = typeof(DateTime?).GetMethod("Equals", new[] { typeof(object) });
-                    
-                    Expression converted= Expression.Convert(searchValueDateTime,typeof(object));
-
-                    IEnumerable<Expression> callExpressionsNullable = nullableMembers.Select(mem => Expression.Call(mem, equalsMethodNull!, converted));
-
-                    properties = type.GetProperties().Where(x => x.PropertyType == typeof(DateTime)).ToArray();
+                    properties = type.GetProperties().Where(x => x.PropertyType == typeof(DateTime) || x.PropertyType == typeof(DateTime?)).ToArray();
 
                     var memberExpressions = properties.Select(prp => Expression.Property(prm, prp));
 
-                    var equalsMethod = typeof(DateTime).GetMethod("Equals", new[] { typeof(DateTime) });
+                    var equalsMethod = typeof(object).GetMethod("Equals", new[] { typeof(object) });
 
-                    IEnumerable<Expression> callExpressions = memberExpressions.Select(mem => Expression.Call(mem, equalsMethod!, searchValueDateTime));
+                    IEnumerable<Expression> expressions = memberExpressions.Select(mem => Expression.Call(mem, equalsMethod!, converted));
 
-                    var combined = callExpressions.Concat(callExpressionsNullable);
-
-                    var body = combined.Aggregate((prev, current) => Expression.Or(prev, current));
+                    var body = expressions.Aggregate((prev, current) => Expression.Or(prev, current));
 
                     var lambda = Expression.Lambda<Func<T, bool>>(body, prm);
 
