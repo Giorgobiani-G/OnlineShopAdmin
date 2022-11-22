@@ -71,17 +71,33 @@ namespace OnlineShopAdmin.DataAccess.Repository
 
                     Expression converted = Expression.Convert(searchDecimalValue, typeof(object));
 
-                    properties = type.GetProperties().Where(x => x.PropertyType == typeof(decimal) || x.PropertyType == typeof(decimal?) | x.PropertyType == typeof(byte) || x.PropertyType == typeof(byte?)
-                    || x.PropertyType == typeof(short) || x.PropertyType == typeof(short?) ||
-                    x.PropertyType == typeof(int) || x.PropertyType == typeof(int?)).ToArray();
+                    var wholeNumberProps = type.GetProperties().Where(x => x.PropertyType == typeof(byte)|| x.PropertyType == typeof(byte?)|| 
+                                                                       x.PropertyType == typeof(short)|| x.PropertyType == typeof(short?)||
+                                                                       x.PropertyType == typeof(int)|| x.PropertyType == typeof(int?)).ToArray();
+
+                    var toStringMethod = typeof(object).GetMethod("ToString");
+
+                    var containsMethod = typeof(string).GetMethod("Contains", new[] { typeof(string) });
+
+                    var wholeNumberMemberExpressions = wholeNumberProps.Select(prp => Expression.Property(prm, prp));
+
+                    var wholeNumbersToString = wholeNumberMemberExpressions.Select(mem => Expression.Call(mem, toStringMethod!));
+
+                    IEnumerable<Expression> wholeNumberExpressions = wholeNumbersToString.Select(expr => Expression.Call(expr, containsMethod!, searchValue)); 
+
+                    //Decimal
+                    properties = type.GetProperties().Where(x => x.PropertyType == typeof(decimal) || x.PropertyType == typeof(decimal?)).ToArray();
 
                     var memberExpressions = properties.Select(prp => Expression.Property(prm, prp));
 
                     var equalsMethod = typeof(object).GetMethod("Equals", new[] { typeof(object) });
 
-                    IEnumerable<Expression> callExpressions = memberExpressions.Select(mem => Expression.Call(mem, equalsMethod!, converted));
+                    IEnumerable<Expression> expressions = memberExpressions.Select(mem => Expression.Call(mem, equalsMethod!, converted));
 
-                    var body = callExpressions.Aggregate((prev, current) => Expression.Or(prev, current));
+
+                    var combined = expressions.Concat(wholeNumberExpressions);
+
+                    var body = combined.Aggregate((prev, current) => Expression.Or(prev, current));
 
                     var lambda = Expression.Lambda<Func<T, bool>>(body, prm);
 
@@ -99,9 +115,9 @@ namespace OnlineShopAdmin.DataAccess.Repository
 
                     var equalsMethod = typeof(object).GetMethod("Equals", new[] { typeof(object) });
 
-                    IEnumerable<Expression> callExpressions = memberExpressions.Select(mem => Expression.Call(mem, equalsMethod!, converted));
+                    IEnumerable<Expression> expressions = memberExpressions.Select(mem => Expression.Call(mem, equalsMethod!, converted));
 
-                    var body = callExpressions.Aggregate((prev, current) => Expression.Or(prev, current));
+                    var body = expressions.Aggregate((prev, current) => Expression.Or(prev, current));
 
                     var lambda = Expression.Lambda<Func<T, bool>>(body, prm);
 
