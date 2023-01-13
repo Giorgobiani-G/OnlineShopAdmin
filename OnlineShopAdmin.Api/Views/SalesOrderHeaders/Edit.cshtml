@@ -109,14 +109,11 @@
                 <span asp-validation-for="ModifiedDate" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" asp-route-pg="@TempData["page"]" asp-route-search="@TempData["currentFilter"]" asp-route-pageSize="@TempData["pageSize"]" />
+                <input type="submit" value="Save" class="btn btn-primary" asp-route-pg="@TempData["page"]" asp-route-search="@TempData["currentFilter"]" asp-route-pageSize="@TempData["pageSize"]" /> |
+                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@Model.SalesOrderId" asp-route-pg="@TempData["page"]" asp-route-search="@TempData["currentFilter"]" asp-route-pageSize="@TempData["pageSize"]">Delete</a> |
+                <a class="btn btn-secondary" asp-action="Index" asp-route-pg="@TempData["page"]" asp-route-search="@TempData["currentFilter"]" asp-route-pageSize="@TempData["pageSize"]">Back to List</a>
             </div>
         </form>
     </div>
-</div>
-
-<div>
-    <a asp-action="Delete" asp-route-id="@Model.SalesOrderId" asp-route-pg="@TempData["page"]" asp-route-search="@TempData["currentFilter"]" asp-route-pageSize="@TempData["pageSize"]">Delete</a> |
-    <a asp-action="Index" asp-route-pg="@TempData["page"]" asp-route-search="@TempData["currentFilter"]" asp-route-pageSize="@TempData["pageSize"]">Back to List</a>
 </div>
 
