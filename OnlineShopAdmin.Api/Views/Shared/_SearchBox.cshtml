@@ -8,14 +8,12 @@
             <a asp-action="Index" asp-route-pageSize="@TempData["pageSize"]">Back To Full List</a>
         </div>
 
-        <div class="row" style="margin-left:450px">
-            <div class="p-2">
-                Showing @((Model.CurrentPage - 1) * Model.PageSize + 1)-@(Model.PageSize * Model.CurrentPage > Model.TotalItems ? Model.TotalItems : Model.PageSize * Model.CurrentPage) of @Model.TotalItems Items
-            </div>
-            <div>
-                <select class="form-control" asp-items="ViewBag.PageSizes" onchange="ChangePageSize(this);">
-                </select>
-            </div>
+        <div class="p-2 col-3" style="margin-right:-596px;margin-left:601px">
+            Showing @((Model.CurrentPage - 1) * Model.PageSize + 1)-@(Model.PageSize * Model.CurrentPage > Model.TotalItems ? Model.TotalItems : Model.PageSize * Model.CurrentPage) of @Model.TotalItems Items
+        </div>
+        <div style="margin-right:-170px;margin-left:556px;">
+            <select class="form-control" asp-items="ViewBag.PageSizes" onchange="ChangePageSize(this);">
+            </select>
         </div>
     </div>
 </form>
