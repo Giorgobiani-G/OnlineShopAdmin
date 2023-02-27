@@ -16,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\OnlineShopAdmin.Common\OnlineShopAdmin.Common.csproj" />
     <ProjectReference Include="..\OnlineShopAdmin.DataAccess\OnlineShopAdmin.DataAccess.csproj" />
   </ItemGroup>
 

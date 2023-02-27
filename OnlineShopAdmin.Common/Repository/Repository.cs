@@ -1,12 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
+using OnlineShopAdmin.Common.Repository;
 using System.Linq.Expressions;
-using System.Net.Http.Headers;
 using System.Reflection;
 
-namespace OnlineShopAdmin.DataAccess.Repository
+namespace OnlineShopAdmin.Common.Repository
 {
-    public class Repository<TEntity,TDbContext> : IRepository<TEntity> 
+    public class Repository<TDbContext,TEntity> : IRepository<TEntity> 
         where TEntity : class
         where TDbContext : DbContext
     {
@@ -202,7 +201,7 @@ namespace OnlineShopAdmin.DataAccess.Repository
 
         public async Task DeleteAsync(int id, CancellationToken cancellationToken = default)
         {
-            TEntity? typeToDeleted = await _table.FindAsync(id, cancellationToken);
+            var typeToDeleted = await GetByIdAsync(id, cancellationToken: cancellationToken);
 
             if (typeToDeleted == null)
                 throw new ArgumentException();
@@ -227,7 +226,7 @@ namespace OnlineShopAdmin.DataAccess.Repository
             var entities = _table.AsAsyncEnumerable();
             await foreach (var entity in entities)
             {
-                int pkValue = (int)entity.GetType().GetProperties().ToDictionary(x => x.Name, x => x.GetValue(entity)).Values.ElementAt(0);
+                int pkValue = (int)(entity.GetType().GetProperties().ToDictionary(x => x.Name, x => x.GetValue(entity)).Values.ElementAt(0) ?? 0);
 
                 if (pkValue == id)
                     return true;

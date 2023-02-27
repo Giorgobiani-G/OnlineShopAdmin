@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using OnlineShopAdmin.DataAccess.Repository;
 using System.Reflection;
 
 namespace OnlineShopAdmin.Common.Repository
@@ -33,8 +32,6 @@ namespace OnlineShopAdmin.Common.Repository
         {
             var repoInterfaceType = typeof(IRepository<>);
             var repoImplementationType = typeof(Repository<,>);
-            //var queryRepoInterfaceType = typeof(IQueryRepository<>);
-            //var queryRepoImplementationType = typeof(EfCoreQueryRepositoryBase<,>);
 
             foreach (var entityType in GetGenericRepoTypes(dbContextType))
             {
