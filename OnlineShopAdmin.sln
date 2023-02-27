@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnlineShopAdmin", "OnlineSh
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnlineShopAdmin.DataAccess", "OnlineShopAdmin.DataAccess\OnlineShopAdmin.DataAccess.csproj", "{1AE706FB-E3EF-4231-A1A6-D09DEEFEBE6C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineShopAdmin.Common", "OnlineShopAdmin.Common\OnlineShopAdmin.Common.csproj", "{A679B686-C5EE-4A96-B316-933B96C6578A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{1AE706FB-E3EF-4231-A1A6-D09DEEFEBE6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1AE706FB-E3EF-4231-A1A6-D09DEEFEBE6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1AE706FB-E3EF-4231-A1A6-D09DEEFEBE6C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A679B686-C5EE-4A96-B316-933B96C6578A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A679B686-C5EE-4A96-B316-933B96C6578A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A679B686-C5EE-4A96-B316-933B96C6578A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A679B686-C5EE-4A96-B316-933B96C6578A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
