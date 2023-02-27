@@ -1,20 +1,15 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
+using OnlineShopAdmin.Common.Repository;
 using OnlineShopAdmin.CustomExceptionMiddleware;
 using OnlineShopAdmin.DataAccess;
 using OnlineShopAdmin.DataAccess.DbContexts;
-using OnlineShopAdmin.DataAccess.Repository;
-using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace OnlineShopAdmin
 {
@@ -32,8 +27,7 @@ namespace OnlineShopAdmin
         {
             services.AddControllersWithViews();
             string constring = Configuration.GetConnectionString("con");
-            services.AddDbContext<AdventureWorksLT2019Context>(x => x.UseSqlServer(constring));
-            services.AddScoped(typeof(IRepository<>),typeof(Repository<>));
+            services.AddEfCoreDbContext<AdventureWorksLT2019Context>(x=>x.UseSqlServer(constring));
             services.AddScoped<ReportingDA>();
             services.AddSingleton<IFileProvider>(
             new PhysicalFileProvider(

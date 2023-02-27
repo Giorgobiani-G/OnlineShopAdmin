@@ -1,59 +1,61 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using OnlineShopAdmin.DataAccess.DbContexts;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using OnlineShopAdmin.Common.Repository;
 using System.Linq.Expressions;
 using System.Reflection;
-using System.Threading;
-using System.Threading.Tasks;
 
-namespace OnlineShopAdmin.DataAccess.Repository
+namespace OnlineShopAdmin.Common.Repository
 {
-    public class Repository<T> : IRepository<T> where T : class
+    public class Repository<TDbContext,TEntity> : IRepository<TEntity> 
+        where TEntity : class
+        where TDbContext : DbContext
     {
-        private readonly AdventureWorksLT2019Context _context;
-        private readonly DbSet<T> _table;
+        private readonly TDbContext _context;
+        private readonly DbSet<TEntity> _table;
 
-        public Repository(AdventureWorksLT2019Context context)
+        public Repository(TDbContext context)
         {
             _context = context;
-            _table = context.Set<T>();
+            _table = context.Set<TEntity>();
         }
 
-        public async Task<T> GetByIdAsync(int id, string[] includeProperties, CancellationToken cancellationToken = default)
+        public async Task<TEntity> GetByIdAsync(int id, string[]? includeProperties = null, CancellationToken cancellationToken = default)
         {
             if (includeProperties is not null)
             {
-                Type type = typeof(T);
+                Type type = typeof(TEntity);
                 string pkName = type.GetProperties().ElementAt(0).Name;
 
                 ParameterExpression pe = Expression.Parameter(type, "x");
                 MemberExpression me = Expression.Property(pe, pkName);
                 ConstantExpression idPar = Expression.Constant(id);
                 BinaryExpression body = Expression.Equal(me, idPar);
-                Expression<Func<T, bool>> lambda = Expression.Lambda<Func<T, bool>>(body, new[] { pe });
+                Expression<Func<TEntity, bool>> lambda = Expression.Lambda<Func<TEntity, bool>>(body, new[] { pe });
 
-                IQueryable<T> query = _table;
+                IQueryable<TEntity> query = _table;
 
                 foreach (string includeProperty in includeProperties)
                     query = query.Include(includeProperty);
 
-                return await query.FirstOrDefaultAsync(lambda, cancellationToken);
+                return await query.FirstAsync(lambda, cancellationToken);
             }
 
-            return await _table.FindAsync(new object[] { id }, cancellationToken);
+            var entity = await _table.FindAsync(new object[] { id }, cancellationToken);
+
+            if (entity == null)
+                throw new Exception("entity not found");
+
+            return entity;
         }
 
-        public async Task<(IEnumerable<T> list, Pager pageDetails)> GetListAsync(int pg = 1, int pageSize = 20, string search = null, string[] includeProperties = null, CancellationToken cancellationToken = default)
+        public async Task<(IEnumerable<TEntity> list, Pager pageDetails)> GetListAsync(int pg = 1, int pageSize = 20, string search = null, string[] includeProperties = null, CancellationToken cancellationToken = default)
         {
             var isnullOrEmpty = !string.IsNullOrEmpty(search);
 
-            IQueryable<T> data = _table;
+            IQueryable<TEntity> data = _table;
 
             if (isnullOrEmpty)
             {
-                var type = typeof(T);
+                var type = typeof(TEntity);
 
                 PropertyInfo[] properties;
 
@@ -99,7 +101,7 @@ namespace OnlineShopAdmin.DataAccess.Repository
 
                     var body = combined.Aggregate((prev, current) => Expression.Or(prev, current));
 
-                    var lambda = Expression.Lambda<Func<T, bool>>(body, prm);
+                    var lambda = Expression.Lambda<Func<TEntity, bool>>(body, prm);
 
                     data = _table.Where(lambda);
                 }
@@ -119,7 +121,7 @@ namespace OnlineShopAdmin.DataAccess.Repository
 
                     var body = expressions.Aggregate((prev, current) => Expression.Or(prev, current));
 
-                    var lambda = Expression.Lambda<Func<T, bool>>(body, prm);
+                    var lambda = Expression.Lambda<Func<TEntity, bool>>(body, prm);
 
                     data = _table.Where(lambda);
                 }
@@ -133,7 +135,7 @@ namespace OnlineShopAdmin.DataAccess.Repository
 
                     var body = expressions.Aggregate((prev, current) => Expression.Or(prev, current));
 
-                    var lambda = Expression.Lambda<Func<T, bool>>(body, prm);
+                    var lambda = Expression.Lambda<Func<TEntity, bool>>(body, prm);
 
                     data = _table.Where(lambda);
                 }
@@ -170,11 +172,11 @@ namespace OnlineShopAdmin.DataAccess.Repository
         }
 
 
-        public async Task<IEnumerable<T>> GetListAsync(string[] includeProperties, CancellationToken cancellationToken = default)
+        public async Task<IEnumerable<TEntity>> GetListAsync(string[] includeProperties, CancellationToken cancellationToken = default)
         {
             if (includeProperties is not null)
             {
-                IQueryable<T> query = _table;
+                IQueryable<TEntity> query = _table;
 
                 foreach (var includeProperty in includeProperties)
                 {
@@ -185,13 +187,13 @@ namespace OnlineShopAdmin.DataAccess.Repository
             return await _table.ToListAsync(cancellationToken);
         }
 
-        public async Task InsertAsync(T entity, CancellationToken cancellationToken = default)
+        public async Task InsertAsync(TEntity entity, CancellationToken cancellationToken = default)
         {
             await _table.AddAsync(entity, cancellationToken);
             await SaveAsync(cancellationToken);
         }
 
-        public async Task UpdateAsync(T entity, CancellationToken cancellationToken = default)
+        public async Task UpdateAsync(TEntity entity, CancellationToken cancellationToken = default)
         {
             _table.Update(entity);
             await SaveAsync(cancellationToken);
@@ -199,12 +201,16 @@ namespace OnlineShopAdmin.DataAccess.Repository
 
         public async Task DeleteAsync(int id, CancellationToken cancellationToken = default)
         {
-            T typeToDeleted = _table.Find(id);
+            var typeToDeleted = await GetByIdAsync(id, cancellationToken: cancellationToken);
+
+            if (typeToDeleted == null)
+                throw new ArgumentException();
+
             _table.Remove(typeToDeleted);
             await SaveAsync(cancellationToken);
         }
 
-        public async Task DeleteAsync(T entity, CancellationToken cancellationToken = default)
+        public async Task DeleteAsync(TEntity entity, CancellationToken cancellationToken = default)
         {
             _table.Remove(entity);
             await SaveAsync(cancellationToken);
@@ -220,7 +226,7 @@ namespace OnlineShopAdmin.DataAccess.Repository
             var entities = _table.AsAsyncEnumerable();
             await foreach (var entity in entities)
             {
-                int pkValue = (int)entity.GetType().GetProperties().ToDictionary(x => x.Name, x => x.GetValue(entity)).Values.ElementAt(0);
+                int pkValue = (int)(entity.GetType().GetProperties().ToDictionary(x => x.Name, x => x.GetValue(entity)).Values.ElementAt(0) ?? 0);
 
                 if (pkValue == id)
                     return true;
@@ -228,7 +234,7 @@ namespace OnlineShopAdmin.DataAccess.Repository
             return false;
         }
 
-        public IEnumerable<T> GetList()
+        public IEnumerable<TEntity> GetList()
         {
             return _table.ToList();
         }
