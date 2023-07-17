@@ -5,7 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
-using OnlineShopAdmin.Common.Repository;
+using MvcRepository.Repository;
 using OnlineShopAdmin.CustomExceptionMiddleware;
 using OnlineShopAdmin.DataAccess;
 using OnlineShopAdmin.DataAccess.DbContexts;

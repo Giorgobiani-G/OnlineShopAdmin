@@ -4,6 +4,12 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <Title>RepositoryPattern</Title>
+    <Company></Company>
+    <Version>1.0.1</Version>
+    <Authors>Giorgi Giorgobiani</Authors>
+    <PackageId>RepositoryPatternTestVersion</PackageId>
+    <Description>Testing Pusrpose</Description>
   </PropertyGroup>
 
   <ItemGroup>

@@ -54,14 +54,6 @@ namespace OnlineShopAdmin.Common.Repository
             //}
         }
 
-        //private static IEnumerable<Type> GetQueryRepoTypes(Type dbContextType)
-        //{
-        //    return dbContextType.GetProperties(BindingFlags.Public | BindingFlags.Instance)
-        //        .Where(x => x.PropertyType.IsAssignableToGenericType(typeof(DbSet<>))
-        //                && x.GetCustomAttributes<RepositoryAttribute>().FirstOrDefault(y => !y.CreateGenericRepository) == null
-        //        ).Select(x => x.PropertyType.GenericTypeArguments[0]);
-        //}
-
         private static IEnumerable<Type> GetGenericRepoTypes(Type dbContextType)
         {
             return dbContextType.GetProperties(BindingFlags.Public | BindingFlags.Instance)
