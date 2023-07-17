@@ -15,3 +15,4 @@ Top10CustomersBysales: 107ms Date: 25.10.2022 18:22:30
 YearAndMonth: 68ms Date: 25.10.2022 18:22:33
 ProductCateGories: 60ms Date: 25.10.2022 18:22:35
 City: 229ms Date: 25.10.2022 18:22:39
+YearAndMonth: 211ms Date: 17.07.2023 21:55:37

@@ -1,1 +1,6 @@
-﻿
+﻿Exception thrown by controller-Index action-ProductCategories method-GET
+Excepton message: A task was canceled. 
+ExceptonType: System.Threading.Tasks.TaskCanceledException 
+Inner Exception message: None 
+LogDate: 17.07.2023 21:55:05
+---------

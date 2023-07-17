@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using OnlineShopAdmin.Common.Repository;
+using MvcRepository.Repository;
 using OnlineShopAdmin.DataAccess.Models;
 using OnlineShopAdmin.Filters;
 using System.Threading;

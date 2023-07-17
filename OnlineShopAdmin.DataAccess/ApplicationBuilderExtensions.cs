@@ -1,14 +1,4 @@
-﻿using Microsoft.AspNetCore.Builder;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
-using OnlineShopAdmin.DataAccess.DbContexts;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace OnlineShopAdmin.DataAccess
+﻿namespace OnlineShopAdmin.DataAccess
 {
     public static class ApplicationBuilderExtensions
     {

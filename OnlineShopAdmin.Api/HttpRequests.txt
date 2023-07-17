@@ -54,3 +54,352 @@ sec-fetch-mode:navigate
 sec-fetch-user:?1
 sec-fetch-dest:document
 -----------------
+17.07.2023 21:54:04
+ControllerName: Customers ActionName: Index Method: GET
+Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Accept-Encoding:gzip, deflate, br
+Accept-Language:en-US,en;q=0.9
+Connection:close
+Cookie:.AspNet.Consent=yes; m=; .AspNetCore.Antiforgery.po0hkVkFO64=CfDJ8C1BEDWA2ShBlbrxFTiff5HSI-i6r6X4HSUNVlNHvb5a_UzTTnYeaUm_ENHK9Xdx5dG49tMtzG81djjpIuy2Gb6SGa8kSWp-12-8FHe5RL0WxJDwBR8fTFradVwxJIF5bba62SpapT-00XHRfpZyW1Y
+Host:localhost:44317
+User-Agent:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36
+sec-ch-ua:"Not.A/Brand";v="8", "Chromium";v="114", "Google Chrome";v="114"
+sec-ch-ua-mobile:?0
+sec-ch-ua-platform:"Windows"
+upgrade-insecure-requests:1
+sec-fetch-site:none
+sec-fetch-mode:navigate
+sec-fetch-user:?1
+sec-fetch-dest:document
+-----------------
+17.07.2023 21:55:03
+ControllerName: ProductCategories ActionName: Index Method: GET
+Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Accept-Encoding:gzip, deflate, br
+Accept-Language:en-US,en;q=0.9
+Connection:close
+Cookie:.AspNet.Consent=yes; m=; .AspNetCore.Antiforgery.po0hkVkFO64=CfDJ8C1BEDWA2ShBlbrxFTiff5HSI-i6r6X4HSUNVlNHvb5a_UzTTnYeaUm_ENHK9Xdx5dG49tMtzG81djjpIuy2Gb6SGa8kSWp-12-8FHe5RL0WxJDwBR8fTFradVwxJIF5bba62SpapT-00XHRfpZyW1Y
+Host:localhost:44317
+Referer:https://localhost:44317/
+User-Agent:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36
+sec-ch-ua:"Not.A/Brand";v="8", "Chromium";v="114", "Google Chrome";v="114"
+sec-ch-ua-mobile:?0
+sec-ch-ua-platform:"Windows"
+upgrade-insecure-requests:1
+sec-fetch-site:same-origin
+sec-fetch-mode:navigate
+sec-fetch-user:?1
+sec-fetch-dest:document
+-----------------
+17.07.2023 21:55:04
+ControllerName: ProductCategories ActionName: Index Method: GET
+Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Accept-Encoding:gzip, deflate, br
+Accept-Language:en-US,en;q=0.9
+Connection:close
+Cookie:.AspNet.Consent=yes; m=; .AspNetCore.Antiforgery.po0hkVkFO64=CfDJ8C1BEDWA2ShBlbrxFTiff5HSI-i6r6X4HSUNVlNHvb5a_UzTTnYeaUm_ENHK9Xdx5dG49tMtzG81djjpIuy2Gb6SGa8kSWp-12-8FHe5RL0WxJDwBR8fTFradVwxJIF5bba62SpapT-00XHRfpZyW1Y
+Host:localhost:44317
+Referer:https://localhost:44317/
+User-Agent:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36
+sec-ch-ua:"Not.A/Brand";v="8", "Chromium";v="114", "Google Chrome";v="114"
+sec-ch-ua-mobile:?0
+sec-ch-ua-platform:"Windows"
+upgrade-insecure-requests:1
+sec-fetch-site:same-origin
+sec-fetch-mode:navigate
+sec-fetch-user:?1
+sec-fetch-dest:document
+-----------------
+17.07.2023 21:55:07
+ControllerName: SalesOrderHeaders ActionName: Index Method: GET
+Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Accept-Encoding:gzip, deflate, br
+Accept-Language:en-US,en;q=0.9
+Connection:close
+Cookie:.AspNet.Consent=yes; m=; .AspNetCore.Antiforgery.po0hkVkFO64=CfDJ8C1BEDWA2ShBlbrxFTiff5HSI-i6r6X4HSUNVlNHvb5a_UzTTnYeaUm_ENHK9Xdx5dG49tMtzG81djjpIuy2Gb6SGa8kSWp-12-8FHe5RL0WxJDwBR8fTFradVwxJIF5bba62SpapT-00XHRfpZyW1Y
+Host:localhost:44317
+Referer:https://localhost:44317/ProductCategories
+User-Agent:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36
+sec-ch-ua:"Not.A/Brand";v="8", "Chromium";v="114", "Google Chrome";v="114"
+sec-ch-ua-mobile:?0
+sec-ch-ua-platform:"Windows"
+upgrade-insecure-requests:1
+sec-fetch-site:same-origin
+sec-fetch-mode:navigate
+sec-fetch-user:?1
+sec-fetch-dest:document
+-----------------
+17.07.2023 21:55:10
+ControllerName: Products ActionName: Index Method: GET
+Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Accept-Encoding:gzip, deflate, br
+Accept-Language:en-US,en;q=0.9
+Connection:close
+Cookie:.AspNet.Consent=yes; m=; .AspNetCore.Antiforgery.po0hkVkFO64=CfDJ8C1BEDWA2ShBlbrxFTiff5HSI-i6r6X4HSUNVlNHvb5a_UzTTnYeaUm_ENHK9Xdx5dG49tMtzG81djjpIuy2Gb6SGa8kSWp-12-8FHe5RL0WxJDwBR8fTFradVwxJIF5bba62SpapT-00XHRfpZyW1Y
+Host:localhost:44317
+Referer:https://localhost:44317/SalesOrderHeaders
+User-Agent:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36
+sec-ch-ua:"Not.A/Brand";v="8", "Chromium";v="114", "Google Chrome";v="114"
+sec-ch-ua-mobile:?0
+sec-ch-ua-platform:"Windows"
+upgrade-insecure-requests:1
+sec-fetch-site:same-origin
+sec-fetch-mode:navigate
+sec-fetch-user:?1
+sec-fetch-dest:document
+-----------------
+17.07.2023 21:55:14
+ControllerName: ProductCategories ActionName: Index Method: GET
+Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Accept-Encoding:gzip, deflate, br
+Accept-Language:en-US,en;q=0.9
+Connection:close
+Cookie:.AspNet.Consent=yes; m=; .AspNetCore.Antiforgery.po0hkVkFO64=CfDJ8C1BEDWA2ShBlbrxFTiff5HSI-i6r6X4HSUNVlNHvb5a_UzTTnYeaUm_ENHK9Xdx5dG49tMtzG81djjpIuy2Gb6SGa8kSWp-12-8FHe5RL0WxJDwBR8fTFradVwxJIF5bba62SpapT-00XHRfpZyW1Y
+Host:localhost:44317
+Referer:https://localhost:44317/Products
+User-Agent:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36
+sec-ch-ua:"Not.A/Brand";v="8", "Chromium";v="114", "Google Chrome";v="114"
+sec-ch-ua-mobile:?0
+sec-ch-ua-platform:"Windows"
+upgrade-insecure-requests:1
+sec-fetch-site:same-origin
+sec-fetch-mode:navigate
+sec-fetch-user:?1
+sec-fetch-dest:document
+-----------------
+17.07.2023 21:55:19
+ControllerName: ProductCategories ActionName: Index Method: POST
+Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Accept-Encoding:gzip, deflate, br
+Accept-Language:en-US,en;q=0.9
+Cache-Control:max-age=0
+Connection:close
+Content-Length:194
+Content-Type:application/x-www-form-urlencoded
+Cookie:.AspNet.Consent=yes; m=; .AspNetCore.Antiforgery.po0hkVkFO64=CfDJ8C1BEDWA2ShBlbrxFTiff5HSI-i6r6X4HSUNVlNHvb5a_UzTTnYeaUm_ENHK9Xdx5dG49tMtzG81djjpIuy2Gb6SGa8kSWp-12-8FHe5RL0WxJDwBR8fTFradVwxJIF5bba62SpapT-00XHRfpZyW1Y
+Host:localhost:44317
+Referer:https://localhost:44317/ProductCategories
+User-Agent:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36
+sec-ch-ua:"Not.A/Brand";v="8", "Chromium";v="114", "Google Chrome";v="114"
+sec-ch-ua-mobile:?0
+sec-ch-ua-platform:"Windows"
+upgrade-insecure-requests:1
+origin:https://localhost:44317
+sec-fetch-site:same-origin
+sec-fetch-mode:navigate
+sec-fetch-user:?1
+sec-fetch-dest:document
+-----------------
+17.07.2023 21:55:21
+ControllerName: ProductCategories ActionName: Index Method: GET
+Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Accept-Encoding:gzip, deflate, br
+Accept-Language:en-US,en;q=0.9
+Connection:close
+Cookie:.AspNet.Consent=yes; m=; .AspNetCore.Antiforgery.po0hkVkFO64=CfDJ8C1BEDWA2ShBlbrxFTiff5HSI-i6r6X4HSUNVlNHvb5a_UzTTnYeaUm_ENHK9Xdx5dG49tMtzG81djjpIuy2Gb6SGa8kSWp-12-8FHe5RL0WxJDwBR8fTFradVwxJIF5bba62SpapT-00XHRfpZyW1Y
+Host:localhost:44317
+Referer:https://localhost:44317/ProductCategories?pageSize=0
+User-Agent:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36
+sec-ch-ua:"Not.A/Brand";v="8", "Chromium";v="114", "Google Chrome";v="114"
+sec-ch-ua-mobile:?0
+sec-ch-ua-platform:"Windows"
+upgrade-insecure-requests:1
+sec-fetch-site:same-origin
+sec-fetch-mode:navigate
+sec-fetch-user:?1
+sec-fetch-dest:document
+-----------------
+17.07.2023 21:55:26
+ControllerName: ProductCategories ActionName: Index Method: POST
+Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Accept-Encoding:gzip, deflate, br
+Accept-Language:en-US,en;q=0.9
+Cache-Control:max-age=0
+Connection:close
+Content-Length:194
+Content-Type:application/x-www-form-urlencoded
+Cookie:.AspNet.Consent=yes; m=; .AspNetCore.Antiforgery.po0hkVkFO64=CfDJ8C1BEDWA2ShBlbrxFTiff5HSI-i6r6X4HSUNVlNHvb5a_UzTTnYeaUm_ENHK9Xdx5dG49tMtzG81djjpIuy2Gb6SGa8kSWp-12-8FHe5RL0WxJDwBR8fTFradVwxJIF5bba62SpapT-00XHRfpZyW1Y
+Host:localhost:44317
+Referer:https://localhost:44317/ProductCategories?pageSize=0
+User-Agent:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36
+sec-ch-ua:"Not.A/Brand";v="8", "Chromium";v="114", "Google Chrome";v="114"
+sec-ch-ua-mobile:?0
+sec-ch-ua-platform:"Windows"
+upgrade-insecure-requests:1
+origin:https://localhost:44317
+sec-fetch-site:same-origin
+sec-fetch-mode:navigate
+sec-fetch-user:?1
+sec-fetch-dest:document
+-----------------
+17.07.2023 21:55:27
+ControllerName: ProductCategories ActionName: Index Method: GET
+Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Accept-Encoding:gzip, deflate, br
+Accept-Language:en-US,en;q=0.9
+Connection:close
+Cookie:.AspNet.Consent=yes; m=; .AspNetCore.Antiforgery.po0hkVkFO64=CfDJ8C1BEDWA2ShBlbrxFTiff5HSI-i6r6X4HSUNVlNHvb5a_UzTTnYeaUm_ENHK9Xdx5dG49tMtzG81djjpIuy2Gb6SGa8kSWp-12-8FHe5RL0WxJDwBR8fTFradVwxJIF5bba62SpapT-00XHRfpZyW1Y
+Host:localhost:44317
+Referer:https://localhost:44317/ProductCategories?pageSize=0
+User-Agent:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36
+sec-ch-ua:"Not.A/Brand";v="8", "Chromium";v="114", "Google Chrome";v="114"
+sec-ch-ua-mobile:?0
+sec-ch-ua-platform:"Windows"
+upgrade-insecure-requests:1
+sec-fetch-site:same-origin
+sec-fetch-mode:navigate
+sec-fetch-user:?1
+sec-fetch-dest:document
+-----------------
+17.07.2023 21:55:32
+ControllerName: ProductCategories ActionName: Index Method: GET
+Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Accept-Encoding:gzip, deflate, br
+Accept-Language:en-US,en;q=0.9
+Connection:close
+Cookie:.AspNet.Consent=yes; m=; .AspNetCore.Antiforgery.po0hkVkFO64=CfDJ8C1BEDWA2ShBlbrxFTiff5HSI-i6r6X4HSUNVlNHvb5a_UzTTnYeaUm_ENHK9Xdx5dG49tMtzG81djjpIuy2Gb6SGa8kSWp-12-8FHe5RL0WxJDwBR8fTFradVwxJIF5bba62SpapT-00XHRfpZyW1Y
+Host:localhost:44317
+Referer:https://localhost:44317/ProductCategories?pageSize=0
+User-Agent:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36
+sec-ch-ua:"Not.A/Brand";v="8", "Chromium";v="114", "Google Chrome";v="114"
+sec-ch-ua-mobile:?0
+sec-ch-ua-platform:"Windows"
+upgrade-insecure-requests:1
+sec-fetch-site:same-origin
+sec-fetch-mode:navigate
+sec-fetch-user:?1
+sec-fetch-dest:document
+-----------------
+17.07.2023 21:55:35
+ControllerName: Reports ActionName: Index Method: GET
+Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Accept-Encoding:gzip, deflate, br
+Accept-Language:en-US,en;q=0.9
+Connection:close
+Cookie:.AspNet.Consent=yes; m=; .AspNetCore.Antiforgery.po0hkVkFO64=CfDJ8C1BEDWA2ShBlbrxFTiff5HSI-i6r6X4HSUNVlNHvb5a_UzTTnYeaUm_ENHK9Xdx5dG49tMtzG81djjpIuy2Gb6SGa8kSWp-12-8FHe5RL0WxJDwBR8fTFradVwxJIF5bba62SpapT-00XHRfpZyW1Y
+Host:localhost:44317
+Referer:https://localhost:44317/ProductCategories?pageSize=0&pg=2
+User-Agent:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36
+sec-ch-ua:"Not.A/Brand";v="8", "Chromium";v="114", "Google Chrome";v="114"
+sec-ch-ua-mobile:?0
+sec-ch-ua-platform:"Windows"
+upgrade-insecure-requests:1
+sec-fetch-site:same-origin
+sec-fetch-mode:navigate
+sec-fetch-user:?1
+sec-fetch-dest:document
+-----------------
+17.07.2023 21:55:37
+ControllerName: Reports ActionName: YearAndMonth Method: GET
+Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Accept-Encoding:gzip, deflate, br
+Accept-Language:en-US,en;q=0.9
+Connection:close
+Cookie:.AspNet.Consent=yes; m=; .AspNetCore.Antiforgery.po0hkVkFO64=CfDJ8C1BEDWA2ShBlbrxFTiff5HSI-i6r6X4HSUNVlNHvb5a_UzTTnYeaUm_ENHK9Xdx5dG49tMtzG81djjpIuy2Gb6SGa8kSWp-12-8FHe5RL0WxJDwBR8fTFradVwxJIF5bba62SpapT-00XHRfpZyW1Y
+Host:localhost:44317
+Referer:https://localhost:44317/Reports
+User-Agent:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36
+sec-ch-ua:"Not.A/Brand";v="8", "Chromium";v="114", "Google Chrome";v="114"
+sec-ch-ua-mobile:?0
+sec-ch-ua-platform:"Windows"
+upgrade-insecure-requests:1
+sec-fetch-site:same-origin
+sec-fetch-mode:navigate
+sec-fetch-user:?1
+sec-fetch-dest:document
+-----------------
+17.07.2023 21:55:46
+ControllerName: Products ActionName: Index Method: GET
+Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Accept-Encoding:gzip, deflate, br
+Accept-Language:en-US,en;q=0.9
+Connection:close
+Cookie:.AspNet.Consent=yes; m=; .AspNetCore.Antiforgery.po0hkVkFO64=CfDJ8C1BEDWA2ShBlbrxFTiff5HSI-i6r6X4HSUNVlNHvb5a_UzTTnYeaUm_ENHK9Xdx5dG49tMtzG81djjpIuy2Gb6SGa8kSWp-12-8FHe5RL0WxJDwBR8fTFradVwxJIF5bba62SpapT-00XHRfpZyW1Y
+Host:localhost:44317
+Referer:https://localhost:44317/Reports/YearAndMonth
+User-Agent:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36
+sec-ch-ua:"Not.A/Brand";v="8", "Chromium";v="114", "Google Chrome";v="114"
+sec-ch-ua-mobile:?0
+sec-ch-ua-platform:"Windows"
+upgrade-insecure-requests:1
+sec-fetch-site:same-origin
+sec-fetch-mode:navigate
+sec-fetch-user:?1
+sec-fetch-dest:document
+-----------------
+17.07.2023 21:55:47
+ControllerName: ProductCategories ActionName: Index Method: GET
+Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Accept-Encoding:gzip, deflate, br
+Accept-Language:en-US,en;q=0.9
+Connection:close
+Cookie:.AspNet.Consent=yes; m=; .AspNetCore.Antiforgery.po0hkVkFO64=CfDJ8C1BEDWA2ShBlbrxFTiff5HSI-i6r6X4HSUNVlNHvb5a_UzTTnYeaUm_ENHK9Xdx5dG49tMtzG81djjpIuy2Gb6SGa8kSWp-12-8FHe5RL0WxJDwBR8fTFradVwxJIF5bba62SpapT-00XHRfpZyW1Y
+Host:localhost:44317
+Referer:https://localhost:44317/Products
+User-Agent:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36
+sec-ch-ua:"Not.A/Brand";v="8", "Chromium";v="114", "Google Chrome";v="114"
+sec-ch-ua-mobile:?0
+sec-ch-ua-platform:"Windows"
+upgrade-insecure-requests:1
+sec-fetch-site:same-origin
+sec-fetch-mode:navigate
+sec-fetch-user:?1
+sec-fetch-dest:document
+-----------------
+17.07.2023 21:55:48
+ControllerName: SalesOrderHeaders ActionName: Index Method: GET
+Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Accept-Encoding:gzip, deflate, br
+Accept-Language:en-US,en;q=0.9
+Connection:close
+Cookie:.AspNet.Consent=yes; m=; .AspNetCore.Antiforgery.po0hkVkFO64=CfDJ8C1BEDWA2ShBlbrxFTiff5HSI-i6r6X4HSUNVlNHvb5a_UzTTnYeaUm_ENHK9Xdx5dG49tMtzG81djjpIuy2Gb6SGa8kSWp-12-8FHe5RL0WxJDwBR8fTFradVwxJIF5bba62SpapT-00XHRfpZyW1Y
+Host:localhost:44317
+Referer:https://localhost:44317/ProductCategories
+User-Agent:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36
+sec-ch-ua:"Not.A/Brand";v="8", "Chromium";v="114", "Google Chrome";v="114"
+sec-ch-ua-mobile:?0
+sec-ch-ua-platform:"Windows"
+upgrade-insecure-requests:1
+sec-fetch-site:same-origin
+sec-fetch-mode:navigate
+sec-fetch-user:?1
+sec-fetch-dest:document
+-----------------
+17.07.2023 21:55:50
+ControllerName: Customers ActionName: Index Method: GET
+Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Accept-Encoding:gzip, deflate, br
+Accept-Language:en-US,en;q=0.9
+Connection:close
+Cookie:.AspNet.Consent=yes; m=; .AspNetCore.Antiforgery.po0hkVkFO64=CfDJ8C1BEDWA2ShBlbrxFTiff5HSI-i6r6X4HSUNVlNHvb5a_UzTTnYeaUm_ENHK9Xdx5dG49tMtzG81djjpIuy2Gb6SGa8kSWp-12-8FHe5RL0WxJDwBR8fTFradVwxJIF5bba62SpapT-00XHRfpZyW1Y
+Host:localhost:44317
+Referer:https://localhost:44317/SalesOrderHeaders
+User-Agent:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36
+sec-ch-ua:"Not.A/Brand";v="8", "Chromium";v="114", "Google Chrome";v="114"
+sec-ch-ua-mobile:?0
+sec-ch-ua-platform:"Windows"
+upgrade-insecure-requests:1
+sec-fetch-site:same-origin
+sec-fetch-mode:navigate
+sec-fetch-user:?1
+sec-fetch-dest:document
+-----------------
+17.07.2023 21:55:58
+ControllerName: Customers ActionName: Index Method: GET
+Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Accept-Encoding:gzip, deflate, br
+Accept-Language:en-US,en;q=0.9
+Connection:close
+Cookie:.AspNet.Consent=yes; m=; .AspNetCore.Antiforgery.po0hkVkFO64=CfDJ8C1BEDWA2ShBlbrxFTiff5HSI-i6r6X4HSUNVlNHvb5a_UzTTnYeaUm_ENHK9Xdx5dG49tMtzG81djjpIuy2Gb6SGa8kSWp-12-8FHe5RL0WxJDwBR8fTFradVwxJIF5bba62SpapT-00XHRfpZyW1Y
+Host:localhost:44317
+Referer:https://localhost:44317/
+User-Agent:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36
+sec-ch-ua:"Not.A/Brand";v="8", "Chromium";v="114", "Google Chrome";v="114"
+sec-ch-ua-mobile:?0
+sec-ch-ua-platform:"Windows"
+upgrade-insecure-requests:1
+sec-fetch-site:same-origin
+sec-fetch-mode:navigate
+sec-fetch-user:?1
+sec-fetch-dest:document
+-----------------
